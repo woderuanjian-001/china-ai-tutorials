@@ -26,6 +26,8 @@ for (const t of allTutorials) {
   categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
 }
 
+const base = import.meta.env.BASE_URL;
+
 // 日期格式化
 function formatDate(d: Date): string {
   return d.toISOString().split("T")[0];
@@ -50,7 +52,7 @@ function formatDate(d: Date): string {
 
       <!-- Search box -->
       <div class="search-bar">
-        <form id="search-form" action="/tutorials/" method="get" class="search-form">
+        <form id="search-form" action={`${base}tutorials/`} method="get" class="search-form">
           <input
             type="search"
             name="search"
@@ -65,12 +67,12 @@ function formatDate(d: Date): string {
 
       <!-- Category filter -->
       <div class="filter-bar" id="filter-bar">
-        <a href="/tutorials/" data-category="all" class="filter-active">All ({allTutorials.length})</a>
+        <a href={`${base}tutorials/`} data-category="all" class="filter-active">All ({allTutorials.length})</a>
         {Array.from(categoryCounts.entries()).map(([cat, count]) => {
           const meta = categoryMeta[cat];
           if (!meta) return null;
           return (
-            <a href={`/tutorials/?category=${meta.slug}`} data-category={meta.slug}>
+            <a href={`${base}tutorials/?category=${meta.slug}`} data-category={meta.slug}>
               {meta.emoji} {cat} ({count})
             </a>
           );
@@ -83,7 +85,7 @@ function formatDate(d: Date): string {
           const meta = categoryMeta[tutorial.data.category];
           return (
             <article class="article-card" data-category-slug={meta?.slug || ""} data-title={tutorial.data.title} data-desc={tutorial.data.description} data-tags={tutorial.data.tags.join(",")} data-catname={tutorial.data.category}>
-              <a href={`/tutorials/${tutorial.slug}/`} class="article-link">
+              <a href={`${base}tutorials/${tutorial.slug}/`} class="article-link">
                 <div class="article-header">
                   <span class="article-category">
                     {meta?.emoji || "📝"} {tutorial.data.category}
@@ -110,7 +112,7 @@ function formatDate(d: Date): string {
 
       <div id="empty-msg" class="empty-msg" style="display:none">
         <p>No matching tutorials found</p>
-        <p class="empty-hint">Try other keywords or <a href="/tutorials/">view all tutorials</a></p>
+        <p class="empty-hint">Try other keywords or <a href={`${base}tutorials/`}>view all tutorials</a></p>
       </div>
     </div>
   </section>

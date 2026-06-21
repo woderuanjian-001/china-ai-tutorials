@@ -30,7 +30,7 @@
     try {
       await new Promise<void>((resolve, reject) => {
         const script = document.createElement("script");
-        script.src = "/pagefind/pagefind.js";
+        script.src = import.meta.env.BASE_URL + "pagefind/pagefind.js";
         script.onload = () => resolve();
         script.onerror = () => reject(new Error("pagefind not available"));
         document.head.appendChild(script);
@@ -100,7 +100,7 @@
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       const q = input.value.trim();
-      if (q) window.location.href = `/tutorials/?search=${encodeURIComponent(q)}`;
+      if (q) window.location.href = `${import.meta.env.BASE_URL}tutorials/?search=${encodeURIComponent(q)}`;
     }
   });
 
