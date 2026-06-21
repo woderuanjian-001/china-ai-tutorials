@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<BaseLayout currentPath="/contact/">
+  <SEO
+    slot="head"
+    title="Contact Us"
+    description="Contact the China AI Tutorials team — tutorial suggestions, error reports, and collaboration inquiries."
+  />
+
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Contact Us</h1>
+
+      <div class="prose">
+        <p>We welcome your feedback! Whether it's a tutorial suggestion, a bug report, or a collaboration inquiry, you can reach us through the following channels:</p>
+
+        <h2>📧 Email</h2>
+        <p><a href="mailto:hello@china-ai-tutorials.com">hello@china-ai-tutorials.com</a></p>
+
+        <h2>💬 Feedback Types</h2>
+        <ul>
+          <li><strong>Tutorial suggestions</strong>: Which Chinese AI tool do you want to learn about? Tell us and we'll write about it.</li>
+          <li><strong>Error reports</strong>: Found broken code or outdated information in a tutorial? Let us know.</li>
+          <li><strong>Collaboration inquiries</strong>: AI developers, tech bloggers, open-source projects — we're open to working together.</li>
+        </ul>
+
+        <h2>⏱ Response Time</h2>
+        <p>We typically reply within <strong>24-48 hours</strong>. Responses may be slightly delayed on weekends.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: var(--space-2xl) 0; }
+  .page-title { margin-top: 0; margin-bottom: var(--space-xl); }
+  .prose h2 { color: var(--color-accent); margin-top: var(--space-xl); }
+</style>

@@ -1,0 +1,99 @@
+---
+const { currentPath = "/" } = Astro.props;
+---
+
+<header class="site-header">
+  <nav class="header-nav container-wide" aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="China AI Tutorials Home">
+      <span class="logo-text">China AI <strong>Tutorials</strong></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class={currentPath === "/" ? "active" : ""}>Home</a></li>
+      <li><a href="/tutorials/" class={currentPath.startsWith("/tutorials") ? "active" : ""}>Tutorials</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    background: rgba(250, 248, 245, 0.92);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    color: var(--color-text);
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+  }
+
+  .logo-text strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 6px 14px;
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: all var(--duration-fast);
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-text);
+    background: var(--color-code-bg);
+    text-decoration: none;
+  }
+
+  .nav-links a.active {
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .logo-text {
+      font-size: var(--text-sm);
+    }
+    .nav-links a {
+      padding: 4px 10px;
+      font-size: var(--text-xs);
+    }
+  }
+</style>

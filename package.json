@@ -1,0 +1,26 @@
+{
+  "name": "china-ai-tutorials",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "China AI Tutorials — 帮助全球开发者学会使用中国 AI 工具",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "postbuild": "pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.20",
+    "astro": "^5.5.0",
+    "daisyui": "^5.5.23",
+    "pagefind": "^1.5.2",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.7.0"
+  }
+}

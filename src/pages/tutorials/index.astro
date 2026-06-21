@@ -1,0 +1,406 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SEO from "../../components/SEO.astro";
+import { getCollection } from "astro:content";
+
+// 加载全部教程
+const allTutorials = await getCollection("tutorials");
+allTutorials.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// 分类元数据（slug → emoji + 显示名）
+const categoryMeta: Record<string, { emoji: string; slug: string }> = {
+  "DeepSeek": { emoji: "🐋", slug: "deepseek" },
+  "Kimi": { emoji: "🌙", slug: "kimi" },
+  "Qwen": { emoji: "☁️", slug: "qwen" },
+  "Doubao": { emoji: "🫘", slug: "doubao" },
+  "ZhipuAI": { emoji: "🧠", slug: "zhipuai" },
+  "Xiaomi": { emoji: "📱", slug: "xiaomi" },
+  "Kuaishou": { emoji: "🎬", slug: "kuaishou" },
+  "Comparisons": { emoji: "⚖️", slug: "comparison" },
+};
+
+// 每个分类的教程数量
+const categoryCounts = new Map<string, number>();
+for (const t of allTutorials) {
+  const cat = t.data.category;
+  categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
+}
+
+// 日期格式化
+function formatDate(d: Date): string {
+  return d.toISOString().split("T")[0];
+}
+---
+
+<BaseLayout currentPath="/tutorials/">
+  <SEO
+    slot="head"
+    title="All Tutorials"
+    description="Complete list of China AI Tutorials — Full learning paths for DeepSeek, Kimi, Qwen, Doubao, ZhipuAI, Xiaomi, Kuaishou from beginner to advanced."
+    type="website"
+  />
+
+  <section class="section">
+    <div class="container-wide">
+      <h1 class="page-title">📚 All Tutorials</h1>
+      <p class="page-desc">
+        From zero basics to advanced practice, truly master Chinese AI tools through code.
+        All tutorials tested and verified against June 2026 API versions.
+      </p>
+
+      <!-- Search box -->
+      <div class="search-bar">
+        <form id="search-form" action="/tutorials/" method="get" class="search-form">
+          <input
+            type="search"
+            name="search"
+            id="search-input-page"
+            placeholder="Search tutorials... (e.g. Function Calling, Vision, RAG)"
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+        <p id="search-result-info" class="search-result-info" style="display:none"></p>
+      </div>
+
+      <!-- Category filter -->
+      <div class="filter-bar" id="filter-bar">
+        <a href="/tutorials/" data-category="all" class="filter-active">All ({allTutorials.length})</a>
+        {Array.from(categoryCounts.entries()).map(([cat, count]) => {
+          const meta = categoryMeta[cat];
+          if (!meta) return null;
+          return (
+            <a href={`/tutorials/?category=${meta.slug}`} data-category={meta.slug}>
+              {meta.emoji} {cat} ({count})
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Tutorial list -->
+      <div id="article-grid" class="article-grid">
+        {allTutorials.map((tutorial) => {
+          const meta = categoryMeta[tutorial.data.category];
+          return (
+            <article class="article-card" data-category-slug={meta?.slug || ""} data-title={tutorial.data.title} data-desc={tutorial.data.description} data-tags={tutorial.data.tags.join(",")} data-catname={tutorial.data.category}>
+              <a href={`/tutorials/${tutorial.slug}/`} class="article-link">
+                <div class="article-header">
+                  <span class="article-category">
+                    {meta?.emoji || "📝"} {tutorial.data.category}
+                  </span>
+                  <span class="article-level">{tutorial.data.level}</span>
+                </div>
+                <h3 class="article-title">{tutorial.data.title}</h3>
+                <p class="article-desc">{tutorial.data.description}</p>
+                <div class="article-meta">
+                  <time datetime={formatDate(tutorial.data.date)}>
+                    {formatDate(tutorial.data.date)}
+                  </time>
+                  <div class="article-tags">
+                    {tutorial.data.tags.slice(0, 3).map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+
+      <div id="empty-msg" class="empty-msg" style="display:none">
+        <p>No matching tutorials found</p>
+        <p class="empty-hint">Try other keywords or <a href="/tutorials/">view all tutorials</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: var(--space-2xl) 0; }
+  .page-title { margin-top: 0; }
+  .page-desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    max-width: 640px;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Search */
+  .search-bar {
+    margin-bottom: var(--space-lg);
+  }
+
+  .search-form {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .search-input {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    font-family: inherit;
+    background: var(--color-surface);
+    transition: border-color 0.2s;
+    min-width: 0;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .search-btn {
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .search-btn:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .search-clear {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+  }
+
+  .search-result-info {
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .search-footer {
+    margin-top: var(--space-xl);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* Filter */
+  .filter-bar {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .filter-bar a {
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 50px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .filter-bar a:hover,
+  .filter-bar a.filter-active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .article-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s;
+  }
+
+  .article-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
+
+  .article-link {
+    display: block;
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .article-link:hover { text-decoration: none; color: inherit; }
+
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+  }
+
+  .article-category {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .article-level {
+    font-size: var(--text-xs);
+    padding: 2px 10px;
+    border-radius: 50px;
+    background: var(--color-tag-bg);
+    font-weight: 500;
+  }
+
+  .article-title {
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .article-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-md);
+    line-height: 1.6;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+  }
+
+  .article-tags { display: flex; gap: 4px; }
+  .tag {
+    padding: 2px 8px;
+    background: var(--color-tag-bg);
+    border-radius: 50px;
+    font-size: var(--text-xs);
+  }
+
+  .empty-msg {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--space-3xl) 0;
+  }
+  .empty-hint {
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 640px) {
+    .article-grid { grid-template-columns: 1fr; }
+    .search-form { flex-wrap: wrap; }
+    .search-input { min-width: 100%; }
+  }
+</style>
+
+<script>
+  // === 客户端分类 + 搜索过滤 ===
+  // SSG 模式下 Astro.url.searchParams 获取不到运行时的 ?category= 参数，
+  // 所以必须在客户端读取 URL 并过滤卡片。
+
+  function getParam(name: string): string {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name)?.toLowerCase() || "";
+  }
+
+  function updateFilterBar(activeCategory: string) {
+    const bar = document.getElementById("filter-bar");
+    if (!bar) return;
+    bar.querySelectorAll("a").forEach((a) => {
+      const cat = a.getAttribute("data-category");
+      if (cat === activeCategory) {
+        a.classList.add("filter-active");
+      } else {
+        a.classList.remove("filter-active");
+      }
+    });
+  }
+
+  function applyFilters() {
+    const categoryParam = getParam("category");
+    const searchParam = getParam("search");
+    const grid = document.getElementById("article-grid");
+    const empty = document.getElementById("empty-msg");
+    const info = document.getElementById("search-result-info");
+    if (!grid) return;
+
+    // 更新搜索框内容
+    const searchInput = document.getElementById("search-input-page") as HTMLInputElement;
+    if (searchInput) searchInput.value = searchParam;
+
+    // 更新过滤栏高亮
+    updateFilterBar(categoryParam || "all");
+
+    // 过滤卡片
+    const cards = grid.querySelectorAll<HTMLElement>(".article-card");
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const catSlug = card.getAttribute("data-category-slug") || "";
+      const title = (card.getAttribute("data-title") || "").toLowerCase();
+      const desc = (card.getAttribute("data-desc") || "").toLowerCase();
+      const tags = (card.getAttribute("data-tags") || "").toLowerCase();
+      const catName = (card.getAttribute("data-catname") || "").toLowerCase();
+
+      let show = true;
+
+      // 分类过滤
+      if (categoryParam && categoryParam !== "all") {
+        if (catSlug !== categoryParam && catName !== categoryParam) {
+          show = false;
+        }
+      }
+
+      // 搜索过滤
+      if (show && searchParam) {
+        const keywords = searchParam.split(/\s+/).filter(Boolean);
+        const searchText = [title, desc, catName, tags].join(" ");
+        if (!keywords.every((kw) => searchText.includes(kw))) {
+          show = false;
+        }
+      }
+
+      card.style.display = show ? "" : "none";
+      if (show) visibleCount++;
+    });
+
+    // 显示/隐藏空状态
+    if (empty) empty.style.display = visibleCount === 0 ? "" : "none";
+    grid.style.display = visibleCount === 0 ? "none" : "";
+
+    // 搜索结果提示
+    if (info) {
+      if (searchParam) {
+        info.style.display = "";
+        info.innerHTML = `Search "<strong>${searchParam}</strong>" — Found ${visibleCount} tutorials`;
+      } else {
+        info.style.display = "none";
+      }
+    }
+  }
+
+  // 页面加载时应用过滤
+  applyFilters();
+
+  // 监听浏览器前进/后退
+  window.addEventListener("popstate", applyFilters);
+</script>

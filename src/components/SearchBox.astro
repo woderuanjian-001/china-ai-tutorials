@@ -1,0 +1,244 @@
+---
+// SearchBox.astro — pagefind 驱动的即时搜索组件
+// 放在主页 Hero 区域，支持下拉结果 + Enter 跳转完整搜索页
+---
+
+<div id="searchbox" class="searchbox">
+  <div class="searchbox-input-wrap">
+    <svg class="searchbox-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search tutorials... (e.g. Function Calling, Vision, RAG)"
+      class="searchbox-input"
+      autocomplete="off"
+      aria-label="Search tutorials"
+    />
+    <div id="search-results" class="searchbox-results hidden"></div>
+  </div>
+</div>
+
+<script>
+  let pagefindLoaded = false;
+
+  async function loadPagefind() {
+    if (pagefindLoaded) return;
+    pagefindLoaded = true;
+    try {
+      await new Promise<void>((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "/pagefind/pagefind.js";
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("pagefind not available"));
+        document.head.appendChild(script);
+      });
+    } catch (e) {
+      // pagefind not built yet (dev mode) — silently skip
+      return;
+    }
+  }
+
+  const input = document.getElementById("search-input") as HTMLInputElement;
+  const results = document.getElementById("search-results") as HTMLDivElement;
+
+  let timer: ReturnType<typeof setTimeout>;
+  input.addEventListener("input", async () => {
+    clearTimeout(timer);
+    const query = input.value.trim();
+    if (query.length < 2) {
+      results.innerHTML = "";
+      results.classList.add("hidden");
+      return;
+    }
+    timer = setTimeout(async () => {
+      await loadPagefind();
+      const pagefind = (window as any).pagefind;
+      if (!pagefind) {
+        results.innerHTML = '<p class="searchbox-empty">Search not available in dev mode. Try after build.</p>';
+        results.classList.remove("hidden");
+        return;
+      }
+      const search = await pagefind.search(query, {
+        filters: { language: "en" },
+      });
+      if (!search || search.results.length === 0) {
+        results.innerHTML = '<p class="searchbox-empty">No tutorials found. Try a different keyword.</p>';
+        results.classList.remove("hidden");
+        return;
+      }
+      const items = await Promise.all(
+        search.results.slice(0, 8).map(async (r: any) => ({
+          url: r.url,
+          meta: await r.data(),
+        }))
+      );
+      results.innerHTML = items
+        .map(
+          (item) => `
+          <a href="${item.url}" class="searchbox-result-item">
+            <span class="searchbox-result-title">${item.meta.title || "Untitled"}</span>
+            ${item.meta.image ? `<img src="${item.meta.image}" alt="" class="searchbox-result-img" />` : ""}
+            <span class="searchbox-result-desc">${item.meta.description || ""}</span>
+          </a>`
+        )
+        .join("");
+      results.classList.remove("hidden");
+    }, 200);
+  });
+
+  // 点击外部关闭下拉
+  document.addEventListener("click", (e) => {
+    if (!(e.target as HTMLElement).closest("#searchbox")) {
+      results.classList.add("hidden");
+    }
+  });
+
+  // Enter 键跳转到完整搜索结果页
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const q = input.value.trim();
+      if (q) window.location.href = `/tutorials/?search=${encodeURIComponent(q)}`;
+    }
+  });
+
+  // Escape 关闭下拉
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      results.classList.add("hidden");
+      input.blur();
+    }
+  });
+
+  // 聚焦时如果已有内容则重新搜索
+  input.addEventListener("focus", () => {
+    if (input.value.trim().length >= 2) {
+      input.dispatchEvent(new Event("input"));
+    }
+  });
+</script>
+
+<style>
+  .searchbox {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .searchbox-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .searchbox-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  .searchbox-input {
+    width: 100%;
+    padding: 11px 16px 11px 42px;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+    box-sizing: border-box;
+  }
+
+  .searchbox-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .searchbox-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+  }
+
+  .searchbox-results {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    max-height: 440px;
+    overflow-y: auto;
+    z-index: 200;
+  }
+
+  .searchbox-results.hidden {
+    display: none;
+  }
+
+  .searchbox-result-item {
+    display: block;
+    padding: var(--space-md);
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background var(--duration-fast);
+  }
+
+  .searchbox-result-item:last-child {
+    border-bottom: none;
+  }
+
+  .searchbox-result-item:hover {
+    background: var(--color-accent-subtle);
+    text-decoration: none;
+  }
+
+  .searchbox-result-title {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+    color: var(--color-text);
+  }
+
+  .searchbox-result-img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: 4px;
+  }
+
+  .searchbox-result-desc {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .searchbox-empty {
+    padding: var(--space-lg);
+    text-align: center;
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+</style>

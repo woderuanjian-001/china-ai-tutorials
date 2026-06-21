@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<BaseLayout currentPath="/terms/">
+  <SEO
+    slot="head"
+    title="Terms of Service"
+    description="China AI Tutorials Terms of Service"
+  />
+
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Terms of Service</h1>
+      <p class="updated">Last updated: June 20, 2026</p>
+
+      <div class="prose">
+        <h2>1. Content Usage</h2>
+        <p>All tutorial content on this website (including code samples) may be freely used for learning and personal projects. Commercial reproduction requires attribution and permission obtained by contacting us.</p>
+
+        <h2>2. Disclaimer</h2>
+        <p>The availability, pricing, and terms of service of third-party APIs mentioned in the tutorials (such as DeepSeek, Kimi, Qwen, Doubao, etc.) may change at any time. We strive to keep the content up to date but do not guarantee absolute accuracy of the information. Please refer to the latest official documentation before using any third-party API.</p>
+
+        <h2>3. External Links</h2>
+        <p>This website contains links to external websites. We assume no responsibility for the content or privacy policies of those websites.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: var(--space-2xl) 0; }
+  .page-title { margin-top: 0; }
+  .updated { color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-xl); }
+  .prose h2 { color: var(--color-accent); margin-top: var(--space-xl); }
+</style>

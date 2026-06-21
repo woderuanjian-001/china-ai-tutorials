@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<BaseLayout currentPath="/about/">
+  <SEO
+    slot="head"
+    title="About Us"
+    description="China AI Tutorials helps global developers learn to use Chinese AI tools. Learn about our mission and team."
+  />
+
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">About China AI Tutorials</h1>
+
+      <div class="prose">
+        <h2>Our Mission</h2>
+        <p>
+          Chinese AI tools are evolving at an unprecedented pace. Products like DeepSeek, Kimi (Moonshot AI),
+          Qwen (Tongyi Qianwen), and Doubao have drawn significant global attention. Yet,
+          <strong>high-quality English tutorials remain critically scarce</strong>.
+        </p>
+        <p>
+          Most Chinese-language tutorials are never translated into English, and the scattered
+          discussions in English-speaking communities often stay at a surface level.
+          China AI Tutorials was created to bridge this gap.
+        </p>
+
+        <h2>What We Do</h2>
+        <ul>
+          <li><strong>In-depth tutorials</strong>: No armchair theory. Every tutorial includes runnable code examples, tested against the latest API versions.</li>
+          <li><strong>Chinese-English bridge</strong>: We dive into official Chinese documentation and community knowledge, then present it in fluent, idiomatic English.</li>
+          <li><strong>Independent reviews</strong>: No sponsored content. All model comparisons are based on real, measured data.</li>
+          <li><strong>Continuously updated</strong>: Every tutorial is marked "Last updated: Month 202X." We refresh content promptly when APIs change.</li>
+        </ul>
+
+        <h2>Our Story</h2>
+        <p>
+          The site founder is a developer familiar with the Chinese AI ecosystem. While using these tools,
+          they noticed that most of the friction overseas developers encountered when integrating Chinese AI APIs
+          stemmed from a lack of clear English documentation.
+        </p>
+        <p>
+          And so, in June 2026, China AI Tutorials was born.
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>
+          If you have tutorial suggestions, spot an error, or want to collaborate, feel free to visit the
+          <a href="/contact/">contact page</a> or email us at <code>hello@china-ai-tutorials.com</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: var(--space-2xl) 0; }
+  .page-title { margin-top: 0; margin-bottom: var(--space-xl); }
+
+  .prose h2 {
+    color: var(--color-accent);
+    margin-top: var(--space-xl);
+  }
+
+  .prose ul {
+    margin-left: var(--space-lg);
+  }
+</style>

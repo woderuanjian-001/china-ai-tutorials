@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SEO from "../components/SEO.astro";
+---
+
+<BaseLayout currentPath="/privacy/">
+  <SEO
+    slot="head"
+    title="Privacy Policy"
+    description="China AI Tutorials Privacy Policy — How we collect and use your information."
+  />
+
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="updated">Last updated: June 20, 2026</p>
+
+      <div class="prose">
+        <h2>1. Information Collection</h2>
+        <p>This website uses the following third-party services, which may automatically collect certain information:</p>
+        <ul>
+          <li><strong>Google Analytics</strong>: Collects page views and user behavior data (via Cookies).</li>
+          <li><strong>Google AdSense</strong>: Used to display personalized ads and may use Cookies to track user interests.</li>
+          <li><strong>Cloudflare</strong>: CDN and security services that collect basic access logs.</li>
+        </ul>
+
+        <h2>2. Cookie Usage</h2>
+        <p>We use Cookies to:</p>
+        <ul>
+          <li>Analyze website traffic (Google Analytics)</li>
+          <li>Display relevant advertisements (Google AdSense)</li>
+          <li>Remember your preference settings</li>
+        </ul>
+        <p>You can manage or disable Cookies in your browser settings.</p>
+
+        <h2>3. Data Sharing</h2>
+        <p>We do not sell your personal information. Data may be shared with the third-party services listed above solely for analytics and advertising purposes.</p>
+
+        <h2>4. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us via the <a href="/contact/">Contact page</a>.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: var(--space-2xl) 0; }
+  .page-title { margin-top: 0; }
+  .updated { color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-xl); }
+  .prose h2 { color: var(--color-accent); margin-top: var(--space-xl); }
+</style>

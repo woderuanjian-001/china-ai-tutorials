@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   China AI Tutorials — Warm Minimal Design
+   参考 Claude / Anthropic 官网
+   暖奶油底 · 深棕文字 · 琥珀橙点缀 · 大量留白
+   ============================================ */
+
+/* ----- 设计令牌 ----- */
+:root {
+  /* 背景 — 温暖奶油色，不是纯白 */
+  --color-bg: #FAF8F5;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-code-bg: #F5F3F0;
+
+  /* 文字 — 深棕黑 */
+  --color-text: #1C1917;
+  --color-text-secondary: #78716C;
+  --color-text-muted: #A8A29E;
+
+  /* 强调色 — 温暖琥珀橙 */
+  --color-accent: #D97706;
+  --color-accent-hover: #B45309;
+  --color-accent-soft: #FEF3C7;
+  --color-accent-subtle: #FFFBEB;
+
+  /* 次强调 — 温暖砖红 */
+  --color-magenta: #DC5B3E;
+  --color-magenta-hover: #C04A2E;
+  --color-magenta-soft: #FFF1EE;
+
+  /* 成功 — 柔和绿 */
+  --color-green: #4B8B5E;
+  --color-green-soft: #EDF6EF;
+
+  /* 警告 — 柔和金 */
+  --color-amber: #D9A44A;
+  --color-amber-soft: #FDF5E6;
+
+  /* 边框 — 暖灰 */
+  --color-border: #E7E5E4;
+  --color-border-light: #F2F0ED;
+  --color-border-strong: #D6D3D1;
+  --color-border-glow: #E7E5E4;
+
+  /* 标签 */
+  --color-tag-bg: #F5F3F0;
+  --color-tag-text: #78716C;
+
+  /* 字体 — 衬线标题 + 无衬线正文 */
+  --font-display: 'Source Serif 4', 'Georgia', 'Noto Serif', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* 字号 — 固定值，适合阅读 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+
+  /* 间距 — 8px 网格 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+
+  /* 圆角 — 温和圆润 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* 阴影 — 极其轻柔，几乎不可见 */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-button: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-glow-cyan: 0 2px 8px rgba(217, 119, 6, 0.08);
+  --shadow-glow-magenta: 0 2px 8px rgba(217, 119, 6, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  /* 动效 */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ----- 基础重置 ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* ----- 排版 ----- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  margin: 0 0 var(--space-lg);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  margin: var(--space-2xl) 0 var(--space-md);
+  font-weight: 600;
+}
+
+h3 { font-size: var(--text-2xl); margin: var(--space-xl) 0 var(--space-sm); }
+h4 { font-size: var(--text-xl); margin: var(--space-lg) 0 var(--space-xs); }
+
+p { margin: 0 0 var(--space-md); color: var(--color-text-secondary); }
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ----- 代码 ----- */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+:not(pre) > code {
+  padding: 0.15em 0.45em;
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  color: var(--color-magenta);
+}
+
+pre {
+  background: #F9F8F6 !important;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) !important;
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin: var(--space-lg) 0;
+}
+
+pre code {
+  background: none !important;
+  border: none;
+  padding: 0;
+  color: #24292E;
+}
+
+/* Shiki 语法高亮 — 确保浅色背景上的代码清晰可读 */
+pre code .line {
+  color: #24292E;
+}
+
+/* ----- 表格 ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: var(--text-sm);
+}
+
+thead { background: var(--color-code-bg); }
+
+th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border-strong);
+}
+
+td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+tr:hover td { background: var(--color-accent-subtle); }
+
+/* ----- 引用块 ----- */
+blockquote {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--color-text-secondary);
+}
+
+/* ----- 列表 ----- */
+ul, ol { padding-left: 1.5em; margin: var(--space-md) 0; }
+li { margin-bottom: var(--space-xs); }
+
+/* ----- 提示框 ----- */
+.callout {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+}
+
+.callout strong { color: var(--color-text); }
+
+.callout-info {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.callout-warning {
+  border-left: 3px solid var(--color-amber);
+  background: var(--color-amber-soft);
+}
+
+.callout-tip {
+  border-left: 3px solid var(--color-green);
+  background: var(--color-green-soft);
+}
+
+.callout-danger {
+  border-left: 3px solid var(--color-magenta);
+  background: var(--color-magenta-soft);
+}
+
+/* ----- 工具类 ----- */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-wide {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ----- 分割线 ----- */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-2xl) 0;
+}
+
+/* ----- 选中文字 ----- */
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+}
+
+/* ----- 滚动条 ----- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* ----- 响应式 ----- */
+@media (max-width: 768px) {
+  :root {
+    --text-4xl: 2.25rem;
+    --text-3xl: 1.75rem;
+    --text-2xl: 1.35rem;
+    --space-2xl: 2rem;
+    --space-3xl: 3rem;
+  }
+  pre { padding: var(--space-md) !important; font-size: 0.8rem; }
+}
