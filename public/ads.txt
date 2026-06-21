@@ -1,10 +1,1 @@
-# Google AdSense
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
-
-# 请将上面的 pub-0000000000000000 替换为你的真实 AdSense 发布商 ID
-# Replace pub-0000000000000000 with your real AdSense publisher ID
-#
-# 如何获取发布商 ID：
-# 1. 登录 https://adsense.google.com
-# 2. 点击左侧菜单「账号」→「账号信息」
-# 3. 找到「发布商 ID」，格式为 pub-xxxxxxxxxxxxxxxx
+google.com, pub-1325551504808613, DIRECT, f08c47fec0942fa0

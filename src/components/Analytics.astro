@@ -3,20 +3,21 @@
 // 修改 src/config.ts 中的 analytics 配置即可启用
 import { SITE_CONFIG } from "../config";
 const { enabled, measurementId } = SITE_CONFIG.analytics;
+
+// 预计算脚本内容，避免模板字符串嵌套问题
+const gtagScript = enabled ? `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${measurementId}', {
+  page_path: window.location.pathname,
+  send_page_view: true,
+});` : "";
 ---
 
-{enabled && measurementId !== "G-XXXXXXXXXX" && (
+{enabled && (
   <>
     <!-- Google tag (gtag.js) -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
-    <script>
-      {`window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${measurementId}', {
-        page_path: window.location.pathname,
-        send_page_view: true,
-      });`}
-    </script>
+    <script set:html={gtagScript}></script>
   </>
 )}

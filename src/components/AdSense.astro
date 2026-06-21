@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "../config";
 const { enabled, publisherId } = SITE_CONFIG.adsense;
 ---
 
-{enabled && publisherId !== "pub-0000000000000000" && (
+{enabled && (
   <>
     <!-- Google AdSense 自动广告脚本 -->
     <script

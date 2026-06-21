@@ -9,10 +9,10 @@ export interface Props {
 }
 
 const { slot = "default", format = "auto" } = Astro.props;
-const { adsense, base } = await import("../config").then((m) => m.SITE_CONFIG);
+const { adsense } = await import("../config").then((m) => m.SITE_CONFIG);
 
 // 仅当 AdSense 启用时渲染
-const show = adsense.enabled && adsense.publisherId !== "pub-0000000000000000";
+const show = adsense.enabled;
 ---
 
 {show && (
