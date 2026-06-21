@@ -2,7 +2,7 @@
 title: "RAG in Practice: Building a Retrieval-Augmented Generation System with Chinese AI Models"
 description: "Build a RAG system from scratch: DeepSeek/Qwen + LangChain + ChromaDB/FAISS for document Q&A. Complete Python code covering text splitting, vectorization, retrieval optimization, and multi-model comparison."
 category: "Hands-On Tutorials"
-date: 2026-06-24
+date: 2026-06-20
 tags: ["RAG", "LangChain", "Vector Database", "DeepSeek", "Qwen", "ChromaDB", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Automation Workflows with Chinese AI Models: Email Processing, Report Generation & More with DeepSeek"
 description: "Build automation workflows with Chinese AI models (DeepSeek, Qwen): auto email replies, report generation, social media ops, code review automation. Includes Python scripts + n8n/Zapier integration."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Automation", "Workflow", "Email", "Reports", "n8n", "Python", "Hands-On"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Chinese AI Security & Defense: Prompt Injection Prevention, Jailbreak Detection & Adversarial Attacks with DeepSeek/GLM"
 description: "Build AI security and defense systems with Chinese AI models: prompt injection defense, model jailbreak detection, adversarial sample generation and defense, and AI content safety moderation. Includes complete red-teaming methodology."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Security", "Attack & Defense", "Injection", "Jailbreak", "Moderation", "Advanced"]
 level: "Advanced"
 ---

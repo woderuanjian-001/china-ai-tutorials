@@ -2,7 +2,7 @@
 title: "Supply Chain Optimization with Chinese AI: Demand Forecasting, Inventory Optimization & Logistics Scheduling Using DeepSeek"
 description: "Build intelligent supply chain systems with Chinese AI models: demand and sales forecasting, intelligent inventory replenishment, logistics route optimization, and AI-powered supplier evaluation. End-to-end solution with Prophet and DeepSeek."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Supply Chain", "Forecasting", "Inventory", "Logistics", "Procurement", "Advanced"]
 level: "Advanced"
 ---
@@ -127,10 +127,10 @@ forecaster = AIDemandForecaster()
 # Simulated historical sales data
 historical = [
     {"date": "2026-06-20", "sales": 150, "promotion": False},
-    {"date": "2026-06-21", "sales": 145, "promotion": False},
-    {"date": "2026-06-22", "sales": 320, "promotion": True},  # Promotion day
-    {"date": "2026-06-23", "sales": 280, "promotion": True},
-    {"date": "2026-06-24", "sales": 160, "promotion": False},
+    {"date": "2026-06-20", "sales": 145, "promotion": False},
+    {"date": "2026-06-20", "sales": 320, "promotion": True},  # Promotion day
+    {"date": "2026-06-20", "sales": 280, "promotion": True},
+    {"date": "2026-06-20", "sales": 160, "promotion": False},
 ]
 
 forecast = forecaster.forecast_with_context(

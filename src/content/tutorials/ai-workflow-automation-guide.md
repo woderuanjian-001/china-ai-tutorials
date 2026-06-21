@@ -2,7 +2,7 @@
 title: "Chinese AI Workflow Automation: n8n, Coze & Dify Low-Code AI Apps with DeepSeek/Qwen/GLM"
 description: "Build AI automation workflows with Chinese AI models and low-code platforms: n8n AI node orchestration, Coze bot development, and Dify knowledge base applications. Includes three-platform comparison and complete workflow examples."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Workflow", "Automation", "Coze", "Dify", "n8n", "Beginner"]
 level: "Beginner"
 ---

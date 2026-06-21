@@ -2,7 +2,7 @@
 title: "Tencent Hunyuan API Complete Guide: Python Integration and WeChat Ecosystem"
 description: "Complete Tencent Hunyuan LLM API tutorial: Python SDK, OpenAI compatibility mode, Function Calling, WeChat Mini Program integration. Covers Hunyuan Turbo/Lite model selection and cost optimization."
 category: "Tencent"
-date: 2026-06-23
+date: 2026-06-20
 tags: ["Tencent", "Hunyuan", "API", "Python", "WeChat", "WeCom"]
 level: "Beginner"
 ---

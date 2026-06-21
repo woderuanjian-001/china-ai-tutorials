@@ -2,7 +2,7 @@
 title: "Automated Code Review with Chinese AI: GitHub CI/CD Integration, Security Scanning & Quality Gates Using DeepSeek"
 description: "Build an automated code review system with Chinese AI models: GitHub/GitLab CI/CD integration, AI-powered code quality scanning, security vulnerability detection, and coding standard enforcement. Complete solution with GitHub Actions and DeepSeek."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Code Review", "CI/CD", "GitHub", "Security", "Automation", "Advanced"]
 level: "Advanced"
 ---

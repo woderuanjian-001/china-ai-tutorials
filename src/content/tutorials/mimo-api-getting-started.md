@@ -2,7 +2,7 @@
 title: "Xiaomi MiMo API Getting Started: 1M Ultra-Long Context + Coding Agent Guide"
 description: "Complete Xiaomi MiMo V2.5 Pro API tutorial: multiple access paths, thinking mode, long-text processing, Agent development. 1M context, Claude Sonnet-level coding ability, priced at 1/5 of GPT-5.5."
 category: "Xiaomi"
-date: 2026-06-22
+date: 2026-06-20
 tags: ["Xiaomi", "MiMo", "API", "Agent", "Open Source", "Long Context"]
 level: "Beginner"
 ---

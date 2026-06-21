@@ -2,7 +2,7 @@
 title: "Chinese AI Model Deployment & Optimization: Quantization, Distillation & Cost Efficiency with DeepSeek/Qwen/vLLM"
 description: "Master Chinese AI model deployment and optimization: INT8/INT4 quantization acceleration, knowledge distillation, semantic caching for cost reduction, Docker/K8s containerization, and API cost optimization. Includes DeepSeek and vLLM high-performance inference solution."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Deployment", "Quantization", "Inference", "Caching", "Cost", "Expert"]
 level: "Expert"
 ---

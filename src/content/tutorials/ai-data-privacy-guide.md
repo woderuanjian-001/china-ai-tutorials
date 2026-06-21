@@ -2,7 +2,7 @@
 title: "Data Privacy for Chinese AI Models: De-identification, Differential Privacy & Federated Learning with DeepSeek/Qwen"
 description: "Build data privacy protection systems with Chinese AI models: automatic sensitive data identification and masking, differential privacy injection, federated learning frameworks, and automated privacy compliance auditing. Includes PIPL and GDPR compliance solutions."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Privacy", "De-identification", "Federated Learning", "Compliance", "Security", "Expert"]
 level: "Expert"
 ---

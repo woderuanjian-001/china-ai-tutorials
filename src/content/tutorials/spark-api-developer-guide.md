@@ -2,7 +2,7 @@
 title: "iFlytek Spark API Complete Guide: Speech Recognition and Multimodal AI in Action"
 description: "Complete iFlytek Spark large model API tutorial: Spark 4.0 Python calling, speech recognition/synthesis, image understanding, Function Calling. Covers the full Spark Pro/Max/Ultra model lineup."
 category: "iFlytek"
-date: 2026-06-23
+date: 2026-06-20
 tags: ["iFlytek", "Spark", "API", "Python", "Speech Recognition", "TTS"]
 level: "Beginner"
 ---

@@ -2,7 +2,7 @@
 title: "Knowledge Graph Construction with Chinese AI: Entity & Relation Extraction Using DeepSeek/Qwen"
 description: "Automatically build knowledge graphs with Chinese AI models (DeepSeek, Qwen): entity recognition, relation extraction, graph visualization, Neo4j integration. Includes one-click knowledge graph generation code."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Knowledge Graph", "Entity Recognition", "Neo4j", "Relation Extraction", "Graph Database", "Advanced"]
 level: "Advanced"
 ---

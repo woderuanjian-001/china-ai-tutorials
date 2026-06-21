@@ -2,7 +2,7 @@
 title: "AI Digital Humans with Chinese Models: Virtual Streamers & Digital Employees Using SenseNova & MiniMax"
 description: "Complete guide to Chinese AI digital human technology: virtual streamer setup, digital employee development, talking video generation, real-time interactive avatars. Compares Tencent, Alibaba, SenseNova, MiniMax, and open-source solutions."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Digital Human", "Virtual Streamer", "Digital Employee", "Zhiying", "Video Generation", "Advanced"]
 level: "Advanced"
 ---

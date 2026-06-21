@@ -2,7 +2,7 @@
 title: "Complete Guide to Chinese AI Streaming Output: SSE, WebSocket & Typing Animation"
 description: "Master streaming output with Chinese AI models: DeepSeek/Kimi/Qwen/GLM SSE streaming, WebSocket real-time push, typing animation effects, server-sent events, and frontend consumption — a complete implementation guide."
 category: "Hands-On Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Streaming", "SSE", "WebSocket", "DeepSeek", "Kimi", "Frontend", "Full-Stack"]
 level: "Advanced"
 ---

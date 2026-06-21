@@ -2,7 +2,7 @@
 title: "Chinese AI for Smart Cities: Traffic Prediction, Public Safety & Environmental Monitoring with DeepSeek/Qwen"
 description: "Build smart city applications with Chinese AI models: real-time traffic flow prediction, public safety incident detection, environmental quality monitoring, and intelligent urban governance dispatch. Includes urban big data and DeepSeek complete solution."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Smart City", "Traffic", "Public Safety", "Environment", "Governance", "Advanced"]
 level: "Advanced"
 ---
@@ -397,7 +397,7 @@ report = {
     "citizen": "Mr. Zhang",
     "location": "Southeast corner of Zhongshan Rd & Renmin Ave intersection",
     "description": "There is a large pothole on the road, approximately 50cm in diameter and 20cm deep. Passing vehicles are swerving to avoid it — very dangerous.",
-    "time": "2026-06-27 08:30",
+    "time": "2026-06-20 08:30",
     "photos": ["2 photos attached"],
 }
 

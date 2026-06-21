@@ -2,7 +2,7 @@
 title: "Chinese AI Models for Academic Research: Literature Review, Paper Polishing & Code Reproduction with DeepSeek and GLM"
 description: "Accelerate the entire research workflow with Chinese AI models: AI-powered literature review generation, paper polishing and translation, LaTeX assistance, and experimental code reproduction. Complete AI toolchain for academic writing using DeepSeek, GLM, and Qwen."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Research", "Papers", "Literature Review", "LaTeX", "Academic", "Advanced"]
 level: "Advanced"
 ---

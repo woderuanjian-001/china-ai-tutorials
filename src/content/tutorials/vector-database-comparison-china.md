@@ -2,7 +2,7 @@
 title: "Vector Database Selection Guide: Optimal Solutions for the Chinese AI Model Ecosystem"
 description: "Comprehensive comparison of vector databases in the Chinese AI ecosystem: Milvus/ChromaDB/FAISS/Weaviate/Pinecone performance benchmarks. Includes DeepSeek/Qwen Embedding + integration code for each database."
 category: "Hands-On Tutorials"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["Vector Database", "Milvus", "ChromaDB", "FAISS", "Embedding", "Selection", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Chinese Embedding Model Comparison: BGE/ME5/text2vec Selection Guide"
 description: "Comprehensive evaluation of Chinese embedding models: BGE-M3, ME5-Large, text2vec-base-chinese, Jina Embeddings — performance comparison on retrieval, clustering, and similarity tasks. Includes MTEB Chinese leaderboard interpretation and code examples."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Embedding", "Vector", "BGE", "MTEB", "Semantic Search", "Advanced"]
 level: "Advanced"
 ---

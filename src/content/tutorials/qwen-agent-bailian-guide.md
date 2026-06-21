@@ -2,7 +2,7 @@
 title: "Qwen Agent Framework Guide: Complete Bailian Platform Agent Development Tutorial"
 description: "Alibaba Cloud Bailian Platform Agent development full tutorial: Qwen Agent creation, knowledge base configuration, plugin ecosystem, API integration, multi-Agent collaboration. Includes DingTalk bot and WeCom integration hands-on code."
 category: "Qwen"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Qwen", "Agent", "Bailian", "DingTalk", "WeCom", "Alibaba Cloud", "Advanced"]
 level: "Advanced"
 ---

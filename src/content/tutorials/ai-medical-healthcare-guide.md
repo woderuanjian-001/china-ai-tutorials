@@ -2,7 +2,7 @@
 title: "AI Healthcare with Chinese Models: Intelligent Triage, Medical Record Analysis & Health Management with DeepSeek"
 description: "Build healthcare applications with Chinese AI models (DeepSeek, Qwen): intelligent preliminary triage, medical record structuring, health report interpretation, medication reminders. Includes medical AI compliance and safety guidelines."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Healthcare", "Health", "Consultation", "Medical Records", "AI in Medicine", "Beginner"]
 level: "Beginner"
 ---

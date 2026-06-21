@@ -2,7 +2,7 @@
 title: "HR & Recruitment with Chinese AI: Intelligent Resume Screening, Interview Assessment & Employee Retention Prediction Using DeepSeek"
 description: "Build intelligent HR systems with Chinese AI models: automated resume parsing and matching, AI-assisted interview evaluation, employee turnover risk prediction, and personalized training recommendations. Complete Python code examples using DeepSeek and Qwen."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["HR", "Resume", "Interview", "Recruitment", "Training", "Beginner"]
 level: "Beginner"
 ---

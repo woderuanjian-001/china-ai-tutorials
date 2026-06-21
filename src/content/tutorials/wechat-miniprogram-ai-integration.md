@@ -2,7 +2,7 @@
 title: "WeChat Mini Program AI Integration Guide: Complete DeepSeek/Kimi API Workflow"
 description: "Hands-on tutorial for integrating Chinese AI models into WeChat Mini Programs: cloud function calls to DeepSeek/Kimi API, streaming chat, image recognition, and compliance deployment. Includes complete frontend and backend code."
 category: "Hands-On Tutorials"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["WeChat Mini Program", "DeepSeek", "Kimi", "Cloud Functions", "Streaming", "Full Stack"]
 level: "Advanced"
 ---

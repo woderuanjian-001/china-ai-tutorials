@@ -2,7 +2,7 @@
 title: "Chinese AI Model Evaluation: Benchmark Comparison, Custom Eval Sets & Multi-Dimensional Scoring of DeepSeek, Qwen, Kimi and More"
 description: "Build a model evaluation system for Chinese AI models: capability comparison across major Chinese LLMs, custom evaluation set construction, multi-dimensional scoring (accuracy, speed, cost), and Arena-style rankings. Real benchmark data from testing 20+ Chinese models including DeepSeek, Qwen, Kimi, GLM, and Baichuan."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Model Evaluation", "Benchmark", "Arena", "Comparison", "Model Selection", "Advanced"]
 level: "Advanced"
 

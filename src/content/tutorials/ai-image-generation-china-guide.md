@@ -2,7 +2,7 @@
 title: "Chinese AI Image Generation in Practice: From CogView4 to Tongyi Wanxiang — A Complete Guide"
 description: "Complete guide to Chinese AI image generation: Zhipu CogView4, Tongyi Wanxiang, Jimeng, CogVideoX. Includes API calls, image-to-image, style transfer, batch generation with production-ready code. Commercial licensing notes included."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["AI Art", "CogView", "Tongyi Wanxiang", "Jimeng", "Text-to-Image", "Image-to-Image", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Content Moderation with Chinese AI Models: Build Intelligent Review Systems with DeepSeek/Qwen"
 description: "Build content moderation systems with Chinese AI models (DeepSeek, Qwen): text sensitive word detection, image moderation, multimodal review, custom policies. Includes moderation API code and enterprise deployment guide."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Content Moderation", "Security", "Sensitive Words", "Text Review", "Image Review", "Advanced"]
 level: "Advanced"
 ---

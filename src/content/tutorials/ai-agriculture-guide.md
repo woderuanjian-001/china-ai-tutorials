@@ -2,7 +2,7 @@
 title: "Smart Agriculture with Chinese AI: Pest Recognition, Yield Prediction & Intelligent Irrigation Using DeepSeek Vision"
 description: "Build smart agriculture systems with Chinese AI models: crop pest and disease image recognition, yield prediction, soil analysis, intelligent irrigation decisions, and AI-powered agricultural product grading. Complete solution with IoT sensors and DeepSeek vision capabilities."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Agriculture", "Pests", "Yield Prediction", "Irrigation", "IoT", "Beginner"]
 level: "Beginner"
 ---

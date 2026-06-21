@@ -2,7 +2,7 @@
 title: "AI DevOps Automation with Chinese Models: Intelligent Ops, Log Analysis, Alert Noise Reduction & Self-Healing Using DeepSeek"
 description: "Build intelligent DevOps systems with Chinese AI models: log anomaly detection, intelligent alert noise reduction, root cause analysis, and automated remediation suggestions. Complete solution with Prometheus, DeepSeek, and DingTalk/Feishu notifications."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["DevOps", "Operations", "Logs", "Alerts", "Automation", "Advanced"]
 level: "Advanced"
 ---
@@ -115,11 +115,11 @@ Output JSON:
 analyzer = AILogAnalyzer()
 
 sample_logs = [
-    "[2026-06-27 02:13:45] ERROR api-gateway: Connection timeout to user-service (10.0.1.5:8080)",
-    "[2026-06-27 02:13:46] ERROR api-gateway: Circuit breaker opened for user-service",
-    "[2026-06-27 02:13:50] WARN user-service: High memory usage detected (92%)",
-    "[2026-06-27 02:14:00] ERROR user-service: OOM killer triggered",
-    "[2026-06-27 02:14:01] INFO user-service: Service restarting...",
+    "[2026-06-20 02:13:45] ERROR api-gateway: Connection timeout to user-service (10.0.1.5:8080)",
+    "[2026-06-20 02:13:46] ERROR api-gateway: Circuit breaker opened for user-service",
+    "[2026-06-20 02:13:50] WARN user-service: High memory usage detected (92%)",
+    "[2026-06-20 02:14:00] ERROR user-service: OOM killer triggered",
+    "[2026-06-20 02:14:01] INFO user-service: Service restarting...",
 ]
 
 result = analyzer.parse_log_batch(sample_logs)
@@ -319,7 +319,7 @@ Output JSON:
 rca = RootCauseAnalyzer()
 
 incident = {
-    "time": "2026-06-27 02:13",
+    "time": "2026-06-20 02:13",
     "service": "api-gateway",
     "symptoms": [
         "API 响应时间从 50ms 飙升到 5000ms",

@@ -2,7 +2,7 @@
 title: "FastGPT Knowledge Base with Chinese AI Models: Private Data Q&A System with DeepSeek/Qwen"
 description: "Complete FastGPT tutorial with Chinese AI models: Docker deployment, knowledge base training, API integration, workflow orchestration, WeCom embedding. Build a private data AI Q&A system with DeepSeek/Qwen."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["FastGPT", "Knowledge Base", "Private Deployment", "Docker", "WeCom", "Beginner"]
 level: "Beginner"
 ---

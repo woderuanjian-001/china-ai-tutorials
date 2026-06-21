@@ -2,7 +2,7 @@
 title: "Multi-Agent Collaboration with Chinese AI Models: Task Decomposition, Role Assignment & Message Passing Using DeepSeek"
 description: "Build multi-agent collaboration systems with Chinese AI models: automatic task decomposition, role-based orchestration, inter-agent message passing, and result arbitration mechanisms. Complete AutoGen-style implementation powered by DeepSeek and Qwen."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Agent", "Multi-Agent", "Collaboration", "Orchestration", "AutoGen", "Advanced"]
 level: "Advanced"
 ---

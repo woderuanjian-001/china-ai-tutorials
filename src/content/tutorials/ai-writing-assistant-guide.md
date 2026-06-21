@@ -2,7 +2,7 @@
 title: "Chinese AI Writing Assistant: Novel Creation, Academic Papers & Business Reports with DeepSeek/Qwen/Kimi"
 description: "Build a full-featured writing assistant with Chinese AI models: novel chapter creation, academic paper support, business report generation, and multilingual translation. Covers outline-draft-revision-final manuscript workflow."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Writing", "Novel", "Papers", "Reports", "Translation", "Beginner"]
 level: "Beginner"
 ---

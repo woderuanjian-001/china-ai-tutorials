@@ -2,7 +2,7 @@
 title: "01.AI Yi API Developer Guide: Ultra-Long Context and Multilingual in Practice"
 description: "Complete 01.AI Yi series API tutorial: Yi-Large-Turbo (512K context), Yi-Vision multimodal, Yi-Coder programming assistant, OpenAI-compatible calling. Includes practical code for mixed Chinese-English scenarios."
 category: "Advanced Models"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["01.AI", "Yi", "Long Context", "Multimodal", "OpenAI Compatible", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "LangChain Integration Guide: DeepSeek + Qwen Complete Toolchain"
 description: "Full tutorial on integrating Chinese AI models with LangChain: DeepSeek/Qwen + Agent + Memory + Retrieval Chains + Streaming. Includes 8 runnable examples with complete Python code."
 category: "Hands-On Tutorials"
-date: 2026-06-24
+date: 2026-06-20
 tags: ["LangChain", "DeepSeek", "Qwen", "Agent", "Memory", "Python", "Advanced"]
 level: "Advanced"
 ---

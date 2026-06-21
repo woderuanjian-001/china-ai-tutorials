@@ -2,7 +2,7 @@
 title: "Chinese AI Models for Education: Auto Question Generation, Grading & Analytics with DeepSeek"
 description: "Build education applications with Chinese AI models (DeepSeek, Qwen): auto question generation (MCQ/essay/coding), smart grading, learning analytics, personalized recommendations. Includes complete teacher and student portal code."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Education", "Question Bank", "Grading", "AI Education", "Question Generation", "Beginner"]
 level: "Beginner"
 ---

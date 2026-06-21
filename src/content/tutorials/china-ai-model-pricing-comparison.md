@@ -2,7 +2,7 @@
 title: "Chinese AI Model Pricing Complete Comparison: Latest Cost-Performance Analysis June 2026"
 description: "Comprehensive pricing comparison of 12 Chinese AI model APIs: DeepSeek/Kimi/Qwen/Doubao/GLM/MiMo/Kling/ERNIE/Hunyuan/iFlytek/MiniMax/Baichuan/Yi. Includes input/output/image/video full-dimension pricing tables and money-saving strategies."
 category: "Beginner Guides"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Pricing", "Comparison", "Cost-Performance", "DeepSeek", "Kimi", "Qwen", "Beginner"]
 level: "Beginner"
 ---

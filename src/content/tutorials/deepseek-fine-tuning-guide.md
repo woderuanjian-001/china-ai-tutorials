@@ -2,7 +2,7 @@
 title: "DeepSeek Fine-Tuning Hands-On: LoRA Efficient Fine-Tuning with Custom Datasets"
 description: "Complete DeepSeek model fine-tuning tutorial: LoRA/QLoRA parameter-efficient fine-tuning, dataset construction, training configuration, model evaluation. Includes vLLM deployment of fine-tuned models with complete Python workflow."
 category: "DeepSeek"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["DeepSeek", "Fine-Tuning", "LoRA", "Training", "Deployment", "vLLM", "Expert"]
 level: "Expert"
 ---

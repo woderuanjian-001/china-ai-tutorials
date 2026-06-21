@@ -2,7 +2,7 @@
 title: "AI Agent in Action: Building Autonomous Agents with Chinese Models"
 description: "Build AI Agents from scratch: DeepSeek/Qwen + Function Calling + Multi-Tool Orchestration. Complete Python code with web search, code execution, file operations, and multi-agent collaboration."
 category: "Hands-On Tutorials"
-date: 2026-06-24
+date: 2026-06-20
 tags: ["Agent", "Function Calling", "DeepSeek", "Qwen", "Automation", "Advanced", "Python"]
 level: "Expert"
 ---

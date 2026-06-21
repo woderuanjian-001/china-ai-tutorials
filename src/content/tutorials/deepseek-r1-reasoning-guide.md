@@ -2,7 +2,7 @@
 title: "DeepSeek R1 Deep Reasoning Guide: Chain-of-Thought, Math Proofs & Code Debugging"
 description: "DeepSeek R1 reasoning model in-depth tutorial: Chain-of-Thought (CoT) prompting, mathematical proofs, code debugging, logical reasoning. Includes hands-on comparison of DeepSeek V4-Pro thinking mode vs standalone R1 model."
 category: "DeepSeek"
-date: 2026-06-24
+date: 2026-06-20
 tags: ["DeepSeek", "R1", "Reasoning", "CoT", "Mathematics", "Debugging", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Zhipu GLM-4 API Complete Guide: From Zero to Production AI Apps (2026 Latest)"
 description: "Comprehensive guide to ZhipuAI GLM-4.7/GLM-4.6V API: three calling methods, thinking mode, Function Calling, web search, vision understanding, video generation. Complete Python code examples."
 category: "ZhipuAI"
-date: 2026-06-22
+date: 2026-06-20
 tags: ["Zhipu", "GLM-4", "Python", "Function Calling", "Vision", "Open Source"]
 level: "Beginner"
 ---

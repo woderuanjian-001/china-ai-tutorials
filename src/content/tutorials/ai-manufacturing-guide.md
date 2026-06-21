@@ -2,7 +2,7 @@
 title: "Chinese AI for Smart Manufacturing: Quality Inspection, Predictive Maintenance & Digital Twins with DeepSeek/GLM"
 description: "Build intelligent manufacturing systems with Chinese AI models: visual defect detection, equipment predictive maintenance, process parameter optimization, and digital twin simulation. Includes industrial camera, DeepSeek and PLC integrated solution."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Manufacturing", "Quality Inspection", "Predictive Maintenance", "Industrial", "Digital Twin", "Advanced"]
 level: "Advanced"
 ---

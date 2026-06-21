@@ -2,7 +2,7 @@
 title: "China AI GPU Cloud Comparison: AutoDL, Alibaba PAI, and Matpool — One-Stop Selection Guide"
 description: "Comprehensive comparison of Chinese GPU cloud services: AutoDL, Alibaba Cloud PAI, Matpool, Volcano Engine, TensorStack. Includes pricing comparison, Jupyter configuration, model deployment, and cost optimization strategies. Ideal for ML practitioners and AI developers."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["GPU", "Cloud Computing", "AutoDL", "Alibaba Cloud", "Volcano Engine", "Deployment", "Beginner"]
 level: "Beginner"
 ---

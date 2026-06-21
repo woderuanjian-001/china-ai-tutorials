@@ -2,7 +2,7 @@
 title: "Chinese AI Team Collaboration: Meeting Minutes, Project Planning & Knowledge Management with DeepSeek/Qwen/Kimi"
 description: "Build team collaboration tools with Chinese AI models: intelligent meeting minutes generation, AI project planning and decomposition, team knowledge base management, and code collaboration enhancement. Includes Feishu/DingTalk integration solutions."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Collaboration", "Meeting Minutes", "Project Management", "Knowledge Base", "Productivity", "Beginner"]
 level: "Beginner"
 ---
@@ -131,7 +131,7 @@ Wang Wu: Give me a week — I'll have a first draft by next Wednesday.
 result = minutes_ai.generate_minutes(
     transcript,
     participants=["Zhang San (PM)", "Li Si (Tech Lead)", "Wang Wu (AI Lead)"],
-    meeting_info={"type": "Q3 Product Planning Meeting", "date": "2026-06-28", "time": "14:00-14:45"},
+    meeting_info={"type": "Q3 Product Planning Meeting", "date": "2026-06-20", "time": "14:00-14:45"},
 )
 
 print(f"Meeting summary: {result.get('summary')}")
@@ -248,7 +248,7 @@ team = [
 
 plan = planner.breakdown_project(
     "Launch an AI customer service system within 2 months, supporting text and voice interaction",
-    {"deadline": "2026-08-28", "budget": "Unlimited", "must_have": ["Text chat", "Knowledge base", "Escalate to human"], "nice_to_have": ["Voice", "Multi-language"]},
+    {"deadline": "2026-06-20", "budget": "Unlimited", "must_have": ["Text chat", "Knowledge base", "Escalate to human"], "nice_to_have": ["Voice", "Multi-language"]},
     team,
 )
 

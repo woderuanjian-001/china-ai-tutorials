@@ -2,7 +2,7 @@
 title: "Chinese AI for Weather & Climate: Typhoon Tracking, Air Quality & Agricultural Meteorology with DeepSeek/Qwen"
 description: "Build meteorological prediction systems with Chinese AI models: short-term precipitation forecasting, typhoon path prediction, air quality index forecasting, and agricultural weather disaster early warning. Includes meteorological big data and DeepSeek complete solution."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Meteorology", "Weather", "Typhoon", "Prediction", "Climate", "Advanced"]
 level: "Advanced"
 ---
@@ -48,7 +48,7 @@ Output JSON:
   "issued_at": "Issue time",
   "hourly_forecast": [
     {{
-      "time": "2026-06-28T08:00",
+      "time": "2026-06-20T08:00",
       "temperature_c": Temperature,
       "feels_like_c": Feels-like temperature,
       "precipitation_mm": Precipitation amount,

@@ -2,7 +2,7 @@
 title: "NL2SQL with Chinese AI Models: Natural Language to SQL Data Analysis with DeepSeek/Qwen"
 description: "Query databases with natural language using Chinese AI models: DeepSeek/Qwen-powered NL2SQL, intelligent chart generation, data insight analysis. Includes MySQL/PostgreSQL integration code."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Data Analysis", "SQL", "NL2SQL", "Database", "Charts", "Advanced"]
 level: "Advanced"
 ---

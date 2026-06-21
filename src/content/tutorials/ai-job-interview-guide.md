@@ -2,7 +2,7 @@
 title: "AI Job Interview Prep with Chinese Models: Mock Interviews & Resume Analysis with DeepSeek"
 description: "Build job interview tools with Chinese AI models (DeepSeek, Qwen): AI mock interviewer, intelligent resume analysis, interview question generation, self-introduction optimization. Includes complete full-stack code."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Interview", "Job Search", "Resume", "Mock Interview", "AI", "Beginner"]
 level: "Beginner"
 ---

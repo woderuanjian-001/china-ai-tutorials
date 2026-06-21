@@ -2,7 +2,7 @@
 title: "Chinese Multimodal AI Hands-On: Image Understanding + Video Generation Complete Guide"
 description: "Complete guide to Chinese multimodal AI models: Qwen-VL/Kimi-Vision/GLM-4V/Yi-Vision for image understanding, Kling/CogVideo/Video-01 for video generation. Includes OCR/chart parsing/video analysis hands-on code."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Multimodal", "Vision", "Video Generation", "Qwen-VL", "Kling", "OCR", "Advanced"]
 level: "Advanced"
 ---

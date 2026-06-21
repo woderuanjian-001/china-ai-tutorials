@@ -2,7 +2,7 @@
 title: "Chinese AI Data Analysis Advanced: Multidimensional Analytics, Anomaly Detection & Predictive Modeling with DeepSeek/Qwen"
 description: "Perform advanced data analysis with Chinese AI models: multidimensional cross-analysis, intelligent anomaly detection, time series predictive modeling, and natural language chart generation. Includes Pandas and DeepSeek complete data analysis workflow."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Data Analysis", "Visualization", "Prediction", "Anomaly Detection", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Kimi K2 File API Deep Dive: Long Document Processing and Structured Extraction"
 description: "Complete Kimi K2 File API tutorial: PDF/Word/Excel/PPT file upload, long-document Q&A, table structured extraction, batch document processing. Includes Moonshot platform 128K context hands-on code."
 category: "Kimi"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Moonshot", "Kimi", "Long Documents", "File Processing", "128K", "Advanced"]
 level: "Advanced"
 ---

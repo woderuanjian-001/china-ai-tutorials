@@ -2,7 +2,7 @@
 title: "Translation Services with Chinese AI Models: High-Precision Multilingual Translation with DeepSeek/Qwen/GLM"
 description: "Build professional translation systems with Chinese AI models: DeepSeek vs Qwen vs GLM translation quality comparison, glossary management, batch translation, real-time API. Includes domain-specific translation code (legal, medical, technical)."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Translation", "Multilingual", "Glossary", "Batch Translation", "API", "Beginner"]
 level: "Beginner"
 ---

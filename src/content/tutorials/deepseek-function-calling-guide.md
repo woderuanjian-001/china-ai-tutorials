@@ -2,7 +2,7 @@
 title: "DeepSeek Function Calling in Action: Building an AI Weather Assistant"
 description: "Build an AI weather assistant with Function Calling from scratch. Understand the complete tool invocation workflow: defining tools, handling calls, returning results, and generating final responses."
 category: "DeepSeek"
-date: 2026-06-21
+date: 2026-06-20
 tags: ["DeepSeek", "Function Calling", "Python", "Advanced"]
 level: "Advanced"
 ---

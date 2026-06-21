@@ -2,7 +2,7 @@
 title: "Chinese AI Models for Product Managers: Requirements Analysis, Competitor Research & PRD Automation with DeepSeek"
 description: "Automate the entire product management workflow with Chinese AI models: AI-powered requirements analysis, competitor research automation, intelligent PRD generation, user feedback analysis, and data-driven decision making. Complete toolchain for PM daily work using DeepSeek and Qwen."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Product Manager", "PRD", "Requirements Analysis", "Competitor Research", "Automation", "Beginner"]
 level: "Beginner"
 ---

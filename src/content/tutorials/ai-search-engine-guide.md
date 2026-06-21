@@ -2,7 +2,7 @@
 title: "Enterprise Search with Chinese AI Models: Semantic Search & Hybrid Retrieval with DeepSeek/BGE"
 description: "Build enterprise search engines with Chinese AI models: semantic search, hybrid retrieval, reranking, search suggestions. Includes complete Elasticsearch + BGE Embedding + Reranker solution with DeepSeek integration."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Search Engine", "Semantic Search", "Elasticsearch", "Reranker", "Hybrid Retrieval", "Advanced"]
 level: "Advanced"
 ---

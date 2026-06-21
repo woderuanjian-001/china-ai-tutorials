@@ -2,7 +2,7 @@
 title: "Chinese AI for Financial & Tax Automation: Smart Bookkeeping, Invoice OCR & Tax Calculation with DeepSeek"
 description: "Build financial and tax automation tools with Chinese AI models: invoice OCR recognition, intelligent bookkeeping classification, tax calculation, and financial report generation. Complete code examples using iFlytek OCR, DeepSeek, and Qwen."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Finance & Tax", "Invoices", "Bookkeeping", "OCR", "Tax", "Beginner"]
 level: "Beginner"
 ---

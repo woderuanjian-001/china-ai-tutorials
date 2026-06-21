@@ -2,7 +2,7 @@
 title: "LangChain Chinese AI Deep Integration: DeepSeek/Qwen/Kimi Full-Stack Tutorial"
 description: "Complete guide to integrating Chinese AI models with LangChain: ChatModel/Embedding/Tool/Agent full-stack tutorial covering DeepSeek, Qwen, Kimi, and GLM. Includes RAG, Memory, and Callback systems."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["LangChain", "Agent", "RAG", "Memory", "Chain", "Advanced"]
 level: "Advanced"
 ---

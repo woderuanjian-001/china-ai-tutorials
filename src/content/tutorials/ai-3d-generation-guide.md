@@ -2,7 +2,7 @@
 title: "3D Content Generation with Chinese AI Models: Text-to-3D, Image-to-3D & Scene Reconstruction Using Hunyuan3D"
 description: "Generate 3D content with Chinese AI models: text-to-3D model conversion, image-to-3D reconstruction, and AI texture generation. Complete API integration guide for Meshy, VAST, and Tencent Hunyuan3D with Three.js visualization using Chinese AI pipelines."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["3D", "Modeling", "Texture", "Meshy", "VAST", "Advanced"]
 level: "Advanced"
 ---

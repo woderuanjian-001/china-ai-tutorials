@@ -2,7 +2,7 @@
 title: "Chinese AI for Legal & Compliance: Contract Review, Statute Search & Legal Document Automation with DeepSeek"
 description: "Build legal assistance tools with Chinese AI models: intelligent contract review, statute retrieval, automated legal document generation, and case matching. Complete Python code examples with compliance considerations using DeepSeek, Qwen, and GLM."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Legal", "Contract", "Statutes", "Compliance", "Legal Documents", "Beginner"]
 level: "Beginner"
 ---

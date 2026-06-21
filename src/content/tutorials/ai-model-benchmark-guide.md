@@ -2,7 +2,7 @@
 title: "Chinese AI Model Performance Benchmarking: Latency, Throughput & Concurrency Full Comparison"
 description: "Practical AI model performance benchmarking: complete comparison of DeepSeek/Qwen/Kimi/GLM across latency (Time to First Token), throughput (Tokens/s), and concurrency capacity. Includes Python benchmarking scripts and visualizations."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Benchmark", "Performance", "Latency", "Throughput", "Comparison", "Evaluation", "Advanced"]
 level: "Advanced"
 ---

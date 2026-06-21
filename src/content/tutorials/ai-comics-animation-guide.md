@@ -2,7 +2,7 @@
 title: "Chinese AI Comics & Animation: Storyboarding, Character Design & Inbetweening with Kling/Hunyuan/GLM"
 description: "Generate comics and animation with Chinese AI models: AI comic storyboarding, consistent character design, animation inbetweening, and AI auto-coloring. Includes StoryDiffusion, ToonCrafter and Kling complete creative workflow."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Comics", "Animation", "Storyboarding", "Character Design", "AIGC", "Advanced"]
 level: "Advanced"
 ---

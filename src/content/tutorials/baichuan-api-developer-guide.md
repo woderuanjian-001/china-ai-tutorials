@@ -2,7 +2,7 @@
 title: "Baichuan AI API Developer Guide: Finance & Healthcare Vertical Industry in Practice"
 description: "Complete Baichuan 4 API tutorial: vertical-industry models, Baichuan-M1 reasoning, finance/healthcare applications, OpenAI-compatible calling. Includes industry knowledge base integration."
 category: "Advanced Models"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["Baichuan AI", "Baichuan", "Vertical Industry", "Reasoning", "Finance", "Healthcare", "Advanced"]
 level: "Advanced"
 ---

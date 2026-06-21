@@ -2,7 +2,7 @@
 title: "Chinese AI Function Calling: Tool Definitions, Multi-Function Orchestration & Streaming with DeepSeek/Qwen/GLM"
 description: "Master AI function calling with Chinese AI models: OpenAI-compatible tool_choice configuration, multi-function auto-orchestration, streaming function calls, and error fallback strategies. Includes DeepSeek/Qwen/GLM tool calling best practices."
 category: "API Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Function Calling", "Tools", "OpenAI", "API", "Orchestration", "Expert"]
 level: "Expert"
 ---
@@ -114,7 +114,7 @@ registry.register(
     "Query weather conditions for a specified city and date",
     {
         "city": {"type": "string", "description": "City name, e.g. 'Hangzhou', 'Beijing'"},
-        "date": {"type": "string", "description": "Date, e.g. 'today', 'tomorrow', '2026-06-29'"},
+        "date": {"type": "string", "description": "Date, e.g. 'today', 'tomorrow', '2026-06-20'"},
     },
 ).register(
     search_venues,

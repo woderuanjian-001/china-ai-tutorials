@@ -2,7 +2,7 @@
 title: "Data Labeling with Chinese AI Models: Auto-Annotation with DeepSeek/Qwen + Label Studio"
 description: "Complete data labeling guide with Chinese AI models: auto-annotation with DeepSeek/Qwen, Label Studio configuration, Chinese NLP labeling, quality review. Includes Python scripts for AI-driven auto-labeling."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Data Labeling", "NLP", "Label Studio", "Auto-Annotation", "Preprocessing", "Advanced"]
 level: "Advanced"
 ---

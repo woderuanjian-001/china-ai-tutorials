@@ -2,7 +2,7 @@
 title: "AI Video Editing with Chinese Models: Auto-Editing, Subtitle Generation & Dubbing with Kling & Step-2"
 description: "Build automated video editing tools with Chinese AI models: auto highlight clipping, subtitle generation, multilingual dubbing, video summarization. Includes complete MoviePy + Whisper + TTS code with Kling and Step-2 integration."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Video Editing", "Subtitles", "Dubbing", "Whisper", "MoviePy", "Beginner"]
 level: "Beginner"
 ---

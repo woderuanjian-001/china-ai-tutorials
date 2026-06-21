@@ -2,7 +2,7 @@
 title: "Game AI with Chinese LLMs: NPC Dialogue, Story Generation & Level Design Using DeepSeek and Qwen"
 description: "Build intelligent games with Chinese AI models: natural NPC conversations, dynamic story generation, automated level design, and AI companions. Complete Unity + Chinese AI API integration with production-ready code examples using DeepSeek and Qwen."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Games", "NPC", "Story", "Level Design", "Unity", "Advanced"]
 level: "Advanced"
 ---

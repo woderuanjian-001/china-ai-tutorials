@@ -2,7 +2,7 @@
 title: "Baidu ERNIE API Complete Guide: Python Integration and Enterprise Deployment"
 description: "Complete tutorial for Baidu ERNIE 4.5 API: Python SDK calls, Function Calling, plugin system, search augmentation, and enterprise deployment. Full hands-on code for the Qianfan platform."
 category: "Baidu AI"
-date: 2026-06-23
+date: 2026-06-20
 tags: ["Baidu", "ERNIE", "Python", "Enterprise", "Plugins"]
 level: "Beginner"
 ---

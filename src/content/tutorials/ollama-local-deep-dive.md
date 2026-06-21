@@ -2,7 +2,7 @@
 title: "Ollama Deep Dive: Local Chinese AI Model Optimization and GPU Acceleration with Qwen and DeepSeek"
 description: "Advanced Ollama guide for Chinese AI models: Modelfile customization, GPU layer tuning, quantization comparison (Q4/Q8/FP16), API concurrency, multi-model orchestration with Qwen and DeepSeek local deployment best practices."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Ollama", "Local Models", "GPU", "Quantization", "Modelfile", "Advanced"]
 level: "Advanced"
 ---

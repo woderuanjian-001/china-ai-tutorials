@@ -2,7 +2,7 @@
 title: "Build AI Apps with Chinese LLMs + Low-Code: DeepSeek/Qwen on DingTalk, Feishu & Coze"
 description: "Complete guide to building AI apps with Chinese LLMs on low-code platforms: DingTalk Yida AI plugins, Feishu Base AI, Coze agents with DeepSeek/Qwen, and Dify open-source platform. Zero-code AI app development workflow."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Low-Code", "DingTalk", "Feishu", "Coze", "Dify", "Beginner"]
 level: "Beginner"
 ---

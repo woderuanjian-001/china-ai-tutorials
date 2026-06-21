@@ -2,7 +2,7 @@
 title: "Chinese AI for Industry 4.0 Digital Factory: Smart Scheduling, Digital Twins & Industrial Vision with DeepSeek/GLM"
 description: "Build Industry 4.0 digital factories with Chinese AI models: intelligent production scheduling, digital twin factories, industrial vision inspection, and equipment lifecycle management. Includes MES integration and DeepSeek industrial brain solution."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Industry 4.0", "Digital Factory", "Scheduling", "MES", "Smart Manufacturing", "Expert"]
 level: "Expert"
 ---
@@ -115,9 +115,9 @@ Output JSON:
 scheduler = SmartProductionScheduler()
 
 orders = [
-    {"id": "ORD-001", "product": "Phone Case-A", "quantity": 5000, "deadline": "2026-07-05", "priority": "High"},
-    {"id": "ORD-002", "product": "Phone Case-B", "quantity": 3000, "deadline": "2026-07-08", "priority": "Medium"},
-    {"id": "ORD-003", "product": "Part-X", "quantity": 10000, "deadline": "2026-07-03", "priority": "Urgent"},
+    {"id": "ORD-001", "product": "Phone Case-A", "quantity": 5000, "deadline": "2026-06-20", "priority": "High"},
+    {"id": "ORD-002", "product": "Phone Case-B", "quantity": 3000, "deadline": "2026-06-20", "priority": "Medium"},
+    {"id": "ORD-003", "product": "Part-X", "quantity": 10000, "deadline": "2026-06-20", "priority": "Urgent"},
 ]
 
 resources = {

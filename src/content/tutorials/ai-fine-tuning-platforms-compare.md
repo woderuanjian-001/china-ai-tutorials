@@ -2,7 +2,7 @@
 title: "China AI Model Fine-Tuning Platforms Compared: Alibaba PAI, LLaMA Factory, and ModelScope"
 description: "Comprehensive comparison of model fine-tuning platforms: Alibaba Cloud PAI, LLaMA Factory, ModelScope SWIFT, and Zhipu fine-tuning. Includes LoRA/QLoRA fine-tuning code, cost comparison, and model evaluation. Ideal for developers needing custom models."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Fine-Tuning", "LoRA", "PAI", "LLaMA Factory", "ModelScope", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Chinese AI Models for IoT Edge Computing: On-Device Inference, Smart Device Orchestration & Real-Time Monitoring with Qwen"
 description: "Build IoT edge computing systems with Chinese AI models: on-device inference deployment, intelligent device orchestration, real-time anomaly detection, and MQTT messaging. Complete edge AI solutions using Qwen, DeepSeek on Jetson/RK3588 with cloud-edge collaboration."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["IoT", "Edge Computing", "On-Device Inference", "MQTT", "Jetson", "Advanced"]
 level: "Advanced"
 ---

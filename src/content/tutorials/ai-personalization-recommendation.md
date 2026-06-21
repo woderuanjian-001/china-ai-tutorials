@@ -2,7 +2,7 @@
 title: "Recommendation Systems with Chinese AI: Collaborative Filtering, Deep Learning Ranking & Real-Time Personalization Using DeepSeek"
 description: "Build enterprise-grade recommendation systems with Chinese AI models: collaborative filtering, deep learning recall, fine-ranking models, and real-time personalization. Complete engineering solution with DeepSeek Embeddings, FAISS, and Redis powered by Chinese LLMs."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Recommendation System", "Collaborative Filtering", "Embedding", "FAISS", "Redis", "Advanced"]
 level: "Advanced"
 ---

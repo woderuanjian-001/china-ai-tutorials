@@ -2,7 +2,7 @@
 title: "AI Coding in Practice: VS Code + DeepSeek Coder 10x Productivity Guide"
 description: "Complete workflow for VS Code integrated with DeepSeek Coder: Continue.dev/Cline/Copilot configuration, AI-driven development for code completion/generation/refactoring/testing, context management tips."
 category: "Practical Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["VS Code", "Coding", "DeepSeek", "Coder", "Tools", "Productivity"]
 level: "Beginner"
 ---

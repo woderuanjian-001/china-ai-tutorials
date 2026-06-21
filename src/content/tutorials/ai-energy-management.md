@@ -2,7 +2,7 @@
 title: "Energy Management with Chinese AI: Solar Power Forecasting, Storage Optimization & Carbon Accounting Using DeepSeek"
 description: "Build smart energy systems with Chinese AI models: photovoltaic power forecasting, energy storage charge/discharge strategies, electricity load prediction, and automated carbon emission accounting. Complete solution with time-series forecasting and DeepSeek."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Energy", "Solar PV", "Energy Storage", "Forecasting", "Carbon Neutrality", "Advanced"]
 level: "Advanced"
 ---
@@ -119,10 +119,10 @@ solar = SolarForecaster()
 forecast = solar.predict_solar_output(
     plant_info={"capacity_kw": 1000, "location": "青海海南州", "tilt_angle": 35, "panel_type": "单晶550W"},
     weather_forecast=[
-        {"date": "2026-06-28", "weather": "晴", "temp_high": 32, "cloud_cover": "5%", "irradiance": "高"},
-        {"date": "2026-06-29", "weather": "多云", "temp_high": 28, "cloud_cover": "60%", "irradiance": "中"},
+        {"date": "2026-06-20", "weather": "晴", "temp_high": 32, "cloud_cover": "5%", "irradiance": "高"},
+        {"date": "2026-06-20", "weather": "多云", "temp_high": 28, "cloud_cover": "60%", "irradiance": "中"},
     ],
-    historical_generation=[{"date": "2026-06-27", "kwh": 5200}],
+    historical_generation=[{"date": "2026-06-20", "kwh": 5200}],
 )
 
 print(f"Total forecasted generation: {forecast.get('total_forecast_kwh')} kWh")
@@ -249,7 +249,7 @@ load = LoadForecaster()
 
 pred = load.predict_load(
     building_type="商业写字楼",
-    historical_load=[{"date": "2026-06-27", "hour": 14, "load_kw": 850}],
+    historical_load=[{"date": "2026-06-20", "hour": 14, "load_kw": 850}],
     factors={"temperature": 35, "weekday": True, "occupancy": "90%", "special_event": "无"},
 )
 

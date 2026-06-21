@@ -2,7 +2,7 @@
 title: "Prompt Engineering Hands-On: Best Prompt Techniques for Chinese AI Models"
 description: "Complete prompt engineering guide for Chinese AI models: optimal prompt templates for DeepSeek/Kimi/Qwen/GLM, System Prompt design, few-shot prompting, 15 anti-hallucination rules."
 category: "Hands-On Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Prompt Engineering", "Prompt", "DeepSeek", "Kimi", "Qwen", "Advanced"]
 level: "Advanced"
 ---

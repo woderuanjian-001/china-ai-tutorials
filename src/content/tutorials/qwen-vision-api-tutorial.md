@@ -2,8 +2,8 @@
 title: "Qwen Vision API Complete Tutorial: Image Understanding, OCR, and Multimodal Applications"
 description: "Use the Qwen-VL model family for image analysis, OCR text extraction, chart interpretation, and multi-image comparison. Covers Qwen-VL-Max and Qwen-VL-Plus with complete async Python code examples."
 category: "Qwen"
-date: 2026-06-22
-updated: 2026-06-22
+date: 2026-06-20
+updated: 2026-06-20
 tags: ["Qwen", "Vision", "Multimodal", "Python", "OCR", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "Marketing Content Generation with Chinese AI: Copywriting, AIGC Posters, Short Video Scripts & SEO Optimization Using DeepSeek and Qwen"
 description: "Build a marketing content factory with Chinese AI models: viral copy generation, AIGC marketing posters, short video scripts, SEO article optimization, and Xiaohongshu/Douyin content creation. Multi-platform adaptation with DeepSeek, Qwen, and Kimi."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Marketing", "Copywriting", "Poster", "Short Video", "SEO", "Beginner"]
 level: "Beginner"
 ---
@@ -518,7 +518,7 @@ calendar = ContentCalendar()
 
 plan = calendar.generate_monthly_plan(
     product="AI Smart Study Lamp",
-    month="July 2026",
+    month="June 2026",
     events=["Summer break begins", "618 aftermath sale", "Final exam week"],
 )
 

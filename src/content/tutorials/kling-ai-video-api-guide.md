@@ -2,7 +2,7 @@
 title: "Kling AI Video Generation API Complete Guide: From Script to Finished Video with Full Automation"
 description: "Complete Kuaishou Kling AI video generation API tutorial: text-to-video, image-to-video, multi-shot control, camera movement parameters, V3.0 sound generation. Complete Python code, pricing analysis, and production best practices."
 category: "Kuaishou"
-date: 2026-06-22
+date: 2026-06-20
 tags: ["Kuaishou", "Kling", "Video Generation", "API", "Multimodal", "Python"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "AI Customer Service Bot: Build an Intelligent Customer Service System with Chinese Models"
 description: "Build an AI customer service bot from scratch: DeepSeek + Knowledge Base + Multi-turn Dialogue + Sentiment Recognition + Human Handoff. Includes complete Python Flask backend + Web frontend code."
 category: "Hands-On Tutorials"
-date: 2026-06-25
+date: 2026-06-20
 tags: ["Customer Service Bot", "DeepSeek", "Knowledge Base", "Flask", "Full-Stack", "Hands-On"]
 level: "Advanced"
 ---

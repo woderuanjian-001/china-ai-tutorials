@@ -2,7 +2,7 @@
 title: "E-Commerce Optimization with Chinese AI: Product Description Generation, Review Analysis & Smart Pricing Using DeepSeek and Qwen"
 description: "Optimize the full e-commerce pipeline with Chinese AI models: automated product description generation, user review sentiment analysis, competitive smart pricing, customer service intent recognition and routing, and personalized recommendation scripts. Multi-platform support for Taobao, JD.com, and Pinduoduo using Chinese LLMs."
 category: "Practical Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["E-Commerce", "Products", "Review Analysis", "Pricing", "Customer Service", "Beginner"]
 level: "Beginner"
 ---

@@ -2,7 +2,7 @@
 title: "Deploying Open-Source Chinese AI Models Locally: Ollama/vLLM/Docker Complete Guide"
 description: "Local deployment of open-source Chinese AI models in practice: DeepSeek/Qwen/GLM local execution, Ollama one-click deployment, vLLM high-performance inference, Docker containerization. Includes hardware recommendations and performance optimization."
 category: "Practical Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Open Source", "Local Deployment", "Ollama", "vLLM", "Docker", "DeepSeek", "Expert"]
 level: "Expert"
 ---

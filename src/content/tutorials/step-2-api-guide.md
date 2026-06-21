@@ -2,7 +2,7 @@
 title: "Step-2 API In-Depth Guide: Trillion-Parameter MoE Model in Action"
 description: "Complete Step-2 API tutorial from StepFun: comprehensive coverage of text, multimodal, and function calling. Includes complete calling code for Step-2-16K text model, Step-1V vision model, and Step-Audio speech model."
 category: "API Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Step-2", "StepFun", "MoE", "Multimodal", "Function Calling", "Advanced"]
 level: "Advanced"
 ---

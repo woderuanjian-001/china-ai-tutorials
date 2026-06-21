@@ -2,7 +2,7 @@
 title: "Chinese AI TTS Hands-On: Complete Comparison of iFlytek, Volcano Engine & Alibaba Cloud TTS"
 description: "A complete guide to mainstream Chinese TTS services: iFlytek Open Platform, Volcano Engine Voice, and Alibaba Cloud Speech Synthesis. Includes streaming synthesis, voice cloning, multi-emotion speech, real-time conversation, complete code, and cost comparison."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["TTS", "Speech Synthesis", "iFlytek", "Volcano Engine", "Voice Cloning", "Advanced"]
 level: "Advanced"
 ---

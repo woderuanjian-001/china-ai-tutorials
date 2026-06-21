@@ -2,7 +2,7 @@
 title: "MiniMax API Complete Guide: The Lightweight Multimodal AI Choice"
 description: "Complete MiniMax (Xiyu Technology) API tutorial: Python SDK calls, ChatCompletion Pro, speech synthesis TTS, video generation. Covers MiniMax-Text-01 and Speech-02 model hands-on examples."
 category: "MiniMax"
-date: 2026-06-23
+date: 2026-06-20
 tags: ["MiniMax", "API", "Python", "TTS", "Multimodal", "Speech"]
 level: "Beginner"
 ---

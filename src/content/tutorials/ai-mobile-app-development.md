@@ -2,7 +2,7 @@
 title: "Chinese AI Mobile App Development: AI Camera, Voice Assistant & On-Device Inference with DeepSeek/Qwen/MiniMax"
 description: "Develop mobile apps with Chinese AI models: AI smart camera (object recognition/OCR), voice assistant integration, on-device inference (TFLite/MNN), and Flutter AI full-stack solutions. Includes Android/iOS dual-platform implementation."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Mobile Development", "Flutter", "Camera", "Voice", "On-Device", "Advanced"]
 level: "Advanced"
 ---

@@ -2,7 +2,7 @@
 title: "AI API Gateway Design with Chinese Models: Multi-Model Routing, Rate Limiting & Caching"
 description: "Build a unified API gateway for Chinese AI models (DeepSeek, Qwen, Kimi, GLM): smart multi-model routing, rate limiting, response caching, failover, and cost tracking. Includes complete FastAPI + Redis implementation."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Gateway", "Routing", "Rate Limiting", "Caching", "FastAPI", "Architecture", "Advanced"]
 level: "Advanced"
 ---

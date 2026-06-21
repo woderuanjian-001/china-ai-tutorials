@@ -2,7 +2,7 @@
 title: "Chinese AI for Intelligent Transportation: Traffic Prediction, Autonomous Perception & Ride-Hailing Dispatch with DeepSeek/Qwen"
 description: "Build intelligent transportation systems with Chinese AI models: real-time traffic prediction, autonomous driving scene perception, ride-hailing intelligent dispatch, and automatic traffic incident detection. Includes traffic big data and DeepSeek complete solution."
 category: "Hands-On Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Transportation", "Autonomous Driving", "Dispatch", "Perception", "Traffic", "Advanced"]
 level: "Advanced"
 ---

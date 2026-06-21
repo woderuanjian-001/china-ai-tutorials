@@ -2,7 +2,7 @@
 title: "Chinese AI API Security Best Practices: Leak Prevention, Authorization, and Injection Defense"
 description: "Complete AI API security guide: API key secure storage, prompt injection defense, content safety moderation, data masking, JWT authentication, rate limiting. Covers OWASP Top 10 for LLM."
 category: "Practical Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Security", "API", "Defense", "Injection", "Authentication", "Compliance", "Advanced"]
 level: "Advanced"
 ---

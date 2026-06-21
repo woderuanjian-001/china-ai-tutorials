@@ -2,7 +2,7 @@
 title: "Chinese AI for Education: Intelligent Tutoring, Auto-Grading & Personalized Learning Paths with DeepSeek/Qwen"
 description: "Build education systems with Chinese AI models: one-on-one intelligent tutoring, automated essay and programming grading, learning analytics, and adaptive learning pathways. Includes DeepSeek and educational big data complete solution."
 category: "Practical Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Education", "Tutoring", "Grading", "Learning Analytics", "Adaptive", "Advanced"]
 level: "Advanced"
 ---

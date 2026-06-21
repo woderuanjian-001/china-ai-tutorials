@@ -2,7 +2,7 @@
 title: "AI Startup Guide: Building SaaS Products with Zero Cost Using Chinese Models"
 description: "A zero-cost AI startup hands-on tutorial: build SaaS products with DeepSeek/Qwen/Kimi free APIs, product selection, pricing strategies, and customer acquisition channels. Includes complete tech stack recommendations for indie developers."
 category: "Hands-On Tutorials"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Startup", "SaaS", "Indie Developer", "Free API", "Product", "Business"]
 level: "Beginner"
 ---

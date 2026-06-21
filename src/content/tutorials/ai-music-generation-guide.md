@@ -2,7 +2,7 @@
 title: "AI Music Creation in Practice: Generating Music, Arrangements & Compositions with Chinese AI Models"
 description: "Create music with Chinese AI models: music generation, melody continuation, style transfer, and MIDI arrangement. Includes complete API call code for MusicGen + TianGong SkyMusic + NetEase TianYin."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Music", "Composition", "MusicGen", "MIDI", "TianGong", "Advanced"]
 level: "Advanced"
 ---

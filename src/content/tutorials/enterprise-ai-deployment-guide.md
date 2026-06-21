@@ -2,7 +2,7 @@
 title: "Chinese AI Models Enterprise Deployment: From PoC to Production with DeepSeek & Qwen"
 description: "Complete enterprise deployment guide for Chinese AI models (DeepSeek, Qwen): security compliance, private deployment, load balancing, monitoring, disaster recovery, and cost optimization. Includes Nginx + vLLM + Redis architecture with Docker Compose."
 category: "Hands-On Tutorials"
-date: 2026-06-26
+date: 2026-06-20
 tags: ["Enterprise", "Deployment", "Security", "Load Balancing", "Private Deployment", "Architecture", "Expert"]
 level: "Expert"
 ---

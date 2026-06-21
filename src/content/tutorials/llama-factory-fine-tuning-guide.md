@@ -2,7 +2,7 @@
 title: "LLaMA-Factory Fine-Tuning Guide: Zero-Code Fine-Tuning for Chinese LLMs"
 description: "Complete LLaMA-Factory fine-tuning tutorial: Web UI zero-code fine-tuning, LoRA/QLoRA, dataset preparation, export and deployment. Supports full-pipeline fine-tuning for Chinese models like DeepSeek, Qwen, and GLM."
 category: "Advanced Models"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Fine-Tuning", "LLaMA-Factory", "LoRA", "QLoRA", "Open Source", "Advanced"]
 level: "Advanced"
 ---

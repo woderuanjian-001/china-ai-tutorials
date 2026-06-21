@@ -2,7 +2,7 @@
 title: "Chinese AI Prompt Engineering Advanced: Chain-of-Thought, Few-Shot & Structured Outputs with DeepSeek/Qwen/GLM"
 description: "Master advanced prompt engineering techniques with Chinese AI models: Chain-of-Thought reasoning, Few-Shot example design, role-playing best practices, structured prompt templates, and multi-turn dialogue strategies. Includes China LLM optimization techniques."
 category: "API Tutorials"
-date: 2026-06-28
+date: 2026-06-20
 tags: ["Prompt Engineering", "Prompt", "Chain-of-Thought", "Techniques", "Optimization", "Advanced"]
 level: "Advanced"
 ---

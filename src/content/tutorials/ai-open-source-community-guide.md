@@ -2,7 +2,7 @@
 title: "Chinese AI Open-Source Community Guide: GitHub, WayToAGI, ModelScope & OpenI Complete Walkthrough"
 description: "A complete guide to China's AI open-source ecosystem: top Chinese AI projects on GitHub, ModelScope community, OpenI Qizhi platform, WayToAGI community, and Hugging Face Chinese region. Includes contribution and resource access methods for each community."
 category: "Beginner Guides"
-date: 2026-06-27
+date: 2026-06-20
 tags: ["Open Source", "Community", "ModelScope", "OpenI", "GitHub", "Beginner"]
 level: "Beginner"
 ---
