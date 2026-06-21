@@ -1,18 +1,19 @@
 ---
 const { currentPath = "/" } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <header class="site-header">
   <nav class="header-nav container-wide" aria-label="Main navigation">
-    <a href="/" class="logo" aria-label="China AI Tutorials Home">
+    <a href={base} class="logo" aria-label="China AI Tutorials Home">
       <span class="logo-text">China AI <strong>Tutorials</strong></span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="/" class={currentPath === "/" ? "active" : ""}>Home</a></li>
-      <li><a href="/tutorials/" class={currentPath.startsWith("/tutorials") ? "active" : ""}>Tutorials</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/contact/">Contact</a></li>
+      <li><a href={base} class={currentPath === "/" ? "active" : ""}>Home</a></li>
+      <li><a href={`${base}tutorials/`} class={currentPath.startsWith("/tutorials") ? "active" : ""}>Tutorials</a></li>
+      <li><a href={`${base}about/`}>About</a></li>
+      <li><a href={`${base}contact/`}>Contact</a></li>
     </ul>
   </nav>
 </header>
