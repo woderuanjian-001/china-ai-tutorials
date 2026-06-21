@@ -1,5 +1,5 @@
 ---
-// SEO 组件 — 统一管理页面 meta 标签
+// SEO 组件 — 统一管理页面 meta 标签 + 结构化数据
 export interface Props {
   title: string;
   description: string;
@@ -9,6 +9,8 @@ export interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   tags?: string[];
+  /** 面包屑导航，用于生成 BreadcrumbList 结构化数据 */
+  breadcrumbs?: { name: string; url: string }[];
 }
 
 const {
@@ -20,6 +22,7 @@ const {
   publishedTime,
   modifiedTime,
   tags = [],
+  breadcrumbs,
 } = Astro.props;
 
 const fullTitle = type === "article"
@@ -57,8 +60,8 @@ const fullTitle = type === "article"
   <meta property="article:tag" content={tag} />
 ))}
 
-<!-- JSON-LD 结构化数据 -->
-{type === "article" ? (
+<!-- JSON-LD 结构化数据 — 文章类型 -->
+{type === "article" && (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -76,12 +79,29 @@ const fullTitle = type === "article"
       name: "China AI Tutorials",
     },
   })} />
-) : (
+)}
+
+<!-- JSON-LD 结构化数据 — 网站类型 -->
+{type === "website" && (
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "China AI Tutorials",
     description: "Hands-on tutorials helping developers worldwide master Chinese AI tools — DeepSeek, Qwen, Kimi, GLM, and more.",
     url: Astro.site?.href || "https://china-ai-tutorials.com",
+  })} />
+)}
+
+<!-- JSON-LD 结构化数据 — 面包屑（教程详情页和列表页使用） -->
+{breadcrumbs && breadcrumbs.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
   })} />
 )}

@@ -1,0 +1,31 @@
+---
+// AdSense.astro — Google AdSense 广告组件
+// 修改 src/config.ts 中的 adsense 配置即可启用
+import { SITE_CONFIG } from "../config";
+const { enabled, publisherId } = SITE_CONFIG.adsense;
+---
+
+{enabled && publisherId !== "pub-0000000000000000" && (
+  <>
+    <!-- Google AdSense 自动广告脚本 -->
+    <script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${publisherId}`}
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 广告代码容错：AdSense 被屏蔽时隐藏广告位，避免显示空白框 -->
+    <script>
+      {`(function(){
+        const style = document.createElement("style");
+        style.textContent = ".ad-container:empty{display:none!important}";
+        document.head.appendChild(style);
+        window.addEventListener("error", (e) => {
+          if (e.target && (e.target as HTMLElement).tagName === "SCRIPT" && /adsbygoogle/.test((e.target as HTMLScriptElement).src || "")) {
+            document.querySelectorAll(".ad-container").forEach(el => (el as HTMLElement).style.display = "none");
+          }
+        }, true);
+      })();`}
+    </script>
+  </>
+)}

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SEO from "../../components/SEO.astro";
+import AdUnit from "../../components/AdUnit.astro";
 
 export async function getStaticPaths() {
   const tutorials = await getCollection("tutorials");
@@ -28,6 +29,11 @@ const base = import.meta.env.BASE_URL;
     tags={tags}
     canonicalURL={new URL(`/tutorials/${tutorial.slug}/`, Astro.site).href}
     image={image}
+    breadcrumbs={[
+      { name: "Home", url: new URL("/", Astro.site).href },
+      { name: "Tutorials", url: new URL("/tutorials/", Astro.site).href },
+      { name: title, url: new URL(`/tutorials/${tutorial.slug}/`, Astro.site).href },
+    ]}
   />
 
   <article class="tutorial">
@@ -49,6 +55,8 @@ const base = import.meta.env.BASE_URL;
     <div class="tutorial-body">
       <div class="tutorial-content">
         <Content />
+        <!-- 文章内广告位（AdSense 审批通过后自动显示） -->
+        <AdUnit slot="article-bottom" format="auto" />
       </div>
 
       <aside class="tutorial-sidebar">

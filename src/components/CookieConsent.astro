@@ -1,0 +1,159 @@
+---
+// CookieConsent.astro — GDPR 合规 Cookie 同意横幅
+// AdSense 必要条件：使用广告 Cookie 前必须获得欧盟用户同意
+import { SITE_CONFIG } from "../config";
+const { adsense } = SITE_CONFIG;
+---
+
+<div id="cookie-consent" class="cookie-consent hidden" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-consent-inner">
+    <p class="cookie-consent-text">
+      🍪 This site uses cookies to display <strong>Google AdSense</strong> ads and analyze traffic.
+      By clicking "Accept", you consent to our use of cookies.
+      <a href={`${SITE_CONFIG.base}privacy/`} class="cookie-link">Privacy Policy</a>
+    </p>
+    <div class="cookie-consent-actions">
+      <button id="cookie-accept-btn" class="cookie-btn cookie-btn-accept">Accept</button>
+      <button id="cookie-reject-btn" class="cookie-btn cookie-btn-reject">Reject Non-Essential</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieConsent() {
+    const banner = document.getElementById("cookie-consent");
+    if (!banner) return;
+
+    const consent = localStorage.getItem("cookie_consent");
+    if (consent === "accepted" || consent === "rejected") {
+      banner.remove();
+      return;
+    }
+
+    // 显示横幅
+    banner.classList.remove("hidden");
+
+    // 接受按钮
+    document.getElementById("cookie-accept-btn")?.addEventListener("click", () => {
+      localStorage.setItem("cookie_consent", "accepted");
+      banner.classList.add("cookie-consent-exit");
+      setTimeout(() => banner.remove(), 300);
+      // 触发自定义事件，其他脚本可以监听
+      window.dispatchEvent(new CustomEvent("cookie_consent_accepted"));
+    });
+
+    // 拒绝按钮（仅保留必要 Cookie，禁用广告个性化）
+    document.getElementById("cookie-reject-btn")?.addEventListener("click", () => {
+      localStorage.setItem("cookie_consent", "rejected");
+      banner.classList.add("cookie-consent-exit");
+      setTimeout(() => banner.remove(), 300);
+      window.dispatchEvent(new CustomEvent("cookie_consent_rejected"));
+    });
+  }
+
+  initCookieConsent();
+</script>
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--color-surface, #fff);
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    padding: var(--space-md, 16px) 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .cookie-consent.hidden {
+    display: none;
+  }
+
+  .cookie-consent-exit {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+
+  .cookie-consent-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg, 24px);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md, 16px);
+    flex-wrap: wrap;
+  }
+
+  .cookie-consent-text {
+    flex: 1;
+    min-width: 240px;
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--color-text, #1f2937);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cookie-link {
+    color: var(--color-accent, #d97706);
+    text-decoration: underline;
+    font-weight: 500;
+    margin-left: 4px;
+  }
+
+  .cookie-consent-actions {
+    display: flex;
+    gap: var(--space-sm, 8px);
+    flex-shrink: 0;
+  }
+
+  .cookie-btn {
+    padding: 8px 20px;
+    border-radius: var(--radius-sm, 6px);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+
+  .cookie-btn-accept {
+    background: var(--color-accent, #d97706);
+    color: #fff;
+    border-color: var(--color-accent, #d97706);
+  }
+
+  .cookie-btn-accept:hover {
+    filter: brightness(1.1);
+  }
+
+  .cookie-btn-reject {
+    background: transparent;
+    color: var(--color-text-secondary, #6b7280);
+    border-color: var(--color-border, #e5e7eb);
+  }
+
+  .cookie-btn-reject:hover {
+    background: var(--color-border-light, #f3f4f6);
+  }
+
+  @media (max-width: 640px) {
+    .cookie-consent-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cookie-consent-actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .cookie-btn {
+      width: 100%;
+    }
+  }
+</style>

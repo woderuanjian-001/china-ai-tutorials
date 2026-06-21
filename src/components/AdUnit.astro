@@ -1,0 +1,62 @@
+---
+// AdUnit.astro — 手动广告位组件
+// 在页面中插入：<AdUnit slot="article-top" />
+// slot 参数区分不同位置的广告位（便于在 AdSense 后台分析效果）
+
+export interface Props {
+  slot?: string; // 广告位标识，如 "article-top"、"sidebar"、"footer"
+  format?: "auto" | "rectangle" | "horizontal" | "vertical";
+}
+
+const { slot = "default", format = "auto" } = Astro.props;
+const { adsense, base } = await import("../config").then((m) => m.SITE_CONFIG);
+
+// 仅当 AdSense 启用时渲染
+const show = adsense.enabled && adsense.publisherId !== "pub-0000000000000000";
+---
+
+{show && (
+  <div class="ad-container" data-ad-slot={slot}>
+    <div class="ad-label">Advertisement</div>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={`ca-${adsense.publisherId}`}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    ></ins>
+    <script>
+      {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+    </script>
+  </div>
+)}
+
+<style>
+  .ad-container {
+    margin: var(--space-2xl, 40px) auto;
+    text-align: center;
+    max-width: 800px;
+    min-height: 100px;
+    background: var(--color-surface, #f9fafb);
+    border: 1px dashed var(--color-border, #e5e7eb);
+    border-radius: var(--radius-md, 8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .ad-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted, #9ca3af);
+    padding: 8px 0 4px;
+  }
+
+  .adsbygoogle {
+    min-height: 90px;
+  }
+</style>

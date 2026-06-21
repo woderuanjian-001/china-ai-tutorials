@@ -1,6 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AdSense from "../components/AdSense.astro";
+import Analytics from "../components/Analytics.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 import "../styles/global.css";
 
 export interface Props {
@@ -28,6 +31,8 @@ const { currentPath = Astro.url?.pathname || "/" } = Astro.props;
       rel="stylesheet"
     />
     <slot name="head" />
+    <AdSense />
+    <Analytics />
   </head>
   <body>
     <Header currentPath={currentPath} />
@@ -35,5 +40,6 @@ const { currentPath = Astro.url?.pathname || "/" } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>
