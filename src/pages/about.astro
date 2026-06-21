@@ -6,8 +6,8 @@ import SEO from "../components/SEO.astro";
 <BaseLayout currentPath="/about/">
   <SEO
     slot="head"
-    title="About Us"
-    description="China AI Tutorials helps global developers learn to use Chinese AI tools. Learn about our mission and team."
+    title="About China AI Tutorials"
+    description="China AI Tutorials — The largest English-language resource for learning Chinese AI tools. 100 in-depth tutorials covering DeepSeek, Kimi, Qwen, Doubao, ZhipuAI, Xiaomi, Kuaishou, and more."
   />
 
   <section class="section">
@@ -15,40 +15,81 @@ import SEO from "../components/SEO.astro";
       <h1 class="page-title">About China AI Tutorials</h1>
 
       <div class="prose">
-        <h2>Our Mission</h2>
+        <h2>🌏 The Problem We Solve</h2>
         <p>
-          Chinese AI tools are evolving at an unprecedented pace. Products like DeepSeek, Kimi (Moonshot AI),
-          Qwen (Tongyi Qianwen), and Doubao have drawn significant global attention. Yet,
-          <strong>high-quality English tutorials remain critically scarce</strong>.
+          Chinese AI tools — DeepSeek, Kimi (Moonshot AI), Qwen (Alibaba Cloud), Doubao (ByteDance),
+          ZhipuAI, Xiaomi, Kuaishou — are advancing at an extraordinary pace. They now rival or
+          exceed Western alternatives in many benchmarks, often at a fraction of the cost.
         </p>
         <p>
-          Most Chinese-language tutorials are never translated into English, and the scattered
-          discussions in English-speaking communities often stay at a surface level.
-          China AI Tutorials was created to bridge this gap.
+          But there's a problem: <strong>high-quality English tutorials and documentation for
+          these tools are almost non-existent.</strong> Most official docs are Chinese-only.
+          English-speaking communities have scattered, surface-level discussions at best.
+          Developers who want to use these powerful tools face a massive language barrier.
+        </p>
+        <p>
+          <strong>China AI Tutorials exists to fix this.</strong> We are the most comprehensive
+          English-language resource for learning to use Chinese AI tools.
         </p>
 
-        <h2>What We Do</h2>
+        <h2>📚 What We Offer</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>🔬 100+ In-Depth Tutorials</h3>
+            <p>Every tutorial includes runnable, complete code examples tested against actual APIs. No armchair theory — everything works on your machine.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🌉 Chinese-English Bridge</h3>
+            <p>We dive deep into official Chinese documentation, developer communities, and GitHub repos — then present the knowledge in fluent, idiomatic technical English.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔄 Continuously Updated</h3>
+            <p>Chinese AI APIs evolve fast. Every tutorial carries a "Last updated" date, and we refresh content when APIs change, prices shift, or new features launch.</p>
+          </div>
+          <div class="feature-card">
+            <h3>⚖️ Independent & Unbiased</h3>
+            <p>No sponsored content. No affiliate agenda. All model comparisons and benchmark discussions are based on real, reproducible measurements.</p>
+          </div>
+          <div class="feature-card">
+            <h3>📐 From Zero to Production</h3>
+            <p>Tutorials organized by level: Beginner → Intermediate → Advanced. Whether you're writing your first API call or building a RAG pipeline, we have you covered.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🌍 Open to the World</h3>
+            <p>All tutorials are free. Code samples are MIT-licensed. The whole site is built as a static site for speed and accessibility.</p>
+          </div>
+        </div>
+
+        <h2>🎯 Who This Is For</h2>
         <ul>
-          <li><strong>In-depth tutorials</strong>: No armchair theory. Every tutorial includes runnable code examples, tested against the latest API versions.</li>
-          <li><strong>Chinese-English bridge</strong>: We dive into official Chinese documentation and community knowledge, then present it in fluent, idiomatic English.</li>
-          <li><strong>Independent reviews</strong>: No sponsored content. All model comparisons are based on real, measured data.</li>
-          <li><strong>Continuously updated</strong>: Every tutorial is marked "Last updated: Month 202X." We refresh content promptly when APIs change.</li>
+          <li><strong>Software Developers</strong> who want to integrate Chinese AI APIs into their applications.</li>
+          <li><strong>AI/ML Engineers</strong> exploring cost-effective alternatives to Western LLM providers.</li>
+          <li><strong>Technical Writers & Content Creators</strong> covering the global AI landscape.</li>
+          <li><strong>Students & Researchers</strong> needing hands-on, practical AI tutorials.</li>
+          <li><strong>Startup Founders</strong> evaluating AI infrastructure options.</li>
         </ul>
 
-        <h2>Our Story</h2>
+        <h2>🛠 The Tech Behind This Site</h2>
         <p>
-          The site founder is a developer familiar with the Chinese AI ecosystem. While using these tools,
-          they noticed that most of the friction overseas developers encountered when integrating Chinese AI APIs
-          stemmed from a lack of clear English documentation.
+          Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> —
+          a modern static site generator that produces near-zero JavaScript by default.
+          Styled with <a href="https://tailwindcss.com" target="_blank" rel="noopener">Tailwind CSS</a>
+          and <a href="https://daisyui.com" target="_blank" rel="noopener">daisyUI</a>.
+          Full-text search powered by <a href="https://pagefind.app" target="_blank" rel="noopener">Pagefind</a>.
+          All content written in Markdown with code syntax highlighting via Shiki.
+          Deployed on GitHub Pages with automatic CI/CD.
         </p>
         <p>
-          And so, in June 2026, China AI Tutorials was born.
+          The design follows a warm, reading-focused aesthetic inspired by high-quality
+          editorial websites — cream backgrounds, serif display type, and amber accents
+          that are comfortable for long reading sessions.
         </p>
 
-        <h2>Contact Us</h2>
+        <h2>📬 Get In Touch</h2>
         <p>
-          If you have tutorial suggestions, spot an error, or want to collaborate, feel free to visit the
-          <a href="/contact/">contact page</a> or email us at <code>hello@china-ai-tutorials.com</code>.
+          Have a tutorial idea? Found a bug? Want to collaborate?
+          <a href="/contact/">Send us a message</a> or email
+          <a href="mailto:hello@china-ai-tutorials.com">hello@china-ai-tutorials.com</a>.
         </p>
       </div>
     </div>
@@ -61,10 +102,49 @@ import SEO from "../components/SEO.astro";
 
   .prose h2 {
     color: var(--color-accent);
-    margin-top: var(--space-xl);
+    margin-top: var(--space-2xl);
   }
 
   .prose ul {
     margin-left: var(--space-lg);
+  }
+
+  .prose li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+  }
+
+  .feature-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+
+  .feature-card h3 {
+    margin-top: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .feature-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -7,23 +7,93 @@ import SEO from "../components/SEO.astro";
   <SEO
     slot="head"
     title="Terms of Service"
-    description="China AI Tutorials Terms of Service"
+    description="China AI Tutorials Terms of Service — Content usage, disclaimers, and user responsibilities."
   />
 
   <section class="section">
     <div class="container">
       <h1 class="page-title">Terms of Service</h1>
-      <p class="updated">Last updated: June 20, 2026</p>
+      <p class="updated">Last updated: June 21, 2026</p>
 
       <div class="prose">
-        <h2>1. Content Usage</h2>
-        <p>All tutorial content on this website (including code samples) may be freely used for learning and personal projects. Commercial reproduction requires attribution and permission obtained by contacting us.</p>
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using China AI Tutorials (<code>china-ai-tutorials.com</code>), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use this website.</p>
 
-        <h2>2. Disclaimer</h2>
-        <p>The availability, pricing, and terms of service of third-party APIs mentioned in the tutorials (such as DeepSeek, Kimi, Qwen, Doubao, etc.) may change at any time. We strive to keep the content up to date but do not guarantee absolute accuracy of the information. Please refer to the latest official documentation before using any third-party API.</p>
+        <h2>2. Content Usage</h2>
+        <p>All tutorial content on this website, including but not limited to text, code samples, images, and diagrams, is provided for educational purposes. You may:</p>
+        <ul>
+          <li><strong>✅ Freely use</strong> code samples in your personal and commercial projects without attribution.</li>
+          <li><strong>✅ Share</strong> links to our tutorials on social media, forums, and other platforms.</li>
+          <li><strong>✅ Translate</strong> our tutorials into other languages, provided you link back to the original.</li>
+        </ul>
+        <p>You may <strong>NOT</strong>:</p>
+        <ul>
+          <li>❌ Reproduce entire tutorials verbatim on other websites without permission.</li>
+          <li>❌ Claim our content as your own original work.</li>
+          <li>❌ Use our content for training AI/ML models without explicit written permission.</li>
+          <li>❌ Resell or redistribute our tutorials as part of a paid course or product.</li>
+        </ul>
 
-        <h2>3. External Links</h2>
-        <p>This website contains links to external websites. We assume no responsibility for the content or privacy policies of those websites.</p>
+        <h2>3. User Responsibilities</h2>
+        <p>When using this website, you agree to:</p>
+        <ul>
+          <li>Use the site in compliance with all applicable laws and regulations.</li>
+          <li>Not attempt to disrupt, damage, or gain unauthorized access to the website.</li>
+          <li>Not use automated means (bots, scrapers) to extract large amounts of content without permission.</li>
+          <li>Take responsibility for any code you implement based on our tutorials — test thoroughly before deploying to production.</li>
+        </ul>
+
+        <h2>4. Third-Party APIs Disclaimer</h2>
+        <p>Our tutorials frequently reference third-party APIs and services (such as DeepSeek, Kimi/Moonshot AI, Qwen/Alibaba Cloud, Doubao/ByteDance, ZhipuAI, Xiaomi, Kuaishou, and others). Please note:</p>
+        <ul>
+          <li>API availability, pricing, rate limits, and terms of service may change at any time without notice.</li>
+          <li>We strive to keep tutorial content current, but <strong>cannot guarantee</strong> the accuracy of API documentation, pricing, or availability at the time of your reading.</li>
+          <li>You are responsible for reviewing and complying with the terms of service of each third-party API you use.</li>
+          <li>API keys and credentials are your responsibility — never share them publicly or commit them to version control.</li>
+          <li>Usage of third-party APIs may incur costs — always check the pricing page before running code at scale.</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        <p>Unless otherwise stated:</p>
+        <ul>
+          <li>All tutorial text, explanations, and original code examples are the intellectual property of China AI Tutorials.</li>
+          <li>Tutorial content is protected by international copyright laws.</li>
+          <li>Third-party trademarks, logos, and brand names mentioned in tutorials belong to their respective owners.</li>
+          <li>Code snippets embedded in tutorials are licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a> — you are free to use them however you wish.</li>
+        </ul>
+
+        <h2>6. Limitation of Liability</h2>
+        <p><strong>Important — Please read carefully:</strong></p>
+        <ul>
+          <li>The tutorials and code samples on this site are provided <strong>"as is"</strong>, without warranty of any kind, express or implied.</li>
+          <li>China AI Tutorials and its authors shall not be held liable for any damages, losses, or costs arising from the use of information or code from this website.</li>
+          <li>This includes, but is not limited to: data loss, service disruption, financial loss, API cost overruns, or production incidents caused by implementing our code examples.</li>
+          <li>You are solely responsible for testing and validating any code before using it in a production environment.</li>
+        </ul>
+
+        <h2>7. External Links</h2>
+        <p>This website contains links to external websites and resources. We:</p>
+        <ul>
+          <li>Do not control or endorse the content of external websites.</li>
+          <li>Assume no responsibility for the content, privacy policies, or practices of third-party websites.</li>
+          <li>Recommend reviewing the terms and privacy policies of any external site you visit.</li>
+        </ul>
+
+        <h2>8. Advertising Disclosure</h2>
+        <p>This website displays advertisements served by Google AdSense. Advertisements are clearly distinguished from tutorial content. We may earn revenue when visitors view or click on advertisements. Sponsored content, if any, will be clearly labeled as such.</p>
+
+        <h2>9. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms of Service at any time. Changes take effect immediately upon posting to this page. Your continued use of the website after changes are posted constitutes your acceptance of the revised terms. The "Last updated" date at the top of this page indicates when the terms were last revised.</p>
+
+        <h2>10. Governing Law</h2>
+        <p>These terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of this website shall be resolved through good-faith communication — please <a href="/contact/">contact us</a> first.</p>
+
+        <h2>11. Contact Information</h2>
+        <p>If you have questions about these Terms of Service, please contact us at:</p>
+        <ul>
+          <li>Email: <a href="mailto:hello@china-ai-tutorials.com">hello@china-ai-tutorials.com</a></li>
+          <li>Contact form: <a href="/contact/">Contact page</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -33,5 +103,7 @@ import SEO from "../components/SEO.astro";
   .section { padding: var(--space-2xl) 0; }
   .page-title { margin-top: 0; }
   .updated { color: var(--color-text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-xl); }
-  .prose h2 { color: var(--color-accent); margin-top: var(--space-xl); }
+  .prose h2 { color: var(--color-accent); margin-top: var(--space-2xl); }
+  .prose ul { margin-left: var(--space-lg); }
+  .prose li { margin-bottom: var(--space-sm); }
 </style>
