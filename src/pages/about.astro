@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SEO from "../components/SEO.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout currentPath="/about/">
@@ -88,7 +89,7 @@ import SEO from "../components/SEO.astro";
         <h2>📬 Get In Touch</h2>
         <p>
           Have a tutorial idea? Found a bug? Want to collaborate?
-          <a href="/contact/">Send us a message</a> or email
+          <a href={`${base}contact/`}>Send us a message</a> or email
           <a href="mailto:xy802165@gmail.com">xy802165@gmail.com</a>.
         </p>
       </div>

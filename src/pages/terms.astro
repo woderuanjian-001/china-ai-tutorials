@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SEO from "../components/SEO.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout currentPath="/terms/">
@@ -86,13 +87,13 @@ import SEO from "../components/SEO.astro";
         <p>We reserve the right to modify these Terms of Service at any time. Changes take effect immediately upon posting to this page. Your continued use of the website after changes are posted constitutes your acceptance of the revised terms. The "Last updated" date at the top of this page indicates when the terms were last revised.</p>
 
         <h2>10. Governing Law</h2>
-        <p>These terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of this website shall be resolved through good-faith communication — please <a href="/contact/">contact us</a> first.</p>
+        <p>These terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from the use of this website shall be resolved through good-faith communication — please <a href={`${base}contact/`}>contact us</a> first.</p>
 
         <h2>11. Contact Information</h2>
         <p>If you have questions about these Terms of Service, please contact us at:</p>
         <ul>
           <li>Email: <a href="mailto:xy802165@gmail.com">xy802165@gmail.com</a></li>
-          <li>Contact form: <a href="/contact/">Contact page</a></li>
+          <li>Contact form: <a href={`${base}contact/`}>Contact page</a></li>
         </ul>
       </div>
     </div>

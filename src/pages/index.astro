@@ -79,6 +79,8 @@ const categories = [
 // 平台数量（不含对比分类）
 const platformCount = categories.filter((c) => c.count > 0 && c.slug !== "comparison").length;
 
+const base = import.meta.env.BASE_URL;
+
 // 日期格式化
 function formatDate(d: Date): string {
   return d.toISOString().split("T")[0];
@@ -108,8 +110,8 @@ function formatDate(d: Date): string {
         <SearchBox />
       </div>
       <div class="hero-actions">
-        <a href="/tutorials/" class="btn-primary">Browse all tutorials</a>
-        <a href="/tutorials/china-ai-model-comparison-2026/" class="btn-secondary">Model comparison →</a>
+        <a href={`${base}tutorials/`} class="btn-primary">Browse all tutorials</a>
+        <a href={`${base}tutorials/china-ai-model-comparison-2026/`} class="btn-secondary">Model comparison →</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -134,7 +136,7 @@ function formatDate(d: Date): string {
       <h2 class="section-title">Learn by platform</h2>
       <div class="category-grid">
         {categories.map((cat) => (
-          <a href={`/tutorials/?category=${cat.slug}`} class="category-card">
+          <a href={`${base}tutorials/?category=${cat.slug}`} class="category-card">
             <span class="cat-emoji">{cat.emoji}</span>
             <div class="cat-body">
               <h3 class="cat-title">{cat.title}</h3>
@@ -152,12 +154,12 @@ function formatDate(d: Date): string {
     <div class="container-wide">
       <div class="section-header">
         <h2 class="section-title">Latest tutorials</h2>
-        <a href="/tutorials/" class="section-link">View all ({allTutorials.length}) →</a>
+        <a href={`${base}tutorials/`} class="section-link">View all ({allTutorials.length}) →</a>
       </div>
       <div class="article-grid">
         {featuredTutorials.map((tutorial) => (
           <article class="article-card">
-            <a href={`/tutorials/${tutorial.slug}/`} class="article-link">
+            <a href={`${base}tutorials/${tutorial.slug}/`} class="article-link">
               <div class="article-category">{tutorial.data.category}</div>
               <h3 class="article-title">{tutorial.data.title}</h3>
               <p class="article-desc">{tutorial.data.description}</p>
