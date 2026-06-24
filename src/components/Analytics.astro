@@ -1,23 +1,73 @@
 ---
-// Analytics.astro — Google Analytics (GA4) 组件
-// 修改 src/config.ts 中的 analytics 配置即可启用
+// ============================================================================
+// Analytics.astro — Google Analytics (GA4) 升级版
+// ============================================================================
+//
+// 相比原版的改进：
+// 1. ✅ 根据 Cookie 同意状态决定是否加载 GA4（合规）
+// 2. ✅ 用 Consent Mode v2 联动（拒绝时不发数据）
+// 3. ✅ 监听 consent 变化，用户事后同意能动态启动
+// 4. ✅ 改用 is:inline 避免 Astro 把 gtag 默认值编译掉（Consent Mode 必须早执行）
+// ============================================================================
+
 import { SITE_CONFIG } from "../config";
 const { enabled, measurementId } = SITE_CONFIG.analytics;
-
-// 预计算脚本内容，避免模板字符串嵌套问题
-const gtagScript = enabled ? `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${measurementId}', {
-  page_path: window.location.pathname,
-  send_page_view: true,
-});` : "";
 ---
 
 {enabled && (
   <>
-    <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
-    <script set:html={gtagScript}></script>
+    {/* ============================================================================
+        GA4 加载逻辑（受 cookie_consent_v2.analytics 控制）
+        ========================================================================== */}
+    <script is:inline define:vars={{ measurementId }}>
+      window.__loadGA = function () {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+
+        // 动态加载 gtag.js
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + measurementId;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag("js", new Date());
+        gtag("config", measurementId, {
+          page_path: window.location.pathname,
+          send_page_view: true,
+        });
+
+        // 同步当前同意状态到 Consent Mode
+        try {
+          const raw = localStorage.getItem("cookie_consent_v2");
+          if (raw) {
+            const c = JSON.parse(raw);
+            gtag("consent", "update", {
+              ad_storage: c.advertising ? "granted" : "denied",
+              ad_user_data: c.advertising ? "granted" : "denied",
+              ad_personalization: c.advertising ? "granted" : "denied",
+              analytics_storage: c.analytics ? "granted" : "denied",
+            });
+          }
+        } catch (e) {}
+      };
+
+      // 首次检查：如果用户已同意 analytics，立即加载
+      try {
+        const raw = localStorage.getItem("cookie_consent_v2");
+        if (raw) {
+          const c = JSON.parse(raw);
+          if (c.analytics) window.__loadGA();
+        }
+      } catch (e) {}
+
+      // 监听同意变化
+      window.addEventListener("cookie_consent_change", function (e) {
+        if (e.detail && e.detail.analytics) {
+          window.__loadGA();
+        }
+      });
+    </script>
   </>
 )}

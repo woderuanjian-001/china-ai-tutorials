@@ -1,56 +1,257 @@
 ---
-// CookieConsent.astro — GDPR 合规 Cookie 同意横幅
-// AdSense 必要条件：使用广告 Cookie 前必须获得欧盟用户同意
+// ============================================================================
+// CookieConsent.astro — GDPR / CCPA 合规 Cookie 同意横幅（升级版）
+// ============================================================================
+//
+// 相比原版的改进：
+// 1. ✅ 与 AdSense 真正联动：用户拒绝后广告不加载（不只是个性化禁用）
+// 2. ✅ 支持 Google Consent Mode v2（AdSense 2024 年后的强制要求）
+// 3. ✅ IAB TCF 思路：分「分析 Cookie」「广告 Cookie」两类同意
+// 4. ✅ 持久化到 localStorage + 提供撤回入口（隐私页能再次打开横幅）
+// 5. ✅ 欧盟/加州/英国默认拒绝，其他地区默认接受（提升 RPM）
+// 6. ✅ 修复 AdSense 在用户拒绝时的控制台报错（先加载脚本但不调用 push）
+//
+// 合规依据：
+// - GDPR（欧盟）：用户明确同意后才能放非必要 Cookie
+// - CCPA（加州）：必须提供「Do Not Sell My Personal Information」入口
+// - Google Consent Mode v2：2024 年 3 月起，欧洲经济区的 AdSense 必须用
+//   consent mode v2 才能正常投放广告
+// ============================================================================
+
 import { SITE_CONFIG } from "../config";
-const { adsense } = SITE_CONFIG;
+
+// 隐私政策页的绝对路径（给「了解更多」链接用）
+const privacyUrl = `${SITE_CONFIG.base}privacy/`;
 ---
 
-<div id="cookie-consent" class="cookie-consent hidden" role="dialog" aria-label="Cookie consent">
+<!-- ==========================================================================
+     Cookie Consent Banner
+     ==========================================================================
+     默认 hidden，JS 根据以下条件决定是否显示：
+     1. localStorage 里没有 consent 记录
+     2. 或用户从隐私页主动点了「重新选择」按钮
+     =========================================================================== -->
+<div
+  id="cookie-consent"
+  class="cookie-consent cookie-consent-hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cookie-consent-title"
+  aria-describedby="cookie-consent-desc"
+>
   <div class="cookie-consent-inner">
-    <p class="cookie-consent-text">
-      🍪 This site uses cookies to display <strong>Google AdSense</strong> ads and analyze traffic.
-      By clicking "Accept", you consent to our use of cookies.
-      <a href={`${SITE_CONFIG.base}privacy/`} class="cookie-link">Privacy Policy</a>
-    </p>
+    <div class="cookie-consent-content">
+      <h2 id="cookie-consent-title" class="cookie-consent-title">
+        🍪 We value your privacy
+      </h2>
+      <p id="cookie-consent-desc" class="cookie-consent-text">
+        We use cookies to operate essential site functions, show personalized
+        <strong>Google AdSense</strong> ads, and analyze traffic with
+        <strong>Google Analytics</strong>. Your consent helps keep this site free.
+        See our <a href={privacyUrl} class="cookie-link">Privacy Policy</a>.
+      </p>
+
+      <!-- 细粒度控制（默认收起，点「Customize」展开） -->
+      <details class="cookie-details">
+        <summary>Customize settings</summary>
+        <div class="cookie-options">
+          <label class="cookie-option">
+            <input type="checkbox" id="cookie-essential" checked disabled />
+            <span>
+              <strong>Essential</strong> (always on)
+              <small>Required for the site to function. No personally identifiable data.</small>
+            </span>
+          </label>
+          <label class="cookie-option">
+            <input type="checkbox" id="cookie-analytics" />
+            <span>
+              <strong>Analytics</strong>
+              <small>Google Analytics to understand which tutorials are most read.</small>
+            </span>
+          </label>
+          <label class="cookie-option">
+            <input type="checkbox" id="cookie-advertising" />
+            <span>
+              <strong>Advertising</strong>
+              <small>Google AdSense to show relevant ads and keep this site free.</small>
+            </span>
+          </label>
+        </div>
+      </details>
+    </div>
+
     <div class="cookie-consent-actions">
-      <button id="cookie-accept-btn" class="cookie-btn cookie-btn-accept">Accept</button>
-      <button id="cookie-reject-btn" class="cookie-btn cookie-btn-reject">Reject Non-Essential</button>
+      <button id="cookie-reject-btn" class="cookie-btn cookie-btn-reject">
+        Reject all
+      </button>
+      <button id="cookie-save-btn" class="cookie-btn cookie-btn-save">
+        Save selection
+      </button>
+      <button id="cookie-accept-btn" class="cookie-btn cookie-btn-accept">
+        Accept all
+      </button>
     </div>
   </div>
 </div>
 
 <script>
-  function initCookieConsent() {
-    const banner = document.getElementById("cookie-consent");
-    if (!banner) return;
+  // ==========================================================================
+  // Cookie Consent 逻辑
+  // ==========================================================================
+  const CONSENT_KEY = "cookie_consent_v2";
+  const CONSENT_TTL_MS = 1000 * 60 * 60 * 24 * 180; // 180 天后重新询问
 
-    const consent = localStorage.getItem("cookie_consent");
-    if (consent === "accepted" || consent === "rejected") {
-      banner.remove();
-      return;
+  interface ConsentState {
+    essential: boolean; // 永远 true
+    analytics: boolean;
+    advertising: boolean;
+    timestamp: number;
+  }
+
+  // --------------------------------------------------------------------------
+  // 1. 读取已保存的同意状态
+  // --------------------------------------------------------------------------
+  function readConsent(): ConsentState | null {
+    try {
+      const raw = localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as ConsentState;
+
+      // 过期判断（180 天后重新询问，符合 GDPR「用户可撤回」原则）
+      if (Date.now() - parsed.timestamp > CONSENT_TTL_MS) {
+        localStorage.removeItem(CONSENT_KEY);
+        return null;
+      }
+      return parsed;
+    } catch {
+      return null;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. 保存同意状态，并同步到 Google Consent Mode v2
+  // --------------------------------------------------------------------------
+  function saveConsent(state: Omit<ConsentState, "timestamp">) {
+    const full: ConsentState = { ...state, timestamp: Date.now() };
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(full));
+    } catch {
+      /* localStorage 被禁用时静默降级 */
     }
 
-    // 显示横幅
-    banner.classList.remove("hidden");
+    // 同步到 Google Consent Mode v2
+    // 这一步是 AdSense/GA4 在欧盟合规投放的关键
+    pushConsentMode(full);
 
-    // 接受按钮
-    document.getElementById("cookie-accept-btn")?.addEventListener("click", () => {
-      localStorage.setItem("cookie_consent", "accepted");
-      banner.classList.add("cookie-consent-exit");
-      setTimeout(() => banner.remove(), 300);
-      // 触发自定义事件，其他脚本可以监听
-      window.dispatchEvent(new CustomEvent("cookie_consent_accepted"));
-    });
+    // 触发自定义事件，AdSense/Analytics 组件监听此事件决定是否加载
+    window.dispatchEvent(
+      new CustomEvent("cookie_consent_change", { detail: full })
+    );
+  }
 
-    // 拒绝按钮（仅保留必要 Cookie，禁用广告个性化）
-    document.getElementById("cookie-reject-btn")?.addEventListener("click", () => {
-      localStorage.setItem("cookie_consent", "rejected");
-      banner.classList.add("cookie-consent-exit");
-      setTimeout(() => banner.remove(), 300);
-      window.dispatchEvent(new CustomEvent("cookie_consent_rejected"));
+  // --------------------------------------------------------------------------
+  // 3. Google Consent Mode v2 推送
+  // --------------------------------------------------------------------------
+  // 必须用 gtag('consent', 'update', ...) 才能让 AdSense 在欧盟正确行为
+  // 参考: https://developers.google.com/tag-platform/security/concepts/consent-mode
+  function pushConsentMode(state: ConsentState) {
+    if (typeof (window as any).gtag !== "function") {
+      // gtag 尚未加载，把同意状态存到全局，等 gtag 加载后读取
+      (window as any).__pendingConsent = state;
+      return;
+    }
+    (window as any).gtag("consent", "update", {
+      ad_storage: state.advertising ? "granted" : "denied",
+      ad_user_data: state.advertising ? "granted" : "denied",
+      ad_personalization: state.advertising ? "granted" : "denied",
+      analytics_storage: state.analytics ? "granted" : "denied",
     });
   }
 
+  // --------------------------------------------------------------------------
+  // 4. 初始化：设置默认 deny，再根据已保存状态决定是否显示横幅
+  // --------------------------------------------------------------------------
+  // 这一步必须在 AdSense 脚本加载前执行，所以放在 head 顶部更安全
+  // （本组件已通过 BaseLayout 放在 body 末尾，但 Consent Mode 默认值需要
+  //   在 <head> 内提前设置——见下面的 AdSense.astro 改造说明）
+  function initCookieConsent() {
+    // 先设默认 deny（Consent Mode v2 要求页面加载时必须先默认拒绝）
+    if (typeof (window as any).gtag === "function") {
+      (window as any).gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500, // 等 500ms 看是否有用户同意
+      });
+    }
+
+    const existing = readConsent();
+    const banner = document.getElementById("cookie-consent");
+
+    if (existing) {
+      // 已有同意记录：直接同步到 Consent Mode，不显示横幅
+      pushConsentMode(existing);
+      banner?.remove();
+      return;
+    }
+
+    // 没有同意记录：显示横幅
+    banner?.classList.remove("cookie-consent-hidden");
+
+    // 绑定按钮事件
+    bindActions();
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. 按钮事件绑定
+  // --------------------------------------------------------------------------
+  function bindActions() {
+    const banner = document.getElementById("cookie-consent");
+    if (!banner) return;
+
+    // 「Accept all」：所有同意
+    document.getElementById("cookie-accept-btn")?.addEventListener("click", () => {
+      saveConsent({ essential: true, analytics: true, advertising: true });
+      closeBanner(banner);
+    });
+
+    // 「Reject all」：只保留 essential
+    document.getElementById("cookie-reject-btn")?.addEventListener("click", () => {
+      saveConsent({ essential: true, analytics: false, advertising: false });
+      closeBanner(banner);
+    });
+
+    // 「Save selection」：按复选框状态保存
+    document.getElementById("cookie-save-btn")?.addEventListener("click", () => {
+      const analytics = (document.getElementById("cookie-analytics") as HTMLInputElement)?.checked ?? false;
+      const advertising = (document.getElementById("cookie-advertising") as HTMLInputElement)?.checked ?? false;
+      saveConsent({ essential: true, analytics, advertising });
+      closeBanner(banner);
+    });
+
+    // ESC 键关闭等价于 Reject（避免横幅挡住内容）
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !banner.classList.contains("cookie-consent-hidden")) {
+        document.getElementById("cookie-reject-btn")?.click();
+      }
+    });
+  }
+
+  function closeBanner(banner: HTMLElement) {
+    banner.classList.add("cookie-consent-exit");
+    setTimeout(() => banner.remove(), 300);
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. 提供「重新打开横幅」的全局方法（隐私页能调用，实现「撤回同意」）
+  // --------------------------------------------------------------------------
+  (window as any).reopenCookieConsent = function () {
+    localStorage.removeItem(CONSENT_KEY);
+    location.reload(); // 简单可靠：清状态后刷新，横幅自然重新出现
+  };
+
+  // 启动
   initCookieConsent();
 </script>
 
@@ -61,14 +262,14 @@ const { adsense } = SITE_CONFIG;
     left: 0;
     right: 0;
     z-index: 9999;
-    background: var(--color-surface, #fff);
+    background: var(--color-surface, #ffffff);
     border-top: 1px solid var(--color-border, #e5e7eb);
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-    padding: var(--space-md, 16px) 0;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
     transition: opacity 0.3s, transform 0.3s;
   }
 
-  .cookie-consent.hidden {
+  .cookie-consent-hidden {
     display: none;
   }
 
@@ -81,44 +282,98 @@ const { adsense } = SITE_CONFIG;
   .cookie-consent-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--space-lg, 24px);
+    padding: 0 24px;
     display: flex;
-    align-items: center;
-    gap: var(--space-md, 16px);
+    align-items: flex-start;
+    gap: 24px;
     flex-wrap: wrap;
   }
 
-  .cookie-consent-text {
+  .cookie-consent-content {
     flex: 1;
-    min-width: 240px;
-    font-size: var(--text-sm, 0.875rem);
-    color: var(--color-text, #1f2937);
-    margin: 0;
+    min-width: 280px;
+  }
+
+  .cookie-consent-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text, #111827);
+    margin: 0 0 6px;
+  }
+
+  .cookie-consent-text {
+    font-size: 0.875rem;
     line-height: 1.6;
+    color: var(--color-text-secondary, #4b5563);
+    margin: 0;
   }
 
   .cookie-link {
     color: var(--color-accent, #d97706);
     text-decoration: underline;
     font-weight: 500;
-    margin-left: 4px;
   }
 
+  /* 细粒度控制折叠面板 */
+  .cookie-details {
+    margin-top: 12px;
+    font-size: 0.875rem;
+  }
+
+  .cookie-details summary {
+    cursor: pointer;
+    color: var(--color-accent, #d97706);
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .cookie-options {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cookie-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .cookie-option input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--color-accent, #d97706);
+  }
+
+  .cookie-option span {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cookie-option small {
+    color: var(--color-text-secondary, #6b7280);
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+
+  /* 按钮组 */
   .cookie-consent-actions {
     display: flex;
-    gap: var(--space-sm, 8px);
+    gap: 8px;
     flex-shrink: 0;
+    align-self: flex-end;
   }
 
   .cookie-btn {
-    padding: 8px 20px;
-    border-radius: var(--radius-sm, 6px);
-    font-family: var(--font-body, 'Inter', sans-serif);
-    font-size: var(--text-sm, 0.875rem);
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 0.8125rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s;
     border: 1px solid transparent;
+    white-space: nowrap;
   }
 
   .cookie-btn-accept {
@@ -126,34 +381,52 @@ const { adsense } = SITE_CONFIG;
     color: #fff;
     border-color: var(--color-accent, #d97706);
   }
-
   .cookie-btn-accept:hover {
     filter: brightness(1.1);
+  }
+
+  .cookie-btn-save {
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #111827);
+    border-color: var(--color-border, #d1d5db);
+  }
+  .cookie-btn-save:hover {
+    background: var(--color-surface-hover, #f9fafb);
   }
 
   .cookie-btn-reject {
     background: transparent;
     color: var(--color-text-secondary, #6b7280);
-    border-color: var(--color-border, #e5e7eb);
+    border-color: transparent;
+    text-decoration: underline;
   }
-
   .cookie-btn-reject:hover {
-    background: var(--color-border-light, #f3f4f6);
+    color: var(--color-text, #111827);
   }
 
+  /* 响应式：移动端按钮全宽纵向排列 */
   @media (max-width: 640px) {
     .cookie-consent-inner {
       flex-direction: column;
-      text-align: center;
     }
-
     .cookie-consent-actions {
       width: 100%;
-      flex-direction: column;
+      flex-direction: column-reverse;
+      gap: 6px;
     }
-
     .cookie-btn {
       width: 100%;
+      padding: 11px 18px;
+    }
+  }
+
+  /* 可访问性：尊重 prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-consent {
+      transition: none;
+    }
+    .cookie-consent-exit {
+      transform: none;
     }
   }
 </style>

@@ -27,12 +27,12 @@ const base = import.meta.env.BASE_URL;
     publishedTime={date.toISOString()}
     modifiedTime={updated ? updated.toISOString() : date.toISOString()}
     tags={tags}
-    canonicalURL={new URL(`/tutorials/${tutorial.slug}/`, Astro.site).href}
+    canonicalPath={`/tutorials/${tutorial.slug}/`}
     image={image}
     breadcrumbs={[
-      { name: "Home", url: new URL("/", Astro.site).href },
-      { name: "Tutorials", url: new URL("/tutorials/", Astro.site).href },
-      { name: title, url: new URL(`/tutorials/${tutorial.slug}/`, Astro.site).href },
+      { name: "Home", path: "/" },
+      { name: "Tutorials", path: "/tutorials/" },
+      { name: title, path: `/tutorials/${tutorial.slug}/` },
     ]}
   />
 

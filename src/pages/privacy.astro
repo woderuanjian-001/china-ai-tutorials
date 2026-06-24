@@ -64,6 +64,16 @@ const base = import.meta.env.BASE_URL;
         </ul>
         <p>Note: Opting out of personalized ads does not mean you will stop seeing ads — you will still see ads, but they will not be based on your interests.</p>
 
+        {/* 撤回 Cookie 同意：GDPR/CCPA 强制要求「随时可撤回」 */}
+        <h3>2.5 Withdraw Your Consent</h3>
+        <p>You can change your cookie preferences at any time by clicking the button below. This will re-display the consent banner so you can re-choose your settings.</p>
+        <div class="consent-withdraw">
+          <button id="withdraw-consent-btn" type="button" class="withdraw-btn">
+            🍪 Reopen Cookie Settings
+          </button>
+          <span id="consent-status" class="consent-status"></span>
+        </div>
+
         <h2>3. GDPR Compliance (EU/EEA Users)</h2>
         <p>If you are located in the European Union or European Economic Area, you have the following rights under the General Data Protection Regulation (GDPR):</p>
         <ul>
@@ -105,6 +115,44 @@ const base = import.meta.env.BASE_URL;
   </section>
 </BaseLayout>
 
+{/* 撤回按钮交互脚本：调用 CookieConsent 组件暴露的全局方法 */}
+<script is:inline>
+  (function () {
+    const btn = document.getElementById("withdraw-consent-btn");
+    const status = document.getElementById("consent-status");
+    if (!btn || !status) return;
+
+    // 显示当前同意状态
+    function showStatus() {
+      try {
+        const raw = localStorage.getItem("cookie_consent_v2");
+        if (raw) {
+          const c = JSON.parse(raw);
+          const parts = [];
+          parts.push("Analytics: " + (c.analytics ? "✅ on" : "❌ off"));
+          parts.push("Advertising: " + (c.advertising ? "✅ on" : "❌ off"));
+          status.textContent = "Current: " + parts.join(" · ");
+        } else {
+          status.textContent = "Current: not yet decided";
+        }
+      } catch (e) {
+        status.textContent = "";
+      }
+    }
+
+    showStatus();
+    btn.addEventListener("click", function () {
+      if (typeof window.reopenCookieConsent === "function") {
+        window.reopenCookieConsent(); // 清状态 + 刷新页面
+      } else {
+        // 兜底：直接清状态刷新
+        try { localStorage.removeItem("cookie_consent_v2"); } catch (e) {}
+        location.reload();
+      }
+    });
+  })();
+</script>
+
 <style>
   .section { padding: var(--space-2xl) 0; }
   .page-title { margin-top: 0; }
@@ -113,4 +161,31 @@ const base = import.meta.env.BASE_URL;
   .prose h3 { margin-top: var(--space-lg); font-size: var(--text-lg); }
   .prose ul { margin-left: var(--space-lg); }
   .prose li { margin-bottom: var(--space-sm); }
+
+  /* Cookie 同意撤回区 */
+  .consent-withdraw {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg);
+    background: var(--color-surface-hover, #f9fafb);
+    border-left: 3px solid var(--color-accent, #d97706);
+    border-radius: 6px;
+  }
+  .withdraw-btn {
+    padding: 10px 20px;
+    background: var(--color-accent, #d97706);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.15s;
+  }
+  .withdraw-btn:hover { filter: brightness(1.1); }
+  .consent-status {
+    display: block;
+    margin-top: var(--space-sm);
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #6b7280);
+  }
 </style>
