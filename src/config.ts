@@ -31,8 +31,8 @@ export const SITE_CONFIG = {
   // === Google Analytics（⭐ 需手动填入） ===
   // 从 analytics.google.com → 管理 → 数据流 → 衡量 ID 获取（格式 G-XXXXXXXXXX）
   analytics: {
-    enabled: false, // 创建 GA 账号后改为 true
-    measurementId: "G-XXXXXXXXXX", // 替换为你的真实衡量 ID
+    enabled: true,
+    measurementId: "G-PGBSXEQEWK",
   },
 } as const;
 
