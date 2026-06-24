@@ -239,7 +239,235 @@ Please analyze each dimension independently, then provide a summary."""
 # Kimi will automatically decompose complex tasks into sub-agents for parallel processing
 ```
 
-## Kimi Model Selection Guide
+## Step 8: File API — Upload and Process Documents
+
+Kimi's File API lets you upload documents for persistent processing across sessions:
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ.get("MOONSHOT_API_KEY"),
+    base_url="https://api.moonshot.cn/v1",
+)
+
+# Step 1: Upload a file
+with open("research_paper.pdf", "rb") as f:
+    file_obj = client.files.create(
+        file=f,
+        purpose="file-extract",  # Extract text from PDF/Word/PPT/Excel
+    )
+
+file_id = file_obj.id
+print(f"File uploaded: {file_id}")
+
+# Step 2: Check file status
+file_status = client.files.retrieve(file_id)
+print(f"Status: {file_status.status}, Size: {file_status.bytes} bytes")
+
+# Step 3: Use the file in a conversation
+response = client.chat.completions.create(
+    model="kimi-k2.6",
+    messages=[
+        {
+            "role": "system",
+            "content": f"file id: {file_id}\n\nRead and analyze the uploaded document carefully."
+        },
+        {"role": "user", "content": "Summarize the key findings of this research paper."}
+    ],
+    temperature=0.2,
+    max_tokens=2048,
+)
+
+print(response.choices[0].message.content)
+
+# Step 4: Clean up (optional — files auto-expire after 7 days)
+client.files.delete(file_id)
+```
+
+### Supported File Formats
+
+| Category | Formats | Max Size |
+|----------|---------|----------|
+| Documents | PDF, DOCX, TXT, MD | 100 MB |
+| Spreadsheets | XLSX, CSV | 100 MB |
+| Presentations | PPTX | 100 MB |
+| Images | PNG, JPG, WEBP | 20 MB |
+| Code | .py, .js, .ts, .java, .go, .rs, etc. | 10 MB |
+
+## Step 9: Production Error Handling
+
+```python
+import time
+from openai import (
+    OpenAI,
+    RateLimitError,
+    APITimeoutError,
+    APIConnectionError,
+    APIError,
+)
+
+def call_kimi_safely(messages, model="kimi-k2.6", max_retries=3):
+    """Kimi API call with intelligent retry."""
+    for attempt in range(max_retries):
+        try:
+            return client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=0.3,
+                max_tokens=4096,
+                timeout=60.0,
+            )
+
+        except RateLimitError:
+            wait = min(2 ** attempt * 5, 60)  # Kimi rate limits can be strict
+            print(f"Rate limited. Waiting {wait}s...")
+            time.sleep(wait)
+
+        except APITimeoutError:
+            # Long documents may need more time
+            print(f"Timeout — Kimi processing large context. Retrying with longer timeout...")
+            continue
+
+        except APIConnectionError:
+            time.sleep(2 ** attempt)
+            continue
+
+        except APIError as e:
+            if e.status_code and e.status_code == 413:
+                raise RuntimeError(
+                    "Content too large. Split your document into smaller chunks "
+                    "or use Kimi's File API for large files."
+                )
+            if e.status_code and 400 <= e.status_code < 500:
+                raise  # Client error — don't retry
+            time.sleep(2 ** attempt)
+
+    raise RuntimeError(f"Kimi API call failed after {max_retries} attempts")
+```
+
+## Step 10: Real-World Document QA Pipeline
+
+A complete pipeline for answering questions about long documents:
+
+```python
+class KimiDocumentQA:
+    """Production-grade document Q&A using Kimi's 256K context."""
+
+    def __init__(self):
+        self.client = OpenAI(
+            api_key=os.environ.get("MOONSHOT_API_KEY"),
+            base_url="https://api.moonshot.cn/v1",
+        )
+
+    def load_document(self, filepath: str) -> str:
+        """Load and prepare a document for Kimi."""
+        # For large PDFs/DOCXs, use the File API (Step 8)
+        if filepath.endswith(('.pdf', '.docx', '.pptx', '.xlsx')):
+            with open(filepath, "rb") as f:
+                file_obj = self.client.files.create(
+                    file=f,
+                    purpose="file-extract",
+                )
+            # Wait for processing
+            for _ in range(10):
+                status = self.client.files.retrieve(file_obj.id)
+                if status.status == "processed":
+                    return f"[FILE_ID:{file_obj.id}]"
+                time.sleep(1)
+            raise TimeoutError("File processing timed out")
+
+        # For text/markdown files, read directly
+        with open(filepath, "r", encoding="utf-8") as f:
+            return f.read()
+
+    def ask(self, document: str, question: str) -> dict:
+        """Ask a question about a document and get structured answer."""
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "You are a professional document analyst. "
+                    "Always cite specific sections/paragraphs in your answers. "
+                    "If uncertain, state your confidence level (High/Medium/Low)."
+                ),
+            },
+            {
+                "role": "user",
+                "content": f"""<document>{document}</document>
+
+Question: {question}
+
+Answer format:
+1. Direct answer (1-2 sentences)
+2. Supporting evidence (quote from document)
+3. Confidence level (High/Medium/Low)""",
+            },
+        ]
+
+        response = call_kimi_safely(messages)
+        return {
+            "answer": response.choices[0].message.content,
+            "tokens_used": response.usage.total_tokens,
+            "cost_estimate": f"~¥{response.usage.total_tokens * 2 / 1_000_000:.4f}",
+        }
+
+# Usage
+qa = KimiDocumentQA()
+doc = qa.load_document("annual_report.txt")
+result = qa.ask(doc, "What was the revenue growth rate in Q3?")
+print(f"Answer: {result['answer']}")
+print(f"Cost: {result['cost_estimate']}")
+```
+
+## Step 11: Context Window Optimization
+
+Kimi's 256K context is powerful but expensive. Optimize for cost:
+
+```python
+def estimate_tokens(text: str) -> int:
+    """Rough token count (Chinese: ~1.5 chars/token, English: ~4 chars/token)"""
+    chinese_chars = sum(1 for c in text if '一' <= c <= '鿿')
+    other_chars = len(text) - chinese_chars
+    return int(chinese_chars / 1.5 + other_chars / 4)
+
+def optimize_context(document: str, max_tokens: int = 100_000) -> str:
+    """Truncate document to fit within budget while preserving key content."""
+
+    tokens = estimate_tokens(document)
+    if tokens <= max_tokens:
+        return document
+
+    # Strategy: keep beginning (executive summary) + end (conclusions)
+    # Middle sections are often detailed methodology that can be summarized
+    ratio = max_tokens / tokens
+    keep_chars = int(len(document) * ratio)
+
+    # Keep first 40% (summary/intro) + last 20% (conclusions)
+    head_chars = int(keep_chars * 0.67)
+    tail_chars = keep_chars - head_chars
+
+    return (
+        document[:head_chars]
+        + f"\n\n[... {tokens - max_tokens:,} tokens trimmed for budget ...]\n\n"
+        + document[-tail_chars:]
+    )
+
+# Example: Process a 500K-token document on a 100K-token budget
+long_doc = open("massive_report.txt").read()
+optimized = optimize_context(long_doc, max_tokens=100_000)
+print(f"Original: {estimate_tokens(long_doc):,} tokens → Optimized: {estimate_tokens(optimized):,} tokens")
+```
+
+| Strategy | Cost Impact | Quality Impact |
+|----------|-------------|----------------|
+| Remove boilerplate | -15% cost | None |
+| Use File API for large docs | -30% cost | None |
+| Truncate to relevant sections | -50% cost | Low (if done carefully) |
+| Use kimi-k2-lite for simple queries | -75% cost | Medium (simpler tasks only) |
+
+## Kimi vs Other Chinese AI Models
 
 | Model | Context | Best Use | Price |
 |------|--------|----------|------|

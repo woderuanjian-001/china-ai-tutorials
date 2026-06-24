@@ -222,6 +222,113 @@ user_message = "Please answer in no more than 200 words..."
 
 ---
 
+## International Payment Methods — How Overseas Users Pay
+
+This is the #1 pain point for international developers. Here's the reality:
+
+| Provider | Intl Credit Card | PayPal | Alipay | WeChat Pay | Crypto | Notes |
+|----------|:---:|:---:|:---:|:---:|:---:|-------|
+| **DeepSeek** | ✅ | ❌ | ✅ | ✅ | ❌ | Top-up model; $2 minimum |
+| **Kimi** | ✅ (Intl edition) | ❌ | ✅ | ✅ | ❌ | Separate China/intl platforms |
+| **Qwen** | ⚠️ (Intl edition) | ❌ | ✅ | ❌ | ❌ | Intl edition requires business verification |
+| **Doubao** | ❌ | ❌ | ✅ | ✅ | ❌ | China-only payment for now |
+| **Zhipu GLM** | ✅ | ❌ | ✅ | ✅ | ❌ | Supports international cards |
+| **MiniMax** | ✅ | ❌ | ✅ | ✅ | ❌ | International-friendly |
+| **01.AI (Yi)** | ✅ | ❌ | ✅ | ✅ | ❌ | Supports international cards |
+| **Baichuan** | ❌ | ❌ | ✅ | ✅ | ❌ | China-only |
+| **iFlytek Spark** | ❌ | ❌ | ✅ | ✅ | ❌ | China-only |
+| **Tencent Hunyuan** | ⚠️ | ❌ | ✅ | ✅ | ❌ | Intl requires Tencent Cloud Intl account |
+
+<div class="callout callout-warning">
+⚠️ <strong>Key takeaway for international users</strong>: DeepSeek, Kimi (intl), Zhipu GLM, MiniMax, and 01.AI are the only options that work with international credit cards right now. Most providers require Alipay/WeChat Pay — which need a Chinese bank account.
+</div>
+
+### Workarounds for China-Only Payment
+
+1. **Ask a Chinese friend** to top up your account (most common solution)
+2. **Use a proxy service** (WildCard, VPay — service fees apply, ~3-5%)
+3. **Stick to free quotas** — DeepSeek (5M), GLM-4-Flash (¥0.1/M), Kimi (2M chars free)
+4. **Use international-friendly providers** as your primary API
+
+---
+
+## Hidden Costs Most Tutorials Don't Mention
+
+### 1. Context Window ≠ What You Pay For
+
+When you send a 100K-token document, you pay for ALL 100K input tokens — even if the model only needs the first 10K. This is the biggest hidden cost:
+
+```
+Example: Processing a 200-page PDF with Kimi K2.6
+- If you send all 200 pages: 256K input tokens × ¥2/M = ¥0.51 per query
+- If you pre-filter to relevant 10 pages: 13K input tokens × ¥2/M = ¥0.03 per query
+→ 17x cost difference per query!
+```
+
+### 2. Output Token Waste
+
+Models tend to over-explain unless constrained:
+
+```
+Without max_tokens:  8000 output tokens  →  ¥0.032 (DeepSeek)
+With max_tokens=500:   500 output tokens  →  ¥0.002 (DeepSeek)
+→ 16x cost difference per call!
+```
+
+### 3. System Prompt Costs
+
+Your system prompt is counted as input tokens on EVERY call:
+
+```
+System prompt: 500 tokens
+× 10,000 API calls/day
+= 5M wasted tokens/day = ¥5/day (at ¥1/M)
+= ¥1,825/year on just the system prompt!
+```
+
+<div class="callout callout-tip">
+💡 <strong>Fix</strong>: Keep system prompts under 100 tokens. Move detailed instructions to the first user message (which can be cached between calls).
+</div>
+
+### 4. Image Token Cost Multiplier
+
+Vision models bill images differently — 1 image can cost 500-1500 tokens:
+
+| Model | 512×512 image | 1024×1024 image | 2048×2048 image |
+|-------|:---:|:---:|:---:|
+| Qwen-VL-Plus | ~300 tokens | ~600 tokens | ~1200 tokens |
+| GLM-4V | ~500 tokens | ~1000 tokens | ~2000 tokens |
+| Kimi K2.5 | ~400 tokens | ~800 tokens | ~1600 tokens |
+
+<div class="callout callout-info">
+📝 <strong>Cost tip</strong>: Resize images to 512×512 before sending to vision APIs. You'll save 60-75% without losing meaningful detail for most use cases.
+</div>
+
+---
+
+## Regional Availability and Latency
+
+| Provider | China Server | Singapore Server | US Server | Notes |
+|----------|:---:|:---:|:---:|-------|
+| DeepSeek | ✅ | ❌ | ❌ | All traffic routes through China |
+| Kimi | ✅ (moonshot.cn) | ✅ (moonshot.ai) | ❌ | Intl users get SG routing |
+| Qwen | ✅ (dashscope) | ✅ (dashscope-intl) | ❌ | Two separate endpoints |
+| Zhipu GLM | ✅ | ❌ | ❌ | China-only infrastructure |
+| Doubao | ✅ | ❌ | ❌ | Volcano Engine (China regions only) |
+
+**Latency from outside China:**
+
+| From | To DeepSeek (CN) | To Kimi Intl (SG) | To Qwen Intl (SG) |
+|------|:---:|:---:|:---:|
+| US West | ~250ms | ~180ms | ~180ms |
+| Europe | ~350ms | ~200ms | ~200ms |
+| Southeast Asia | ~100ms | ~30ms | ~30ms |
+| Japan/Korea | ~80ms | ~80ms | ~80ms |
+
+<div class="callout callout-warning">
+⚠️ <strong>Streaming is essential for non-China users</strong>. Without streaming, a 250ms RTT means the user waits ~2 seconds before seeing any response. Always use <code>stream=True</code>.
+</div>
+
 ## Price Trend (2024-2026)
 
 ```
