@@ -10,13 +10,11 @@ export const SITE_CONFIG = {
   // === 基本信息 ===
   name: "China AI Tutorials",
 
-  // ⭐ 站点根 URL（不带 base，末尾不要加 /）
-  //    如果绑定独立域名，改这里即可，例如：
-  //    url: "https://china-ai-tutorials.com"
-  url: "https://woderuanjian-001.github.io",
+  // ⭐ 站点根 URL（独立域名，末尾不要加 /）
+  url: "https://china-ai-tutorials.com",
 
-  // ⭐ 子路径前缀（GitHub Pages 项目站点才有，独立域名应为 "/"）
-  base: "/china-ai-tutorials/",
+  // ⭐ 子路径前缀（独立域名为 "/"，不再需要子路径）
+  base: "/",
 
   // ⭐ 默认社交分享图片（必须是绝对 URL，相对路径在 Twitter/Facebook 上不显示）
   defaultOgImage: "/images/og-default.png",

@@ -5,8 +5,8 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   // ⭐ site 必须与 src/config.ts 的 url 一致（用于生成 sitemap、RSS 的绝对 URL）
-  site: "https://woderuanjian-001.github.io",
-  base: "/china-ai-tutorials/",
+  site: "https://china-ai-tutorials.com",
+  base: "/",
 
   integrations: [
     tailwind({
