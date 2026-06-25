@@ -1,7 +1,7 @@
 ---
 title: "DeepSeek V4 vs GPT-5: Real Benchmark & Cost Comparison (2026)"
 description: "We ran DeepSeek V4 and GPT-5 on 50 LeetCode problems, 20 SQL tasks, and 10 reasoning puzzles. Real benchmarks, real prices, real recommendations — with reproducible scripts and a cost calculator."
-category: "Comparison"
+category: "Comparisons"
 date: 2026-06-22
 updated: 2026-06-22
 tags: ["DeepSeek", "GPT-5", "Benchmark", "Comparison", "Cost"]
@@ -504,10 +504,10 @@ We believe in radical transparency. Here's what this benchmark does **not** tell
 
 ## What's Next
 
-- **[DeepSeek V4 替代 GPT-5 30 天真实体验](/tutorials/deepseek-v4-30-day-review/)** — 开发者真实日记，混合策略节省 87%
+- **[DeepSeek V4 vs GPT-5: Cost and Capability Analysis](/tutorials/deepseek-v4-30-day-review/)** — pricing, capability map, and a 90/10 hybrid strategy that saves ~87%
 - **[DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)** — Get started in 10 minutes
 - **[DeepSeek R1 Reasoning Guide](/tutorials/deepseek-r1-reasoning-guide/)** — When to use the reasoning model
-- **[中国 AI API 真实花费日记](/tutorials/china-ai-api-cost-diary/)** — $17.61 vs $340，真实项目账单对比
+- **[Chinese AI APIs vs OpenAI: Cost Modeling](/tutorials/china-ai-api-cost-diary/)** — a 30-day cost model built from official pricing
 
 ---
 

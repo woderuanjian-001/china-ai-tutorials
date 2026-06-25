@@ -1,7 +1,7 @@
 ---
 title: "Qwen 3 vs Qwen 2.5: Is the Upgrade Worth It? (2026 Benchmark)"
 description: "We tested Qwen 3 and Qwen 2.5 on 5 real-world tasks — Chinese-English translation, math reasoning, code generation, long document summarization, and logical reasoning. Per-task improvement breakdown with upgrade recommendations."
-category: "Comparison"
+category: "Comparisons"
 date: 2026-06-24
 tags: ["Qwen", "Qwen 3", "Benchmark", "Comparison", "Alibaba", "Upgrade"]
 level: "Advanced"

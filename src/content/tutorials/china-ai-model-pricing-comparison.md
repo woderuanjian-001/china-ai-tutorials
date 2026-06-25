@@ -1,7 +1,7 @@
 ---
 title: "Chinese AI Model Pricing Complete Comparison: Latest Cost-Performance Analysis June 2026"
 description: "Comprehensive pricing comparison of 12 Chinese AI model APIs: DeepSeek/Kimi/Qwen/Doubao/GLM/MiMo/Kling/ERNIE/Hunyuan/iFlytek/MiniMax/Baichuan/Yi. Includes input/output/image/video full-dimension pricing tables and money-saving strategies."
-category: "Beginner Guides"
+category: "Comparisons"
 date: 2026-06-20
 tags: ["Pricing", "Comparison", "Cost-Performance", "DeepSeek", "Kimi", "Qwen", "Beginner"]
 level: "Beginner"
@@ -362,8 +362,8 @@ Late 2026:  projected ~¥0.5/million tokens
 
 ## Next Steps
 
-- [中国 AI API 真实花费日记](/tutorials/china-ai-api-cost-diary/) — 30 天真实项目账单
-- [Kling API 开发者指南](/tutorials/kling-api-developer-guide/) — 视频生成 API 价格对比
+- [Chinese AI APIs vs OpenAI: Cost Modeling](/tutorials/china-ai-api-cost-diary/) — a 30-day cost model built from official pricing
+- [Kling API Developer Guide](/tutorials/kling-api-developer-guide/) — video generation API pricing compared
 - [China AI Model Comprehensive Comparison](/tutorials/china-ai-model-comparison-2026/)
 - [DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)
 

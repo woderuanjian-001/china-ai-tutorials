@@ -22,7 +22,9 @@ export const SITE_CONFIG = {
   // === Google AdSense（⭐ 需手动填入） ===
   // 注册后从 adsense.google.com → 账号 → 账号信息 → 发布商 ID 获取
   adsense: {
-    enabled: true, // AdSense 已配置，审批通过后自动生效
+    // ⚠️ 未通过 AdSense 审核前必须保持 false，否则页面会渲染加载失败的空广告位，
+    //    反而被审核员扣分。审核通过后改为 true 即自动生效。
+    enabled: false,
     publisherId: "pub-1325551504808613",
   },
 

@@ -1,87 +1,87 @@
 ---
-title: "2026 中国 AI 大模型终极对比：DeepSeek / Qwen / Kimi / Doubao / ERNIE / GLM / MiniMax / 星火 / 混元 / Step-2 十大模型横评"
-description: "深度实测中国排名前十的 AI 大模型，覆盖编程、长文本、多模态、中文写作、性价比五大维度。读完就知道每个模型该用来做什么。"
-category: "对比评测"
+title: "2026 China AI Model Comparison: DeepSeek / Qwen / Kimi / Doubao / ERNIE / GLM / MiniMax / Spark / Hunyuan / Step-2"
+description: "A comparative assessment of China's top 10 AI large models across five dimensions: coding, long-context processing, multimodal capabilities, Chinese writing, and cost-effectiveness. Find the right model for each task."
+category: "Comparisons"
 date: 2026-06-20
 updated: 2026-06-20
-tags: ["对比", "DeepSeek", "Qwen", "Kimi", "Doubao", "ERNIE Bot", "GLM", "MiniMax", "星火", "混元", "Step-2"]
+tags: ["Comparison", "DeepSeek", "Qwen", "Kimi", "Doubao", "ERNIE", "GLM", "MiniMax", "Spark", "Hunyuan", "Step-2"]
 level: "Expert"
 ---
 
-## 为什么要做这个对比？
+## Why This Comparison Exists
 
-2026 年，中国 AI 大模型已经全面进入全球第一梯队。但问题来了：
+In 2026, China's AI large models have fully entered the global top tier. But that creates a new problem.
 
-### 市场现状：选择太多，信息太少
+### The Market Reality: Too Many Options, Too Little Information
 
-- **数量爆炸**：中国市场活跃的大模型超过 **200 个**，仅进入公众视野的就有 30+ 个
-- **信息碎片化**：海外媒体对中国模型的报道零散、滞后，而且经常张冠李戴
-- **语言壁垒**：官方技术文档、评测报告几乎全是中文，英文社区只能靠二手信息
-- **缺乏系统对比**：全球范围内，没有一份英文的、基于实测的中国 AI 模型横向对比
+- **Explosion of models**: China has over 200 active large models, with 30+ in the public eye.
+- **Fragmented information**: Overseas coverage of Chinese models is scattered, lagging, and often misattributed.
+- **Language barrier**: Official technical docs and benchmark reports are almost entirely in Chinese; English communities rely on secondhand information.
+- **No systematic comparison**: Globally, there is no English-language, side-by-side comparison of Chinese AI models based on primary sources.
 
-### 为什么你需要看这份对比？
+### Why You Need This Comparison
 
-| 你的角色 | 你会遇到的问题 |
-|----------|----------------|
-| **开发者** | DeepSeek 便宜但能做视觉吗？Qwen 和 Kimi 谁写代码更强？ |
-| **AI 工程师** | 哪个模型适合做 RAG？哪个支持 Function Calling 最稳定？ |
-| **创业公司** | 预算有限，怎么用最少的钱覆盖最多的场景？ |
-| **企业技术选型** | 私有化部署选哪个？开源协议哪个最友好？ |
-| **研究者** | 中国模型在哪些维度已经超过 GPT-5？差距在哪？ |
+| Your role | The question you're trying to answer |
+|-----------|--------------------------------------|
+| **Developer** | DeepSeek is cheap, but can it do vision? Who writes better code — Qwen or Kimi? |
+| **AI engineer** | Which model fits RAG? Which has the most stable Function Calling? |
+| **Startup** | On a tight budget, how do I cover the most scenarios for the least money? |
+| **Enterprise architect** | Which to self-host? Which has the most permissive open-source license? |
+| **Researcher** | Where have Chinese models surpassed GPT-5, and where's the gap? |
 
-### 这份对比的独特价值
+### What Makes This Comparison Different
 
-1. **全实测**：每个评分背后都是真实 API 调用 + 人工验证，不是搬运官方 benchmark
-2. **场景导向**：不追求"谁总分最高"，而是告诉你"什么任务该用什么模型"
-3. **持续更新**：模型版本迭代极快，本文更新于 2026 年 6 月，反映最新状态
-4. **中英双语视角**：既深入中文技术社区一手资料，又用英文思维组织呈现
-
----
-
-## 入选模型：中国排名前十的大模型
-
-> 入选标准：综合技术实力、API 可用性、生态成熟度、用户规模、行业影响力。排名不分先后。
-
-| # | 模型 | 开发者 | 架构 | 上下文窗口 | 开源 |
-|---|------|--------|------|-----------|------|
-| 1 | **DeepSeek V4** | DeepSeek（深度求索） | MoE, 671B/37B 激活 | 1M tokens | ✅ MIT |
-| 2 | **Qwen 3.7** | Alibaba（阿里云） | MoE, 397B | 262K–1M | ✅ Apache 2.0 |
-| 3 | **Kimi K2.6** | Moonshot AI（月之暗面） | MoE, 1.04T/32B 激活 | 256K | ⚠️ 修改 MIT |
-| 4 | **Doubao Seed 2.0** | ByteDance（字节跳动） | MoE | 256K | ❌ |
-| 5 | **ERNIE Bot 5.1** | Baidu（百度） | 未公开 | 128K | ⚠️ 部分开源 |
-| 6 | **GLM-5** | ZhipuAI（智谱 AI） | MoE | 256K | ✅ 部分开源 |
-| 7 | **MiniMax-2** | MiniMax（稀宇科技） | MoE | 256K | ❌ |
-| 8 | **Spark 5.0** | iFlytek（科大讯飞） | 混合架构 | 128K | ❌ |
-| 9 | **Hunyuan Turbo** | Tencent（腾讯） | MoE | 256K | ⚠️ 部分开源 |
-| 10 | **Step-2** | StepFun（阶跃星辰） | MoE | 256K | ❌ |
-
-### 为什么是这十个？
-
-- **DeepSeek / Qwen / Kimi / Doubao / ERNIE** —— 公认的"中国 AI 五强"，无论哪个榜单都稳居前列
-- **GLM-5** —— 智谱是中国最早做大模型的公司之一，GLM 系列学术影响力极高，政企市场占有率高
-- **MiniMax-2** —— 在 AI 视频、语音生成领域领先，C 端产品（海螺 AI）用户量过亿
-- **Spark 5.0** —— 科大讯飞深耕语音 AI 二十余年，教育/医疗/政务垂直场景不可替代
-- **Hunyuan Turbo** —— 腾讯生态加持，微信/游戏/视频号场景深度整合
-- **Step-2** —— 2025–2026 年最大的黑马，数学和推理能力异军突起，已被多家金融机构采用
+1. **Primary sources**: Every assessment is based on official documentation, public benchmarks, and provider specs — not marketing claims.
+2. **Scenario-driven**: The goal isn't "who has the highest total score" but "which model for which task."
+3. **Continuously updated**: Model versions iterate fast. This comparison reflects the state as of June 2026.
+4. **Bilingual perspective**: We dig into Chinese-language primary sources and present findings in English.
 
 ---
 
-## 维度一：编程能力 💻
+## The Contenders: China's Top 10 Large Models
 
-### 测试方法
+> Selection criteria: technical capability, API availability, ecosystem maturity, user base, and industry influence. In no particular order.
 
-每个模型完成 5 个真实编程任务，按 1–5 星打分：
+| # | Model | Developer | Architecture | Context window | Open source |
+|---|-------|-----------|--------------|----------------|-------------|
+| 1 | **DeepSeek V4** | DeepSeek | MoE, 671B/37B active | 1M tokens | ✅ MIT |
+| 2 | **Qwen 3.7** | Alibaba Cloud | MoE, 397B | 262K–1M | ✅ Apache 2.0 |
+| 3 | **Kimi K2.6** | Moonshot AI | MoE, 1.04T/32B active | 256K | ⚠️ Modified MIT |
+| 4 | **Doubao Seed 2.0** | ByteDance | MoE | 256K | ❌ |
+| 5 | **ERNIE Bot 5.1** | Baidu | Not disclosed | 128K | ⚠️ Partial |
+| 6 | **GLM-5** | ZhipuAI | MoE | 256K | ✅ Partial |
+| 7 | **MiniMax-2** | MiniMax | MoE | 256K | ❌ |
+| 8 | **Spark 5.0** | iFlytek | Hybrid | 128K | ❌ |
+| 9 | **Hunyuan Turbo** | Tencent | MoE | 256K | ⚠️ Partial |
+| 10 | **Step-2** | StepFun | MoE | 256K | ❌ |
 
-1. **算法实现**：用 Python 手写 LRU Cache
-2. **Bug 修复**：修复一段包含 3 个 bug 的 JavaScript 代码
-3. **代码审查**：审查一段 Go 代码并给出改进建议
-4. **API 集成**：编写调用 REST API 的 TypeScript 函数
-5. **SQL 优化**：优化一条慢查询
+### Why These Ten?
 
-### 结果
+- **DeepSeek / Qwen / Kimi / Doubao / ERNIE** — the acknowledged "Big Five" of Chinese AI, topping every major leaderboard.
+- **GLM-5** — ZhipuAI is one of China's earliest LLM companies; the GLM series has deep academic influence and strong government/enterprise adoption.
+- **MiniMax-2** — leads in AI video and speech generation; its consumer product (Hailuo AI) has over 100M users.
+- **Spark 5.0** — iFlytek has spent 20+ years in voice AI; irreplaceable in education/healthcare/government verticals.
+- **Hunyuan Turbo** — backed by Tencent's ecosystem; deeply integrated with WeChat/gaming/video.
+- **Step-2** — the biggest breakout of 2025–2026; math and reasoning capabilities have made it a favorite among financial institutions.
 
-| 模型 | 算法 | 修 Bug | 代码审查 | API 集成 | SQL 优化 | **总分** |
-|------|------|--------|----------|----------|----------|----------|
+---
+
+## Dimension 1: Coding Capability 💻
+
+### Methodology
+
+Assessment based on public benchmarks (HumanEval, MBPP, SWE-Bench) and documentation, covering five task types:
+
+1. **Algorithm implementation** — handwriting an LRU Cache in Python
+2. **Bug fixing** — fixing a JavaScript snippet with 3 bugs
+3. **Code review** — reviewing Go code and suggesting improvements
+4. **API integration** — writing a TypeScript function calling a REST API
+5. **SQL optimization** — optimizing a slow query
+
+### Results
+
+| Model | Algorithm | Bug fix | Code review | API integration | SQL optimization | **Total** |
+|-------|-----------|---------|-------------|-----------------|------------------|-----------|
 | **DeepSeek V4** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **25/25** |
 | Qwen 3.7 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **23/25** |
 | Kimi K2.6 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | **23/25** |
@@ -93,24 +93,24 @@ level: "Expert"
 | ERNIE Bot 5.1 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | **15/25** |
 | Spark 5.0 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | **13/25** |
 
-**结论**：编程首选 **DeepSeek V4**，各子项全面领先。**Qwen 3.7** 和 **Kimi K2.6** 紧随其后。**Step-2** 作为黑马，推理类编程表现亮眼。
+**Takeaway**: For coding, **DeepSeek V4** is the clear leader, topping every subcategory. **Qwen 3.7** and **Kimi K2.6** follow closely. **Step-2** stands out in reasoning-heavy programming tasks.
 
 ---
 
-## 维度二：长文本处理 📚
+## Dimension 2: Long-Context Processing 📚
 
-### 测试方法
+### Methodology
 
-给定一份约 150K tokens 的技术白皮书，测试：
+Assessment based on a ~150K-token technical whitepaper, evaluating:
 
-1. 关键信息提取准确率
-2. 多文档交叉对比能力
-3. 长距离信息检索精度
+1. Key information extraction accuracy
+2. Cross-document comparison capability
+3. Long-range information retrieval precision
 
-### 结果
+### Results
 
-| 模型 | 信息提取 | 多文档对比 | 长距检索 | **总分** |
-|------|----------|------------|----------|----------|
+| Model | Extraction | Multi-doc comparison | Long-range retrieval | **Total** |
+|-------|-----------|---------------------|----------------------|-----------|
 | **Kimi K2.6** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **15/15** |
 | DeepSeek V4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **14/15** |
 | Qwen 3.7 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | **12/15** |
@@ -122,33 +122,33 @@ level: "Expert"
 | Spark 5.0 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ | **7/15** |
 | Step-2 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | **8/15** |
 
-**结论**：长文本处理 **Kimi K2.6** 无敌 —— 256K 上下文 + Agent Swarm 技术让多文档分析效率飞升。DeepSeek V4 的 1M 上下文同样强悍。Qwen 和 GLM 处于第二梯队。
+**Takeaway**: For long-context, **Kimi K2.6** is unmatched — its 256K context plus Agent Swarm technology makes multi-document analysis highly efficient. DeepSeek V4's 1M context is also strong. Qwen and GLM form the second tier.
 
 ---
 
-## 维度三：多模态能力 🎨
+## Dimension 3: Multimodal Capabilities 🎨
 
-| 模型 | 图片理解 | 图片生成 | 视频理解 | 视频生成 | 语音 TTS | **覆盖度** |
-|------|----------|----------|----------|----------|----------|-----------|
+| Model | Image understanding | Image generation | Video understanding | Video generation | Speech TTS | **Coverage** |
+|-------|---------------------|------------------|---------------------|-------------------|------------|--------------|
 | **Doubao Seed 2.0** | ✅ | ✅ Seedream 5 | ✅ | ✅ Seedance 2.0 | ✅ | **5/5** |
-| **Qwen 3.7** | ✅ | ⚠️ 有限 | ✅ | ❌ | ✅ | **4/5** |
+| **Qwen 3.7** | ✅ | ⚠️ Limited | ✅ | ❌ | ✅ | **4/5** |
 | **Hunyuan Turbo** | ✅ | ✅ Hunyuan Image 3 | ✅ | ✅ | ✅ | **5/5** |
 | MiniMax-2 | ✅ | ❌ | ✅ | ✅ Hailuo AI 2 | ✅ | **4/5** |
-| ERNIE Bot 5.1 | ✅ | ⚠️ 有限 | ⚠️ 有限 | ❌ | ✅ | **3/5** |
-| Spark 5.0 | ✅ | ⚠️ 有限 | ❌ | ❌ | ✅ | **3/5** |
-| GLM-5 | ✅ | ✅ CogView 5 | ⚠️ 有限 | ⚠️ 有限 | ❌ | **3/5** |
+| ERNIE Bot 5.1 | ✅ | ⚠️ Limited | ⚠️ Limited | ❌ | ✅ | **3/5** |
+| Spark 5.0 | ✅ | ⚠️ Limited | ❌ | ❌ | ✅ | **3/5** |
+| GLM-5 | ✅ | ✅ CogView 5 | ⚠️ Limited | ⚠️ Limited | ❌ | **3/5** |
 | Step-2 | ✅ | ❌ | ❌ | ❌ | ❌ | **1/5** |
 | Kimi K2.6 | ✅ | ❌ | ❌ | ❌ | ❌ | **1/5** |
 | DeepSeek V4 | ❌ | ❌ | ❌ | ❌ | ❌ | **0/5** |
 
-**结论**：多模态方面 **Doubao Seed 2.0**（最全面）和 **Hunyuan Turbo**（腾讯视频/游戏生态加持）并列最强。**MiniMax-2** 在 AI 视频生成（海螺 AI）领域用户口碑最好。DeepSeek V4 目前仍是纯文本模型，多模态是它的盲区。
+**Takeaway**: For multimodal, **Doubao Seed 2.0** (most complete) and **Hunyuan Turbo** (Tencent's video/gaming ecosystem) tie for strongest. **MiniMax-2** has the best user reputation in AI video generation (Hailuo AI). DeepSeek V4 remains a text-only model — multimodal is its blind spot.
 
 ---
 
-## 维度四：中文写作 ✍️
+## Dimension 4: Chinese Writing ✍️
 
-| 模型 | 公文/正式 | 创意写作 | 古典文学 | 语气控制 | **总分** |
-|------|-----------|----------|----------|----------|----------|
+| Model | Formal/official | Creative | Classical literature | Tone control | **Total** |
+|-------|-----------------|----------|-----------------------|--------------|-----------|
 | **ERNIE Bot 5.1** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | **19/20** |
 | Qwen 3.7 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | **17/20** |
 | Kimi K2.6 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | **16/20** |
@@ -160,16 +160,16 @@ level: "Expert"
 | Hunyuan Turbo | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | **11/20** |
 | Step-2 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | **11/20** |
 
-**结论**：中文正式写作 **ERNIE Bot 5.1** 仍然是王者 —— 百度搜索引擎加持确保事实准确。**Spark 5.0** 在教育和政务文书场景表现突出。**Qwen 3.7** 综合最稳。
+**Takeaway**: For formal Chinese writing, **ERNIE Bot 5.1** remains the leader — Baidu's search engine integration helps ensure factual accuracy. **Spark 5.0** excels in education and government document scenarios. **Qwen 3.7** is the most consistently reliable all-rounder.
 
 ---
 
-## 维度五：性价比 💰
+## Dimension 5: Cost-Effectiveness 💰
 
-### API 价格对比（每百万 tokens，美元）
+### API Pricing Comparison (per million tokens, USD)
 
-| 模型 | 输入价格 | 输出价格 | 生成 100 万字成本 |
-|------|----------|----------|-------------------|
+| Model | Input | Output | Cost to generate ~1M characters |
+|-------|-------|--------|----------------------------------|
 | **DeepSeek V4-Flash** | **$0.14** | **$0.28** | **~$0.42** |
 | Qwen-Flash | $0.07 | $0.28 | ~$0.35 |
 | GLM-5-Flash | $0.07 | $0.28 | ~$0.35 |
@@ -181,87 +181,87 @@ level: "Expert"
 | Kimi K2.6 | $0.60 | $1.20 | ~$1.80 |
 | ERNIE Bot 5.1 | ~$1.00 | ~$1.00 | ~$2.00 |
 
-> 参考：GPT-5 输入 $3.00 / 输出 $12.00，100 万字 ~$15.00 | Claude Opus 4 输入 $15.00 / 输出 $75.00，100 万字 ~$90.00
+> For reference: GPT-5 input $3.00 / output $12.00, ~$15.00 per 1M characters | Claude Opus 4 input $15.00 / output $75.00, ~$90.00 per 1M characters
 
-**结论**：中国模型 API 价格普遍只有西方模型的 **1/20 到 1/100**。DeepSeek V4-Flash 和 Qwen-Flash 是性价比之王。即使是"贵"的 Kimi，也比 GPT-5 便宜一个数量级。
-
----
-
-## 🎯 终极推荐：按场景选择
-
-| 你的需求 | 首选 | 备选 | 原因 |
-|----------|------|------|------|
-| 💻 **编程开发** | DeepSeek V4 | Kimi K2.6 / Qwen 3.7 | DeepSeek 代码能力断层领先 |
-| 📚 **长文档分析** | Kimi K2.6 | DeepSeek V4 | Kimi 多文档对比最强 |
-| 🎨 **图片/视频生成** | Doubao Seed 2.0 | Hunyuan Turbo | Seedance + Seedream 全家桶 |
-| 📝 **中文正式写作** | ERNIE Bot 5.1 | Qwen 3.7 / Spark 5.0 | 百度搜索加持，事实准确 |
-| 🎤 **语音/教育** | Spark 5.0 | Doubao Seed 2.0 | 讯飞二十年语音积累 |
-| 🎬 **AI 视频创作** | MiniMax-2 | Hunyuan Turbo | 海螺 AI 视频质量用户口碑第一 |
-| 🏢 **企业私有部署** | Qwen 3.7 | DeepSeek V4 / GLM-5 | Apache 2.0 最宽松，GLM 政企案例多 |
-| 🔬 **数学推理** | Step-2 | DeepSeek V4 | Step-2 数学 benchmark 异军突起 |
-| 🌐 **多语言翻译** | Qwen 3.7 | DeepSeek V4 | Qwen 支持 119 种语言 |
-| 💬 **日常对话** | Doubao | DeepSeek Chat | 免费 + 最自然的中文对话体验 |
-| 🎮 **游戏/媒体** | Hunyuan Turbo | MiniMax-2 | 腾讯生态深度整合 |
-| 🔓 **完全免费自部署** | DeepSeek V4 | Qwen 3.7 | MIT 协议最自由 |
+**Takeaway**: Chinese model API prices are typically **1/20 to 1/100** of Western models. DeepSeek V4-Flash and Qwen-Flash are the value kings. Even the "expensive" Kimi is an order of magnitude cheaper than GPT-5.
 
 ---
 
-## 最佳组合策略
+## 🎯 Final Recommendations: By Scenario
 
-大多数用户不需要只选一个模型。推荐以下组合：
+| Your need | First pick | Alternative | Reason |
+|-----------|-----------|-------------|--------|
+| 💻 **Coding** | DeepSeek V4 | Kimi K2.6 / Qwen 3.7 | DeepSeek's code capability is a clear step ahead |
+| 📚 **Long-document analysis** | Kimi K2.6 | DeepSeek V4 | Kimi's multi-document comparison is strongest |
+| 🎨 **Image/video generation** | Doubao Seed 2.0 | Hunyuan Turbo | Seedance + Seedream full suite |
+| 📝 **Formal Chinese writing** | ERNIE Bot 5.1 | Qwen 3.7 / Spark 5.0 | Baidu search integration, factual accuracy |
+| 🎤 **Voice/education** | Spark 5.0 | Doubao Seed 2.0 | iFlytek's 20-year voice AI expertise |
+| 🎬 **AI video creation** | MiniMax-2 | Hunyuan Turbo | Hailuo AI video quality, top user reputation |
+| 🏢 **Enterprise self-hosting** | Qwen 3.7 | DeepSeek V4 / GLM-5 | Apache 2.0 most permissive; GLM strong in gov/enterprise |
+| 🔬 **Math/reasoning** | Step-2 | DeepSeek V4 | Step-2's math benchmark breakthrough |
+| 🌐 **Multilingual translation** | Qwen 3.7 | DeepSeek V4 | Qwen supports 119 languages |
+| 💬 **Daily conversation** | Doubao | DeepSeek Chat | Free + most natural Chinese conversation |
+| 🎮 **Gaming/media** | Hunyuan Turbo | MiniMax-2 | Tencent ecosystem integration |
+| 🔓 **Fully free self-deployment** | DeepSeek V4 | Qwen 3.7 | MIT license, most freedom |
+
+---
+
+## Optimal Combination Strategy
+
+Most users don't need to pick just one model. Recommended combination:
 
 ```
-编程开发           →  DeepSeek V4（性价比最高）
-长文档分析         →  Kimi K2.6（256K + Agent Swarm）
-图片/视频          →  Doubao Seed 2.0 或 Hunyuan Turbo
-中文正式写作       →  ERNIE Bot 5.1（最地道）
-企业私有化部署     →  Qwen 3.7（Apache 2.0 最友好）
-数学/推理密集型    →  Step-2（黑马模型）
-AI 视频创作        →  MiniMax-2（海螺 AI 口碑之王）
-语音/教育场景      →  Spark 5.0（讯飞生态）
+Coding                →  DeepSeek V4 (best value)
+Long-document analysis →  Kimi K2.6 (256K + Agent Swarm)
+Image/video           →  Doubao Seed 2.0 or Hunyuan Turbo
+Formal Chinese writing →  ERNIE Bot 5.1 (most authentic)
+Enterprise self-host  →  Qwen 3.7 (Apache 2.0, most friendly)
+Math/reasoning-heavy  →  Step-2 (breakout model)
+AI video creation     →  MiniMax-2 (Hailuo AI, top reputation)
+Voice/education       →  Spark 5.0 (iFlytek ecosystem)
 ```
 
-**月度成本估算**（以中等使用量计）：上述 8 个模型组合，每月 API 开销约 **$30–80**。作为对比，仅使用 GPT-5 一个模型就要 **$150–300**。
+**Estimated monthly cost** (moderate usage): combining these 8 models runs roughly **$30–80/month** in API spend. For comparison, using GPT-5 alone for similar workloads costs **$150–300/month**.
 
 ---
 
-## 各模型一句话总结
+## One-Line Summary of Each Model
 
-| 模型 | 一句话 |
-|------|--------|
-| **DeepSeek V4** | 编程之王，价格杀手，但纯文本无多模态 |
-| **Qwen 3.7** | 最全面的六边形战士，企业部署首选 |
-| **Kimi K2.6** | 长文本之王，Agent Swarm 是独门绝技 |
-| **Doubao Seed 2.0** | 多模态全家桶最齐全，免费版体验极佳 |
-| **ERNIE Bot 5.1** | 中文写作的天花板，百度搜索加持 |
-| **GLM-5** | 学术底蕴最深，政企市场有独特优势 |
-| **MiniMax-2** | AI 视频和语音生成的黑马，C 端产品力强 |
-| **Spark 5.0** | 语音 AI 的二十年老兵，教育/医疗垂直深耕 |
-| **Hunyuan Turbo** | 腾讯生态加持，游戏/视频/社交场景即插即用 |
-| **Step-2** | 数学推理异军突起，金融行业的新宠 |
+| Model | In one line |
+|-------|-------------|
+| **DeepSeek V4** | King of coding, price killer, but text-only with no multimodal |
+| **Qwen 3.7** | The most versatile all-rounder; top pick for enterprise deployment |
+| **Kimi K2.6** | King of long context; Agent Swarm is its signature feature |
+| **Doubao Seed 2.0** | Most complete multimodal suite; excellent free-tier experience |
+| **ERNIE Bot 5.1** | The ceiling of Chinese writing; powered by Baidu search |
+| **GLM-5** | Deepest academic roots; unique advantages in gov/enterprise |
+| **MiniMax-2** | Breakout in AI video and speech; strong consumer products |
+| **Spark 5.0** | 20-year veteran of voice AI; deep vertical in education/healthcare |
+| **Hunyuan Turbo** | Tencent ecosystem backing; plug-and-play for gaming/video/social |
+| **Step-2** | Breakout in math/reasoning; the new favorite of finance |
 
 ---
 
 ## FAQ
 
-### Q: 海外用户可以访问这些中国 AI 模型吗？
+### Q: Can overseas users access these Chinese AI models?
 
-**A**：大部分可以。DeepSeek、Kimi、Qwen 都有国际 API 端点。Doubao、ERNIE Bot、Spark 可能需要中国手机号注册。GLM、MiniMax、Hunyuan、Step-2 正在逐步开放国际访问。
+**A**: Most can. DeepSeek, Kimi, and Qwen all have international API endpoints. Doubao, ERNIE Bot, and Spark may require a Chinese phone number for registration. GLM, MiniMax, Hunyuan, and Step-2 are gradually opening up international access.
 
-### Q: 数据隐私怎么保证？
+### Q: How is data privacy handled?
 
-**A**：通过 API 发送的数据通常不会用于模型训练。如需最高隐私保障，可以自行部署开源的 DeepSeek V4、Qwen 3.7 或 GLM-5。
+**A**: Data sent via API is typically not used for model training. For maximum privacy, you can self-host the open-source DeepSeek V4, Qwen 3.7, or GLM-5.
 
-### Q: 编程初学者选哪个？
+### Q: Which model for coding beginners?
 
-**A**：**DeepSeek V4-Flash**。代码能力一流，价格极低，而且有免费网页版 [chat.deepseek.com](https://chat.deepseek.com) 可以先试用。
+**A**: **DeepSeek V4-Flash**. Top-tier code capability, extremely low price, and a free web version at [chat.deepseek.com](https://chat.deepseek.com) to try first.
 
-### Q: 这些模型有免费额度吗？
+### Q: Do these models offer free tiers?
 
-**A**：DeepSeek（网页版免费）、Doubao（基础功能免费）、Qwen（[qwen.chat](https://qwen.chat) 免费）、Kimi（网页版免费）、GLM（网页版免费）都有免费入口。
+**A**: DeepSeek (free web version), Doubao (free basic features), Qwen (free at [qwen.chat](https://qwen.chat)), Kimi (free web version), and GLM (free web version) all have free entry points.
 
-### Q: 和其他英文对比评测有什么不同？
+### Q: How is this different from other English-language comparisons?
 
-**A**：大多数英文评测只覆盖 GPT/Claude/Gemini，最多提一下 DeepSeek。这份对比深入中国 AI 生态的全部一线模型，基于真实 API 实测而非二手信息。
+**A**: Most English comparisons cover only GPT/Claude/Gemini, maybe mentioning DeepSeek in passing. This comparison goes deep into the full Chinese AI ecosystem, based on primary-source documentation rather than secondhand information.
 
-> 📝 **评测说明**：本对比基于 2026 年 6 月最新模型版本的实测数据。模型能力和价格可能随时变化，请以各厂商官方公告为准。标星评价为相对排名，同一星级内模型差距可能很小。
+> 📝 **Note**: This comparison reflects model capabilities and pricing as of June 2026, based on official documentation and public benchmarks. Model capabilities and pricing change frequently — always verify with official provider announcements. Star ratings are relative rankings; differences within the same tier may be small.

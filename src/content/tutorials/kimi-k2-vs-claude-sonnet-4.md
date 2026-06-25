@@ -1,7 +1,7 @@
 ---
 title: "Kimi K2 vs Claude Sonnet 4: Long Context Showdown (2026)"
 description: "We tested Kimi K2 and Claude Sonnet 4 on 1M-token documents, entire codebases, and real-world long-context tasks. Needle-in-a-haystack, codebase Q&A, book summarization — real results, real recommendations."
-category: "Comparison"
+category: "Comparisons"
 date: 2026-06-24
 tags: ["Kimi", "Claude", "Long Context", "Benchmark", "Comparison", "Advanced"]
 level: "Advanced"

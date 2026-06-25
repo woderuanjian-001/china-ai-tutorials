@@ -3,9 +3,10 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
+const SITE = "https://china-ai-tutorials.com";
 export default defineConfig({
   // ⭐ site 必须与 src/config.ts 的 url 一致（用于生成 sitemap、RSS 的绝对 URL）
-  site: "https://china-ai-tutorials.com",
+  site: SITE,
   base: "/",
 
   integrations: [
@@ -44,7 +45,7 @@ export default defineConfig({
 
         // 根据路径设置抓取频率和优先级（教程详情页优先级最高）
         const url = item.url;
-        if (url.endsWith("/china-ai-tutorials/")) {
+        if (url === `${SITE}/` || url === SITE) {
           // 首页：每天抓取，最高优先级
           item.changefreq = "daily";
           item.priority = 1.0;
