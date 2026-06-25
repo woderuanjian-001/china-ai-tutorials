@@ -4,12 +4,12 @@ description: "快手 Kling 视频生成 API 完整开发指南：海外开发者
 category: "Video Generation"
 date: 2026-06-25
 tags: ["Kling", "快手", "视频生成", "API", "Sora Alternative", "图生视频", "文生视频", "Python"]
-image: "/images/og-default.png"
+image: "/images/og-kling-api-developer-guide.png"
 level: "Advanced"
 
 ---
 
-> 📌 **Disclosure**：部分链接为 affiliate 链接。本文价格和 API 信息基于 2026 年 6 月实测，Kling API 迭代频繁，具体功能和价格请参考快手开放平台最新文档。，我们可能从中获得佣金，您无需额外付费。本文所有代码和价格数据基于 2026 年 6 月实测。
+> 📌 **Disclosure**：部分链接为 affiliate 链接，我们可能从中获得佣金，您无需额外付费。本文价格和 API 信息基于 2026 年 6 月实测，Kling API 迭代频繁，具体功能和价格请参考快手开放平台最新文档。
 
 ## 这篇教程解决什么问题？
 

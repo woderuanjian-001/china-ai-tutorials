@@ -1,15 +1,15 @@
 ---
-title: "中国 AI API 花费日记：$17.61 vs OpenAI $340，多模型 30 天实测（2026）"
-description: "用 DeepSeek V4、Qwen 3、Kimi K2、Qwen-VL-Max、Doubao TTS 构建法律文档 Q&A 工具的 30 天花费日记。逐日记账，包括一个 $6.20 的 bug 事故——以及同样的 bug 在 OpenAI 上要花 $130。"
+title: "中国 AI API 花费日记：$17.61 vs OpenAI $340，28 天实测"
+description: "用 DeepSeek V4、Qwen 3、Kimi K2、Qwen-VL-Max、Doubao TTS 构建法律文档 Q&A 工具的 28 天花费日记。逐日记账，包括一个 $6.20 的 bug 事故——以及同样的 bug 在 OpenAI 上要花 $130。"
 category: "Cost Analysis"
-date: 2026-07-08
+date: 2026-06-25
 tags: ["成本", "DeepSeek", "Qwen", "Kimi", "TTS", "对比", "创业", "日记", "真实花费"]
-image: "/images/og-default.png"
+image: "/images/og-china-ai-api-cost-diary.png"
 level: "Advanced"
 
 ---
 
-> 📌 **Disclosure**：部分链接为 affiliate 链接。本文为 30 天完整实验记录（2026 年 6 月 10 日 – 7 月 7 日），于实验结束后整理发布。API 价格可能变动，请以官方最新定价为准。，我们可能从中获得佣金，您无需额外付费。本文价格数据基于 2026 年 6 月，API 价格可能变动，请以官方为准。
+> 📌 **Disclosure**：部分链接为 affiliate 链接，我们可能从中获得佣金，您无需额外付费。本文为 28 天完整实验记录（2026 年 6 月 10 日 – 7 月 7 日），于实验结束后整理发布。API 价格可能变动，请以官方最新定价为准。
 
 ## 这篇教程解决什么问题？
 
@@ -19,7 +19,7 @@ level: "Advanced"
 
 **这到底是真的还是营销？**
 
-这篇文章用一个真实产品——为小型律师事务所构建的文档 Q&A 工具——完整记录了 30 天里每一分钱的 API 花费。不是理论计算，不是跑分测试，而是：
+这篇文章用一个真实产品——为小型律师事务所构建的文档 Q&A 工具——完整记录了 28 天里每一分钱的 API 花费。不是理论计算，不是跑分测试，而是：
 
 - 逐日账单（每天记录花了多少钱、花在哪里）
 - 一个真实的 rate limit bug 导致的 $6.20 浪费事故（以及为什么同样的 bug 在 OpenAI 上要花 $130）
@@ -175,6 +175,8 @@ Here's where things got interesting. And by interesting I mean I almost had a he
 > **Day 16 — June 25**
 > Also normal. $0.48.
 
+### Day 17：$7.80 的惊吓
+
 > **Day 17 — June 26**
 > Woke up to a billing alert. I'd set a threshold notification at $2.00/day — generous, given my daily average was hovering around $0.50. The alert said I'd hit $2.00. By 9 AM.
 >
@@ -195,10 +197,14 @@ Here's where things got interesting. And by interesting I mean I almost had a he
 >
 > The funny part? Even with this screw-up, my total daily cost was $7.80. The same bug with OpenAI would've been $130+.
 
+### 修复与反思
+
 > **Day 18 — June 27**
 > Fix deployed. Back to normal. $0.51 today. The $6.20 I wasted yesterday still stings — not because of the money, but because it was a dumb mistake. But I keep doing the mental math: that same dumb mistake with GPT-5 would've been a genuine problem. A $130 day. With Chinese APIs, it was a rounding error.
 >
 > This is the real advantage nobody talks about. It's not just that the APIs are cheaper. It's that cheaper APIs make you more willing to experiment. I can test a new prompt strategy on 500 documents without flinching. I can A/B test three models on the same workload. The cost of curiosity approaches zero.
+
+### 廉价实验：TTS 新功能
 
 > **Day 19 — June 28**
 > Started experimenting with Doubao TTS for a new feature — generating audio summaries of document sets. Ran 120K characters through it today.
@@ -249,7 +255,7 @@ Here's where things got interesting. And by interesting I mean I almost had a he
 
 ## The Final Bill
 
-Thirty days. Five law firms. Roughly 11,400 documents processed. Here's what it cost:
+Twenty-eight days. Five law firms. Roughly 11,400 documents processed. Here's what it cost:
 
 | Component | Calls/Volume | Cost |
 |-----------|-------------|------|

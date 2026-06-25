@@ -4,12 +4,12 @@ description: "我用 DeepSeek V4 完全替代 GPT-5 工作了 30 天。成本从
 category: "DeepSeek"
 date: 2026-06-25
 tags: ["DeepSeek", "GPT-5", "评测", "成本", "对比", "开发者体验", "混合策略"]
-image: "/images/og-default.png"
+image: "/images/og-deepseek-v4-30-day-review.png"
 level: "Advanced"
 
 ---
 
-> 📌 **Disclosure**：部分链接为 affiliate 链接。本文价格数据基于作者 30 天实际使用记录（2026 年 6 月），API 价格可能变动，请以官方最新定价为准。，我们可能从中获得佣金，您无需额外付费。本文所有数据和代码示例来自作者 30 天真实使用记录。
+> 📌 **Disclosure**：部分链接为 affiliate 链接，我们可能从中获得佣金，您无需额外付费。本文价格数据基于作者 30 天实际使用记录（2026 年 6 月），API 价格可能变动，请以官方最新定价为准。
 
 ## 这篇教程解决什么问题？
 
@@ -111,6 +111,8 @@ The big realization in Week 2: **prompting DeepSeek requires more specificity th
 
 Okay. Here's where things get hard to ignore.
 
+### 价格差距：36-53 倍
+
 I track my API spending religiously (indie developer habits die hard). Let me show you the math, because the numbers are honestly absurd.
 
 GPT-5 pricing, roughly:
@@ -140,9 +142,13 @@ I re-checked my math three times because it felt wrong. It wasn't. Now, to be fa
 
 For an indie developer bootstrapping a SaaS, that's the difference between "AI tooling is a line item I worry about" and "AI tooling costs less than my coffee budget." I'm not exaggerating. My monthly coffee spend is higher than $10.
 
+### 行为改变：不再精打细算
+
 And here's a second-order effect I didn't anticipate: when API calls are nearly free, you use the model *differently*. With GPT-5, every prompt felt like a spending decision. I'd batch questions, hoard context, agonize over whether a query was "worth it." With DeepSeek, I stopped thinking about cost entirely. I'd fire off a prompt to double-check a one-line regex. I'd ask it to explain a library function I could've Googled. I'd run the same prompt twice just to compare outputs.
 
 That behavioral shift matters. The cheapest model is the one you actually use without hesitation. Turns out, unhesitating use makes you more productive — not because the model is better, but because you stopped gatekeeping your own workflow.
+
+### 那 10% 值 $425 吗
 
 This is the part where I have to be honest about the tradeoff, though. Those $10 got me ~90% of what GPT-5 delivered. The remaining 10% — the deep architectural reasoning, the "read between the lines" problem diagnosis, the edge-case anticipation — that's what the extra $425 buys you. Whether that 10% is worth 42x the cost depends entirely on your situation.
 
@@ -151,6 +157,8 @@ For my daily grind? Not even close to worth it. For a critical production migrat
 ## Week 4: Where It Broke (And Where It Shined)
 
 No 30-day review is credible without the failures. So here's my most memorable DeepSeek disaster.
+
+### 断路器事故
 
 I was building a webhook retry system with exponential backoff, jitter, and dead-letter queue routing. The requirements were nuanced: different retry strategies for different error codes (429 vs 500 vs timeout), a circuit breaker that trips after N consecutive failures, and idempotency keys to prevent duplicate processing.
 
@@ -162,7 +170,11 @@ GPT-5 caught this pattern correctly when I ran the same prompt as a control. It 
 
 I reported this back to DeepSeek in a follow-up message, and it acknowledged the issue and produced a corrected version. So it *can* get there — but it needed me to spot the bug first. That's the risk with subtle distributed-systems logic: if you don't know enough to catch the error, you'll ship it.
 
+### 长上下文推理短板
+
 The other area where I noticed a gap: **long-context reasoning.** DeepSeek V4 has a 128K context window (same ballpark as GPT-5), but when I loaded a large codebase — roughly 90K tokens of mixed Python and TypeScript — and asked cross-file questions, its answers were noticeably less coherent than GPT-5's. It would sometimes reference functions that didn't exist or misattribute logic to the wrong file. GPT-5 made similar mistakes but less frequently.
+
+### 中文任务：碾压级优势
 
 Now, the flip side. There's one domain where DeepSeek didn't just match GPT-5 — it absolutely embarrassed it.
 
