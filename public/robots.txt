@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://woderuanjian-001.github.io/china-ai-tutorials/sitemap-index.xml
+Sitemap: https://china-ai-tutorials.com/sitemap-index.xml
