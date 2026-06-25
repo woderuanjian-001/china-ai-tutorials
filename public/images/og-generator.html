@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .card {
+    width: 1200px; height: 630px;
+    position: absolute; left: -9999px;
+    font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    overflow: hidden;
+  }
+  .card.active { position: static; }
+
+  /* Shared */
+  .bg { position: absolute; inset: 0; }
+  .overlay { position: absolute; inset: 0; }
+  .content { position: absolute; inset: 60px 80px; display: flex; flex-direction: column; justify-content: center; }
+  .logo { position: absolute; top: 50px; left: 80px; color: rgba(255,255,255,0.7); font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+  .tag { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 16px; font-weight: 600; margin-bottom: 24px; width: fit-content; }
+  h1 { font-size: 52px; font-weight: 800; line-height: 1.25; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .sub { font-size: 26px; font-weight: 400; opacity: 0.85; line-height: 1.4; margin-bottom: 36px; }
+  .stat-row { display: flex; gap: 32px; }
+  .stat { padding: 14px 28px; border-radius: 16px; }
+  .stat .num { font-size: 42px; font-weight: 800; }
+  .stat .label { font-size: 16px; opacity: 0.75; margin-top: 4px; }
+  .domain { position: absolute; bottom: 40px; left: 80px; font-size: 18px; opacity: 0.6; }
+  .content { padding-bottom: 20px; }
+  .sub { letter-spacing: 0.2px; }
+
+  /* Card 1: DeepSeek — 深蓝渐变 */
+  .c1 .bg { background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #2563EB 100%); }
+  .c1 .overlay { background: radial-gradient(ellipse at 85% 20%, rgba(37,99,235,0.25) 0%, transparent 60%); }
+  .c1 .tag { background: rgba(37,99,235,0.3); color: #93C5FD; border: 1px solid rgba(147,197,253,0.3); }
+  .c1 h1 { color: #F8FAFC; }
+  .c1 .sub { color: #CBD5E1; }
+  .c1 .stat { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); }
+  .c1 .num { color: #60A5FA; }
+  .c1 .label { color: #94A3B8; }
+
+  /* Card 2: Kling — 紫粉渐变 */
+  .c2 .bg { background: linear-gradient(135deg, #1A0A2E 0%, #4A1D6A 50%, #BE185D 100%); }
+  .c2 .overlay { background: radial-gradient(ellipse at 80% 30%, rgba(190,24,93,0.2) 0%, transparent 60%); }
+  .c2 .tag { background: rgba(190,24,93,0.3); color: #F9A8D4; border: 1px solid rgba(249,168,212,0.3); }
+  .c2 h1 { color: #FAFAFA; }
+  .c2 .sub { color: #E2E8F0; }
+  .c2 .stat { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); }
+  .c2 .num { color: #F472B6; }
+  .c2 .label { color: #A78BFA; }
+
+  /* Card 3: Cost Diary — 翠绿渐变 */
+  .c3 .bg { background: linear-gradient(135deg, #064E3B 0%, #065F46 50%, #059669 100%); }
+  .c3 .overlay { background: radial-gradient(ellipse at 75% 25%, rgba(5,150,105,0.25) 0%, transparent 60%); }
+  .c3 .tag { background: rgba(5,150,105,0.3); color: #6EE7B7; border: 1px solid rgba(110,231,183,0.3); }
+  .c3 h1 { color: #F0FDF4; }
+  .c3 .sub { color: #D1FAE5; }
+  .c3 .stat { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); }
+  .c3 .num { color: #34D399; }
+  .c3 .label { color: #6EE7B7; }
+</style>
+</head>
+<body>
+  <div class="card c1 active" id="card1">
+    <div class="bg"></div><div class="overlay"></div>
+    <div class="logo">China AI Tutorials</div>
+    <div class="content">
+      <div class="tag">📊 评测 · 成本对比</div>
+      <h1>DeepSeek V4 30 天实测：<br>省钱 97% 的混合策略</h1>
+      <div class="sub">用 DeepSeek V4 完全替代 GPT-5 工作整整 30 天的真实日记<br>Redis 一次通过 17 个测试 / PostgreSQL 优化踩坑</div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">$435→$10</div><div class="label">月花费降低 97%</div></div>
+        <div class="stat"><div class="num">36×</div><div class="label">输入便宜倍数</div></div>
+        <div class="stat"><div class="num">$52/月</div><div class="label">90/10 混合策略花费</div></div>
+      </div>
+    </div>
+    <div class="domain">china-ai-tutorials.com</div>
+  </div>
+
+  <div class="card c2" id="card2">
+    <div class="bg"></div><div class="overlay"></div>
+    <div class="logo">China AI Tutorials</div>
+    <div class="content">
+      <div class="tag">🎬 视频生成 · API · Python</div>
+      <h1>Kling API 视频生成教程：<br>中国版 Sora 接入指南</h1>
+      <div class="sub">快手 Kling API 完整开发指南：海外开发者注册 / 文生视频+图生视频 Python 代码<br>与 Runway / Sora / Pika 价格对比 · 内容审核避坑</div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">$0.10/秒</div><div class="label">比 Runway 便宜 5 倍</div></div>
+        <div class="stat"><div class="num">1080p</div><div class="label">最高分辨率</div></div>
+        <div class="stat"><div class="num">60-120s</div><div class="label">生成耗时</div></div>
+      </div>
+    </div>
+    <div class="domain">china-ai-tutorials.com</div>
+  </div>
+
+  <div class="card c3" id="card3">
+    <div class="bg"></div><div class="overlay"></div>
+    <div class="logo">China AI Tutorials</div>
+    <div class="content">
+      <div class="tag">💰 成本 · 28 天实测 · 日记</div>
+      <h1>中国 AI API 花费日记：<br>$17.61 vs OpenAI $340</h1>
+      <div class="sub">DeepSeek V4 + Qwen 3 + Kimi K2 + Qwen-VL-Max + Doubao TTS 真实项目账单<br>包含一个 $6.20 的 rate limit bug — 同样的 bug 在 OpenAI 上要花 $130</div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">19x</div><div class="label">花费差距</div></div>
+        <div class="stat"><div class="num">$17.61</div><div class="label">28 天总花费</div></div>
+        <div class="stat"><div class="num">11,400</div><div class="label">处理文档数</div></div>
+      </div>
+    </div>
+    <div class="domain">china-ai-tutorials.com</div>
+  </div>
+</body>
+</html>
