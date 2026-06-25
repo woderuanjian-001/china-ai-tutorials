@@ -362,6 +362,8 @@ Late 2026:  projected ~¥0.5/million tokens
 
 ## Next Steps
 
+- [中国 AI API 真实花费日记](/tutorials/china-ai-api-cost-diary/) — 30 天真实项目账单
+- [Kling API 开发者指南](/tutorials/kling-api-developer-guide/) — 视频生成 API 价格对比
 - [China AI Model Comprehensive Comparison](/tutorials/china-ai-model-comparison-2026/)
 - [DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)
 

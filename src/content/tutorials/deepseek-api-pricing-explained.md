@@ -5,7 +5,7 @@ category: "DeepSeek"
 date: 2026-06-24
 tags: ["DeepSeek", "Pricing", "Cost", "Comparison", "Budget", "Beginner"]
 level: "Beginner"
-affiliates: ["deepseek"]
+
 ---
 
 > 📌 **Disclosure**: Some links in this tutorial are affiliate links. We may earn a commission at no extra cost to you. All pricing data below was verified against official API pricing pages on June 24, 2026.
@@ -358,4 +358,4 @@ The only model that matches DeepSeek on price (GPT-5 Mini, Gemini Flash, GLM-4.6
 
 > 🔗 **Ready to start saving?** [Sign up for DeepSeek](https://platform.deepseek.com) — 5 million tokens free. For payment help, see our [API Key Registration Guide](/tutorials/deepseek-api-key-guide/).
 >
-> 📖 **Related**: [China AI Model Pricing Comparison 2026](/tutorials/china-ai-model-pricing-comparison/) — all 12 platforms in one table.
+> 📖 **Related**: [中国 AI API 真实花费日记](/tutorials/china-ai-api-cost-diary/) — $17.61 做了一个月 SaaS | [China AI Model Pricing Comparison 2026](/tutorials/china-ai-model-pricing-comparison/) — all 12 platforms in one table.

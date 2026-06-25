@@ -6,7 +6,7 @@ date: 2026-06-22
 updated: 2026-06-22
 tags: ["DeepSeek", "GPT-5", "Benchmark", "Comparison", "Cost"]
 level: "Advanced"
-affiliates: ["deepseek"]
+
 ---
 
 > 📌 **Disclosure**: Some links in this tutorial are affiliate links. We may earn a commission at no extra cost to you if you sign up through them. All benchmark numbers below were measured by us — see the [reproducible script](#reproducible-benchmark-script).
@@ -504,10 +504,10 @@ We believe in radical transparency. Here's what this benchmark does **not** tell
 
 ## What's Next
 
+- **[DeepSeek V4 替代 GPT-5 30 天真实体验](/tutorials/deepseek-v4-30-day-review/)** — 开发者真实日记，混合策略节省 87%
 - **[DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)** — Get started in 10 minutes
 - **[DeepSeek R1 Reasoning Guide](/tutorials/deepseek-r1-reasoning-guide/)** — When to use the reasoning model
-- **[Cline + DeepSeek Setup](#)** — Free AI coding assistant
-- **[Live Pricing Spreadsheet](#)** — Updated weekly
+- **[中国 AI API 真实花费日记](/tutorials/china-ai-api-cost-diary/)** — $17.61 vs $340，真实项目账单对比
 
 ---
 
