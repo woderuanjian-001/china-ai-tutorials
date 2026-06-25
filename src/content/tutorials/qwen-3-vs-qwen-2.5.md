@@ -5,7 +5,7 @@ category: "Comparison"
 date: 2026-06-24
 tags: ["Qwen", "Qwen 3", "Benchmark", "Comparison", "Alibaba", "Upgrade"]
 level: "Advanced"
-affiliates: ["alibaba-cloud"]
+
 ---
 
 > 📌 **Disclosure**: Some links are affiliate links. We may earn a commission at no extra cost to you. All benchmarks below were run by us with reproducible test cases on June 24, 2026.

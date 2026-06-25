@@ -5,7 +5,7 @@ category: "DeepSeek"
 date: 2026-06-24
 tags: ["DeepSeek", "API Key", "Registration", "Beginner", "Payment"]
 level: "Beginner"
-affiliates: ["deepseek"]
+
 ---
 
 > 📌 **Disclosure**: Some links in this tutorial are affiliate links. We may earn a commission at no extra cost to you if you sign up through them. All steps below were tested and screenshotted on June 24, 2026.

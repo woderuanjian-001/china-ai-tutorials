@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  404.html — 必须部署在 GitHub Pages 根仓库的根目录
+  部署目标 URL：https://woderuanjian-001.github.io/404.html
+  =============================================================================
+  GitHub Pages 会自动把任何根仓库下的 404.html 作为「整站 404 页面」，
+  任何不存在的 URL（包括 /china-ai-tutorials/xxx）都会展示这个页面。
+
+  ⚠️ 此文件不要放在项目仓库（china-ai-tutorials）的 public/ 目录！
+  ⚠️ 必须放在用户主页仓库（woderuanjian-001.github.io）的根目录。
+
+  设计要点：
+  1. SEO 友好：返回真正的 404 状态码（GitHub Pages 自动处理）
+  2. 用户体验：5 秒自动跳转到主站，不流失访客
+  3. 给出搜索建议和热门教程入口
+  4. 包含 GA4 埋点，可统计 404 流量来源
+  =============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Page Not Found — China AI Tutorials</title>
+
+  <!-- SEO：noindex 防止 404 被搜索引擎收录；canonical 指向主站避免重复内容 -->
+  <link rel="canonical" href="https://woderuanjian-001.github.io/china-ai-tutorials/">
+
+  <!-- Open Graph：社交分享时显示主站信息，不让 404 被错误分享 -->
+  <meta property="og:title" content="China AI Tutorials — Learn Chinese AI Models">
+  <meta property="og:description" content="Hands-on tutorials for DeepSeek, Qwen, Kimi, GLM, and more Chinese AI tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://woderuanjian-001.github.io/china-ai-tutorials/">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fafaf9;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .container {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .error-code {
+      font-size: 96px;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+    .lead {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+    .countdown {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+    .countdown strong { color: #d97706; }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #d97706;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.15s;
+      margin: 4px;
+    }
+    .btn:hover { background: #b45309; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: #374151;
+      border: 1px solid #d1d5db;
+    }
+    .btn-secondary:hover { background: #f3f4f6; }
+    .suggestions {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .suggestions h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .suggestions ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .suggestions a {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #f3f4f6;
+      color: #374151;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: background 0.15s;
+    }
+    .suggestions a:hover { background: #e5e7eb; }
+    @media (max-width: 480px) {
+      .error-code { font-size: 64px; }
+      .container { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p class="lead">
+      The page you're looking for doesn't exist or has been moved.
+      Don't worry — we'll take you to a Chinese AI tutorial that does.
+    </p>
+
+    <p class="countdown">Redirecting to homepage in <strong id="countdown">5</strong> seconds…</p>
+
+    <div>
+      <a class="btn" href="https://woderuanjian-001.github.io/china-ai-tutorials/">🏠 Go to Homepage</a>
+      <a class="btn btn-secondary" href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/">📚 Browse Tutorials</a>
+    </div>
+
+    <div class="suggestions">
+      <h2>Popular Tutorials</h2>
+      <ul>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/deepseek-api-beginner-guide/">DeepSeek API Guide</a></li>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/kimi-api-getting-started/">Kimi API Tutorial</a></li>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/qwen-api-python-tutorial/">Qwen API in Python</a></li>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/glm-api-developer-guide/">GLM API Guide</a></li>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/doubao-api-developer-guide/">Doubao API Guide</a></li>
+        <li><a href="https://woderuanjian-001.github.io/china-ai-tutorials/tutorials/china-ai-model-comparison-2026/">2026 Model Comparison</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================================
+    // 1. 倒计时跳转（用户可点链接取消）
+    // ============================================================================
+    let secondsLeft = 5;
+    const countdownEl = document.getElementById('countdown');
+    const redirectTimer = setInterval(() => {
+      secondsLeft--;
+      if (countdownEl) countdownEl.textContent = secondsLeft;
+      if (secondsLeft <= 0) {
+        clearInterval(redirectTimer);
+        window.location.href = 'https://woderuanjian-001.github.io/china-ai-tutorials/';
+      }
+    }, 1000);
+
+    // 用户点击任何链接就取消自动跳转
+    document.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => clearInterval(redirectTimer));
+    });
+
+    // ============================================================================
+    // 2. GA4 404 埋点（可选：在 src/config.ts 启用 GA4 后取消注释）
+    //    用于在 GA4 里追踪 404 来源（哪些外链/书签错了），方便修复
+    // ============================================================================
+    // if (typeof gtag === 'function') {
+    //   gtag('event', 'page_404', {
+    //     'event_category': 'error',
+    //     'event_label': window.location.pathname,
+    //     'referrer': document.referrer
+    //   });
+    // }
+  </script>
+</body>
+</html>

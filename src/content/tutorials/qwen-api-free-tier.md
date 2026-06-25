@@ -5,7 +5,7 @@ category: "Qwen"
 date: 2026-06-24
 tags: ["Qwen", "Free Tier", "API", "Alibaba", "Bailian", "Budget", "Beginner"]
 level: "Beginner"
-affiliates: ["alibaba-cloud"]
+
 ---
 
 > 📌 **Disclosure**: Some links are affiliate links. We may earn a commission at no extra cost to you. All free tier limits were verified against official documentation on June 24, 2026.

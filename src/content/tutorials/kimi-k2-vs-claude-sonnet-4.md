@@ -5,7 +5,7 @@ category: "Comparison"
 date: 2026-06-24
 tags: ["Kimi", "Claude", "Long Context", "Benchmark", "Comparison", "Advanced"]
 level: "Advanced"
-affiliates: ["moonshot"]
+
 ---
 
 > 📌 **Disclosure**: Some links are affiliate links. We may earn a commission at no extra cost to you. All benchmark results below were measured by us with reproducible test cases.

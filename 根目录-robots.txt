@@ -1,0 +1,39 @@
+# =============================================================================
+# robots.txt — 必须部署在 GitHub Pages 根仓库的根目录
+# 部署目标 URL：https://woderuanjian-001.github.io/robots.txt
+# =============================================================================
+# ⚠️ 此文件不要放在项目仓库（china-ai-tutorials）的 public/ 目录！
+# ⚠️ 必须放在用户主页仓库（woderuanjian-001.github.io）的根目录。
+# ⚠️ 否则 https://woderuanjian-001.github.io/robots.txt 仍然返回 404。
+#
+# 部署位置示例（用户主页仓库结构）：
+#   woderuanjian-001.github.io/   <- 仓库根
+#   ├── robots.txt                <- 本文件
+#   ├── 404.html                  <- 旁边的 404 页面
+#   └── index.html                <- 可选：做个跳转到 china-ai-tutorials/
+# =============================================================================
+
+# 所有爬虫允许抓取
+User-agent: *
+Allow: /
+
+# 重要：sitemap 必须用绝对 URL，指向项目子站点的 sitemap-index
+Sitemap: https://woderuanjian-001.github.io/china-ai-tutorials/sitemap-index.xml
+
+# 同时声明主 sitemap（有些爬虫只读第一行）
+Sitemap: https://woderuanjian-001.github.io/china-ai-tutorials/sitemap-0.xml
+
+# --- 可选：降低无价值爬虫的抓取频率（节省 GitHub Pages 流量） ---
+# Googlebot、Bingbot、Baiduspider、Slurp（Yahoo）、DuckDuckBot 保留全速
+# 其他低价值爬虫降速
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 30
+
+User-agent: DotBot
+Crawl-delay: 30
