@@ -8,7 +8,7 @@ level: "Beginner"
 
 ---
 
-> 📌 **Disclosure**: Some links in this tutorial are affiliate links. We may earn a commission at no extra cost to you if you sign up through them. All steps below were tested and screenshotted on June 24, 2026.
+> 📌 All steps below were verified on June 24, 2026. DeepSeek's registration flow and payment options may change — check the official platform for current details.
 
 ## What Problem Does This Tutorial Solve?
 
@@ -30,9 +30,9 @@ Before we dive in, here's why you're making the right choice:
 
 | Model | Input Price / 1M tokens | Output Price / 1M tokens | Context Window |
 |-------|------------------------|--------------------------|----------------|
-| **DeepSeek V4** | **$0.14** | **$0.28** | 128K |
-| GPT-5 | $3.00 | $12.00 | 128K |
-| Claude Opus 4 | $15.00 | $75.00 | 200K |
+| **DeepSeek V4** | **$0.14** | **$0.28** | 1M |
+| GPT-5 | $1.25 | $10.00 | 272K |
+| Claude Opus 4.8 | $5.00 | $25.00 | 1M |
 | Gemini 2.5 Pro | $1.25 | $10.00 | 1M |
 
 > DeepSeek is **20× cheaper than GPT-5** and **100× cheaper than Claude Opus 4**. New users get **5 million free tokens** on signup — that's enough to build and test a prototype without spending a cent.
@@ -146,7 +146,7 @@ DeepSeek accepts international cards through **Alipay's international payment ga
 | Monthly Limit | $10,000 |
 | Supported Platforms | DeepSeek, Alibaba Cloud, Tencent Cloud, Zhipu, Moonshot |
 
-> 🔗 **Affiliate Note**: If you sign up for WildCard through our link, we earn a commission at no extra cost to you. You also get a **$5 signup bonus**.
+> 🔗 **Note**: [WildCard](https://wildcard.online) is a virtual Visa card service that works with Chinese AI platforms. It charges a setup fee (~$10) and a top-up fee (1.5%). Mentioning it here is informational — we have no financial relationship with WildCard.
 
 #### ✅ Method 3: Direct Bank Transfer (For Large Amounts)
 
@@ -201,7 +201,7 @@ headers = {
 }
 
 data = {
-    "model": "deepseek-chat",
+    "model": "deepseek-v4-flash",
     "messages": [{"role": "user", "content": "Hello! Respond in one word."}]
 }
 
@@ -236,7 +236,7 @@ const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
     "Authorization": "Bearer sk-YOUR-KEY-HERE"
   },
   body: JSON.stringify({
-    model: "deepseek-chat",
+    model: "deepseek-v4-flash",
     messages: [{ role: "user", content: "Hello! Respond in one word." }]
   })
 });
@@ -331,7 +331,7 @@ Now that you have your API key, here's what you can build:
 |---------|-----------|------|----------|
 | AI Chatbot with Streaming | ⭐ Beginner | 30 min | [DeepSeek Streaming Guide](/tutorials/deepseek-api-beginner-guide/) |
 | Function Calling Agent | ⭐⭐ Intermediate | 1 hour | [DeepSeek Function Calling](/tutorials/deepseek-function-calling-guide/) |
-| RAG Knowledge Base | ⭐⭐⭐ Advanced | 2 hours | [LangChain + DeepSeek RAG](/tutorials/langchain-deepseek-integration-guide/) |
+| RAG Knowledge Base | ⭐⭐⭐ Advanced | 2 hours | LangChain + DeepSeek RAG |
 | Fine-Tuned Model | ⭐⭐⭐ Advanced | 4 hours | [DeepSeek LoRA Fine-Tuning](/tutorials/deepseek-fine-tuning-guide/) |
 
 ---
@@ -342,11 +342,11 @@ Now that you have your API key, here's what you can build:
 DeepSeek Platform:    https://platform.deepseek.com
 API Endpoint:         https://api.deepseek.com/v1/chat/completions
 API Documentation:    https://platform.deepseek.com/docs
-Model Name:           deepseek-chat (V4) / deepseek-reasoner (R1)
+Model Name:           deepseek-v4-flash / deepseek-v4-pro
 Pricing:              $0.14/M in / $0.28/M out
 Free Credits:         5M tokens for new users
 Support Email:        support@deepseek.com
-Context Window:       128K tokens
+Context Window:       1M tokens
 ```
 
 ---

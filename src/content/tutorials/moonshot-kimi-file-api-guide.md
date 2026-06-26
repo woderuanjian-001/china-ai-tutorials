@@ -9,15 +9,15 @@ level: "Advanced"
 
 ## What This Tutorial Solves
 
-Kimi's biggest advantage is its **128K ultra-long context + file understanding**. You will learn:
+Kimi's biggest advantage is its **262K ultra-long context + file understanding**. You will learn:
 
 - Upload PDF/Word/Excel/PPT/image files
-- Analyze multiple documents simultaneously with 128K context
+- Analyze multiple documents simultaneously with 262K context
 - Extract structured table data
 - Batch document intelligent processing
 - File conversation API integration
 
-> 🎯 Kimi's file processing capability is among the strongest of all Chinese AI models. 128K context = read a 200,000-word book in one go.
+> 🎯 Kimi's file processing capability is among the strongest of all Chinese AI models. 262K context = read a 400,000-word book in one go.
 
 ---
 
@@ -70,11 +70,11 @@ client.files.delete(pdf_id)
 def chat_with_document(file_id: str, question: str) -> str:
     """Ask questions based on file contents"""
     response = client.chat.completions.create(
-        model="moonshot-v1-128k",
+        model="kimi-k2.6",
         messages=[
             {
                 "role": "system",
-                "content": "你是 Kimi，一个擅长长文档分析的 AI 助手。用用户的文件内容回答问题，引用具体页码和段落。",
+                "content": "You are Kimi, an AI assistant specialized in long document analysis. Answer questions based on the user's file content, citing specific page numbers and paragraphs.",
             },
             {
                 "role": "system",
@@ -87,7 +87,7 @@ def chat_with_document(file_id: str, question: str) -> str:
     return response.choices[0].message.content
 
 # Usage
-answer = chat_with_document(pdf_id, "这份报告的核心结论是什么？用了哪些关键数据支撑？")
+answer = chat_with_document(pdf_id, "What are the core conclusions of this report? What key data supports them?")
 print(answer)
 ```
 
@@ -99,8 +99,8 @@ print(answer)
 def compare_documents(file_ids: list[str], compare_aspect: str) -> str:
     """Analyze and compare multiple documents simultaneously"""
     # Build system message with multiple files
-    system_content = """你是文档分析专家。对比以下文档，找出它们在指定方面的异同。
-引用时标明来源文档。"""
+    system_content = """You are a document analysis expert. Compare the following documents and find their similarities and differences on the specified aspect.
+Cite the source document when referencing."""
 
     messages = [{"role": "system", "content": system_content}]
 
@@ -113,7 +113,7 @@ def compare_documents(file_ids: list[str], compare_aspect: str) -> str:
 
     messages.append({
         "role": "user",
-        "content": f"请对比这些文档在「{compare_aspect}」方面的主要内容、异同点和各自特点。",
+        "content": f"Compare these documents on \"{compare_aspect}\": main content, similarities and differences, and each one's characteristics.",
     })
 
     response = client.chat.completions.create(
@@ -128,7 +128,7 @@ def compare_documents(file_ids: list[str], compare_aspect: str) -> str:
 # Compare three competitive analysis reports
 comparison = compare_documents(
     [pdf_id_1, pdf_id_2, pdf_id_3],
-    "定价策略、目标客户群、核心功能差异",
+    "Pricing strategy, target customer segments, and core feature differences",
 )
 print(comparison)
 ```
@@ -147,13 +147,13 @@ def extract_table_data(file_id: str) -> list[dict]:
         messages=[
             {
                 "role": "system",
-                "content": f"""你是数据分析助手。文件 ID: {file_id}
-请提取文件中的所有表格数据，以 JSON 数组格式输出。
-每条记录包含所有列字段。如果有多个 Sheet，用 sheet_name 区分。""",
+                "content": f"""You are a data analysis assistant. File ID: {file_id}
+Extract all table data from the file and output it in JSON array format.
+Each record should include all column fields. If there are multiple sheets, distinguish them with sheet_name.""",
             },
             {
                 "role": "user",
-                "content": "请提取这个 Excel 文件中的所有数据，以 JSON 格式返回。",
+                "content": "Please extract all data from this Excel file and return it in JSON format.",
             },
         ],
         temperature=0,  # Use temperature=0 for data extraction
@@ -192,14 +192,14 @@ def query_table(file_id: str, query: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": f"你是一个数据分析师。基于文件 {file_id} 中的数据回答问题。",
+                "content": f"You are a data analyst. Answer questions based on the data in file {file_id}.",
             },
             {
                 "role": "user",
-                "content": f"""基于表格数据回答：
+                "content": f"""Answer based on the table data:
 {query}
 
-请给出具体数值和分析，不要只说结论。""",
+Provide specific figures and analysis, not just conclusions.""",
             },
         ],
         temperature=0.1,
@@ -208,7 +208,7 @@ def query_table(file_id: str, query: str) -> str:
     return response.choices[0].message.content
 
 # Natural language query
-result = query_table(excel_id, "Q3销售额最高的前5个产品是什么？它们的环比增长率是多少？")
+result = query_table(excel_id, "What are the top 5 products by Q3 sales? What is their month-over-month growth rate?")
 print(result)
 ```
 
@@ -235,13 +235,13 @@ def batch_process_documents(file_paths: list[str], task: str) -> list[dict]:
                 messages=[
                     {
                         "role": "system",
-                        "content": f"你是文档处理助手。{task}",
+                        "content": f"You are a document processing assistant. {task}",
                     },
                     {
                         "role": "system",
                         "content": file_id,
                     },
-                    {"role": "user", "content": f"请对这份文档执行：{task}"},
+                    {"role": "user", "content": f"Perform the following on this document: {task}"},
                 ],
                 temperature=0.3,
             )
@@ -268,7 +268,7 @@ def batch_process_documents(file_paths: list[str], task: str) -> list[dict]:
 
 # Batch processing
 contracts = ["contract1.pdf", "contract2.pdf", "contract3.pdf"]
-results = batch_process_documents(contracts, "提取合同的关键条款：签约方、金额、期限、违约责任")
+results = batch_process_documents(contracts, "Extract key contract terms: parties, amount, duration, and breach of contract liability")
 ```
 
 ---
@@ -295,7 +295,7 @@ class KimiSession:
         """Q&A based on all context"""
         # Build messages
         current_msg = [
-            {"role": "system", "content": "你是 Kimi，擅长综合分析多个文档。"},
+            {"role": "system", "content": "You are Kimi, skilled at comprehensively analyzing multiple documents."},
         ]
 
         # Add all files
@@ -325,7 +325,7 @@ class KimiSession:
         self.total_tokens += response.usage.total_tokens
 
         # Check context usage
-        usage_pct = self.total_tokens / 128000 * 100
+        usage_pct = self.total_tokens / 262000 * 100
         if usage_pct > 70:
             print(f"⚠️ Context usage at {usage_pct:.0f}%, consider clearing")
 
@@ -339,12 +339,12 @@ class KimiSession:
 
     def summarize_so_far(self) -> str:
         """Compress context -- summarize the conversation so far"""
-        summary_prompt = "请总结以上的对话要点，保留关键信息和结论。"
+        summary_prompt = "Summarize the key points of the conversation so far, retaining key information and conclusions."
         summary = self.ask(summary_prompt)
 
         # Replace history with summary
         self.messages = [
-            {"role": "system", "content": f"之前的对话摘要：{summary}"},
+            {"role": "system", "content": f"Summary of previous conversation: {summary}"},
         ]
         return summary
 ```
@@ -366,9 +366,9 @@ class KimiSession:
 
 ## FAQ
 
-### Q: Can the 128K context really be fully utilized?
+### Q: Can the 262K context really be fully utilized?
 
-**A**: Theoretically yes, but in practice, beyond 80K tokens, the model's attention to the middle portion declines. Recommendation: place key information at the beginning or end, and preprocess middle sections with summaries.
+**A**: Theoretically yes, but in practice, beyond 150K tokens, the model's attention to the middle portion declines. Recommendation: place key information at the beginning or end, and preprocess middle sections with summaries.
 
 ### Q: How long are uploaded files retained?
 
@@ -378,7 +378,7 @@ class KimiSession:
 
 ## Next Steps
 
-- [Kimi API Getting Started](/tutorials/kimi-moonshot-api-guide/)
+- [Kimi API Getting Started](/tutorials/kimi-api-getting-started/)
 - [Chinese AI Model Pricing Comparison](/tutorials/china-ai-model-pricing-comparison/)
 
-> 📝 Based on Moonshot API + Kimi K2, tested June 2026.
+> 📝 Based on Kimi K2.6 API, tested June 2026.

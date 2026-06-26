@@ -1,6 +1,6 @@
 ---
 title: "Doubao API Developer Guide: Complete Volcengine Integration Tutorial (2026 Latest)"
-description: "ByteDance Doubao Seed 2.0 API complete developer guide. Covers Python SDK integration, TTS speech synthesis, image/video generation, and Agent mode with hands-on examples."
+description: "ByteDance Doubao Seed 2.1 API complete developer guide. Covers Python SDK integration, TTS speech synthesis, image/video generation, and Agent mode with hands-on examples."
 category: "Doubao"
 date: 2026-06-20
 updated: 2026-06-20
@@ -18,7 +18,7 @@ You will learn:
 - How to call AI image/video generation
 - How to configure Thinking mode
 
-> 🎯 **Doubao is China's most-used AI application (157M MAU) with the most comprehensive multimodal capabilities. This tutorial helps you integrate it into your projects.**
+> 🎯 **Doubao is China's most-used AI application (over 100M MAU (per public reports)) with the most comprehensive multimodal capabilities. This tutorial helps you integrate it into your projects.**
 
 ## Why Choose Doubao?
 
@@ -34,12 +34,12 @@ You will learn:
 
 | Model Series | Characteristics | Best Use |
 |----------|------|----------|
-| **Seed 2.0 Pro** | Flagship, deep reasoning | High-value complex tasks |
-| **Seed 2.0 Lite** | Balanced, high value | Chatbots, content generation |
-| **Seed 2.0 Mini** | Lightweight, ultra-low latency | High concurrency scenarios |
-| **Seed 2.0 Code** | Code-specific | Code generation, debugging, refactoring |
+| **Seed 2.1 Pro** | Flagship, deep reasoning | High-value complex tasks |
+| **Seed 2.1 Turbo** | Balanced, high value | Chatbots, content generation |
+| **Seed 2.1 Mini** | Lightweight, ultra-low latency | High concurrency scenarios |
+| **Seed 2.1 Code** | Code-specific | Code generation, debugging, refactoring |
 | **Seedream 5** | AI image generation | Image creation, design |
-| **Seedance 2.0** | AI video generation | Video creation |
+| **Seedance 2.5** | AI video generation | Video creation |
 
 ## Step 1: Get an API Key
 
@@ -166,7 +166,7 @@ import time
 
 # Create a video generation task
 response = client.chat.completions.create(
-    model="doubao-seedance-2.0",
+    model="doubao-seedance-2.5",
     messages=[{
         "role": "user",
         "content": "An astronaut cat walking through neon-lit Tokyo streets at night, cinematic quality, 4K"
@@ -221,4 +221,4 @@ while True:
 - [DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)
 - [Volcengine Official Documentation](https://www.volcengine.com/docs/82379)
 
-> 📝 **Tutorial Version Notes**: Based on Doubao Seed 2.0 API, tested and verified on June 20, 2026. Models and pricing may update -- refer to official announcements.
+> 📝 **Tutorial Version Notes**: Based on Doubao Seed 2.1 API, tested and verified on June 20, 2026. Models and pricing may update -- refer to official announcements.

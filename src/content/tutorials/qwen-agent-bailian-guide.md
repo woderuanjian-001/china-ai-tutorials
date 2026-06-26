@@ -26,7 +26,7 @@ You will learn to build production-grade AI Agents on the Alibaba Cloud Bailian 
 ```
 Agent = Model + Instructions + Knowledge Base + Plugins + Workflow
 
-Model: Qwen-Plus / Qwen-Max / Qwen-Turbo
+Model: qwen3.7-plus / qwen3.7-max / qwen3.6-flash
 Instructions: System Prompt + Few-shot examples
 Knowledge Base: Your documents/FAQ/database
 Plugins: Amap / Weather / Code Interpreter / Custom
@@ -42,7 +42,7 @@ Workflow: Multi-step orchestration (conditions/loops/API calls)
 3. Configure:
 
 ```yaml
-Model: qwen-plus
+Model: qwen3.7-plus
 Temperature: 0.7
 Context Length: 6000
 
@@ -150,11 +150,11 @@ class BailianAgent:
 agent = BailianAgent()
 
 # Regular conversation
-result = agent.chat("ECS 云服务器和轻量应用服务器有什么区别？")
+result = agent.chat("What is the difference between ECS cloud servers and lightweight application servers?")
 print(result["answer"])
 
 # Streaming conversation
-for chunk in agent.stream_chat("介绍一下阿里云的核心产品"):
+for chunk in agent.stream_chat("Introduce Alibaba Cloud's core products"):
     print(chunk, end="", flush=True)
 ```
 
@@ -240,12 +240,12 @@ Bailian's built-in plugins include:
 
 ```python
 # Declare plugin usage in Agent instructions
-system_prompt = """你可以使用以下插件：
-1. 当用户询问地点信息时，使用「高德地图」插件
-2. 当用户询问天气时，使用「天气查询」插件
-3. 当用户需要计算时，使用「计算器」插件
+system_prompt = """You can use the following plugins:
+1. When the user asks about location information, use the "Amap" plugin
+2. When the user asks about the weather, use the "Weather Query" plugin
+3. When the user needs to calculate, use the "Calculator" plugin
 
-调用插件时，先说明你要用什么插件，再给出结果。"""
+When calling a plugin, first state which plugin you will use, then provide the result."""
 
 # Bailian automatically recognizes and invokes declared plugins
 ```
@@ -290,7 +290,7 @@ async def dingtalk_webhook(request: Request):
     # Extract user message
     user_message = body.get("text", {}).get("content", "").strip()
     if not user_message:
-        return {"msgtype": "text", "text": {"content": "请输入您的问题"}}
+        return {"msgtype": "text", "text": {"content": "Please enter your question"}}
 
     # Call Bailian Agent
     agent = BailianAgent()

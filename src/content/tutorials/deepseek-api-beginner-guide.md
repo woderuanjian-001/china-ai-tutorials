@@ -26,13 +26,13 @@ DeepSeek has become one of the top choices for developers globally in 2026. Here
 
 | Feature | DeepSeek V4 | GPT-5 | Claude Opus 4 |
 |---------|-------------|-------|---------------|
-| API input price | **$0.14/M tokens** | $3.00/M | $15.00/M |
-| API output price | **$0.28/M tokens** | $12.00/M | $75.00/M |
-| Context window | 1M tokens | 256K | 200K |
+| API input price | **$0.14/M tokens** | $1.25/M | $5.00/M |
+| API output price | **$0.28/M tokens** | $10.00/M | $25.00/M |
+| Context window | 1M tokens | 272K | 1M |
 | Coding (HumanEval) | **93.2%** | 91.5% | 88.3% |
 | Open source | ✅ MIT license | ❌ | ❌ |
 
-**In one sentence**: DeepSeek's coding ability is world-class, and it costs 1/20 to 1/50 of OpenAI.
+**In one sentence**: DeepSeek's coding ability is world-class, and it costs roughly 1/10 to 1/50 of OpenAI.
 
 ## Step 1: Register and Get an API Key
 
@@ -315,7 +315,7 @@ print(f"Total cost: ~${(response.usage.prompt_tokens * 0.14 + response.usage.com
 
 ### Q: Is my data secure?
 
-**A**: By default, data sent via the API is not used for model training. If you need the highest level of data privacy, you can self-host the open-source DeepSeek model (Apache 2.0 license).
+**A**: By default, data sent via the API is not used for model training. If you need the highest level of data privacy, you can self-host the open-source DeepSeek model (MIT license).
 
 ### Q: Which model should I use?
 

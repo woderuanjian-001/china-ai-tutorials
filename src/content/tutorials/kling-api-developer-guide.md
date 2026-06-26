@@ -9,7 +9,7 @@ level: "Advanced"
 
 ---
 
-> 📌 **Disclosure**: Some links are affiliate links — we may earn a commission at no extra cost to you. Pricing and API details reflect testing as of June 2026. Kling's API iterates frequently; always check the Kuaishou open platform docs for current features and pricing.
+> 📌 Pricing and API details reflect the state as of June 2026. Kling's API iterates frequently; always check the Kuaishou open platform docs for current features and pricing.
 
 ---
 
@@ -240,7 +240,7 @@ The error response for prompt-level rejections is `{"code": 400, "message": "con
 
 Current limits:
 
-- **Max resolution:** 1080p (no 4K yet)
+- **Max resolution:** 1080p standard, 4K available at $0.42/sec
 - **Duration:** 5 or 10 seconds only (no custom durations)
 - **Aspect ratios:** 16:9 and 9:16 (no square, no custom ratios)
 - **Concurrent requests:** 5 per account (rate limited to 10/minute)

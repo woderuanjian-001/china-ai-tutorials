@@ -18,7 +18,7 @@ You will master the deep reasoning capabilities of DeepSeek R1:
 - Logical reasoning and decision analysis
 - Best practices for Thinking mode
 
-> 🎯 DeepSeek R1 uses reinforcement learning to train reasoning abilities, achieving OpenAI o1-level performance in mathematics, programming, and logical reasoning — at only 1/10th the cost.
+> 🎯 DeepSeek's thinking mode uses reinforcement learning to train reasoning abilities, achieving competitive performance on math, programming, and logical reasoning benchmarks — at a fraction of the cost of Western reasoning models.
 
 ---
 
@@ -31,7 +31,7 @@ You will master the deep reasoning capabilities of DeepSeek R1:
 | Speed | Fast | Slow (10-60s of thinking) |
 | Use cases | Daily conversation, quick coding | Math proofs, complex debugging |
 | Price | Standard | Slightly higher (longer output) |
-| API model name | `deepseek-v4-pro` | `deepseek-r1` |
+| API model name | `deepseek-v4-pro` | `deepseek-v4-flash` (thinking mode) |
 
 ---
 
@@ -219,11 +219,12 @@ print(result["answer"])
 ## Step 6: Standalone R1 Model Call
 
 ```python
-# Using the standalone DeepSeek R1 model
+# Using DeepSeek V4-Pro with max thinking mode (the standalone R1 model is being deprecated on 2026/07/24)
 def r1_reasoning(prompt: str) -> str:
     """Use R1 model for rigorous reasoning"""
     response = client.chat.completions.create(
-        model="deepseek-r1",  # Standalone R1 model
+        model="deepseek-v4-pro",
+        extra_body={"thinking_mode": "thinking_max"},  # Max reasoning depth
         messages=[{"role": "user", "content": prompt}],
         temperature=0.0,  # Recommended 0 for R1 reasoning
         max_tokens=16384,
@@ -359,4 +360,4 @@ benchmark_reasoning("Compute 1³+2³+3³+...+100³, and prove your result")
 - [DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)
 - [DeepSeek vs ChatGPT Coding Showdown](/tutorials/deepseek-vs-chatgpt-coding-comparison/)
 
-> 📝 Based on DeepSeek V4-Pro + R1 tested in June 2026.
+> 📝 Based on DeepSeek V4-Pro thinking mode, tested in June 2026. Note: the standalone deepseek-r1 model will be deprecated on 2026/07/24.

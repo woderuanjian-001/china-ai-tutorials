@@ -26,13 +26,13 @@ Kimi (Moonshot AI) stands out in long-document processing:
 
 | Feature | Kimi K2.6 | GPT-5 | Claude Opus 4 |
 |------|-----------|-------|---------------|
-| Context window | **256K tokens** | 256K | 200K |
+| Context window | **262K tokens** | 272K | 1M |
 | Coding (SWE-Bench) | **58.6%** | 55.2% | 52.1% |
-| API input price | $0.60/M tokens | $3.00/M | $15.00/M |
+| API input price | $0.95/M tokens | $1.25/M | $5.00/M |
 | Max parallel agents | **300 sub-agents** | Limited | Limited |
 | Open-source | ⚠️ Modified MIT | ❌ | ❌ |
 
-Kimi K2.6 surpassed GPT-5.4 on SWE-Bench Pro, making it one of the strongest open-source coding models.
+Kimi K2.6 is positioned as a top open-source coding model on SWE-Bench Pro.
 
 ## Step 1: Get an API Key
 

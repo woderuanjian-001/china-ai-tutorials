@@ -35,7 +35,7 @@ ZhipuAI, founded by the Tsinghua team, has China's most complete large model pro
 | **GLM-4.7-Flash** | 200K | 128K | **Free** | Free flagship |
 | **GLM-4.6** | 200K | 128K | Paid | Ultra performance |
 | **GLM-4-Plus** | 128K | 4K | ¥5 / ¥5 | Previous-gen flagship |
-| **GLM-4.5** | 128K | 96K | ¥0.8 / ¥2 | MoE open-source (355B/32B) |
+| **GLM-4.5** | 128K | 96K | ¥4.3 / ¥15.8 | MoE open-source (355B/32B) |
 | **GLM-4-Flash** | 128K | 16K | **Free** | Free lightweight |
 
 ### Multimodal Models
@@ -518,7 +518,7 @@ response = client.chat.completions.create(
 | Daily chat | `glm-4.7-flash` |
 | Image understanding | `glm-4.6v-flash` / `glm-4v-flash` |
 | Simple coding | `glm-4-flash` |
-| Lightweight Q&A | `glm-4.5-air` (¥0.8/M tokens) |
+| Lightweight Q&A | `glm-4.5-air` (¥0.9/M tokens) |
 
 ### Cost Reduction Tips
 
@@ -537,8 +537,8 @@ response = client.chat.completions.create(
 | GLM-4.7-Flash | **0** | **0** |
 | GLM-4.6 | Paid | Paid |
 | GLM-4-Plus | 5 | 5 |
-| GLM-4.5 | 0.8 | 2 |
-| GLM-4.5-Air | 0.8 | 2 |
+| GLM-4.5 | 4.3 | 15.8 |
+| GLM-4.5-Air | 0.9 | 3.2 |
 | GLM-4-Flash | **0** | **0** |
 | GLM-4.6V | 1 | 3 |
 | GLM-4.6V-Flash | **0** | **0** |
@@ -551,12 +551,12 @@ response = client.chat.completions.create(
 
 | Dimension | GLM-4.7 | DeepSeek V4 | Qwen3 |
 |------|---------|-------------|-------|
-| Context | **200K** | 128K | 128K |
-| Max output | **128K** | 8K | 8K |
+| Context | **200K** | 1M | 262K |
+| Max output | **128K** | 384K | 32K |
 | Open-source | MIT | Fully open | Fully open |
 | Multimodal | **Vision+Video+Realtime** | Text primarily | Vision |
 | Free models | ✅ Multiple | ✅ | ✅ |
-| Coding | SWE-Bench 73.8% | Strong | HumanEval+ 83.5% |
+| Coding | SWE-Bench 73.8% | SWE-Bench 74.9% | HumanEval+ 83.5% |
 
 ---
 

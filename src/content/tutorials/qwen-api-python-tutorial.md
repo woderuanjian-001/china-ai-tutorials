@@ -78,7 +78,7 @@ client = OpenAI(
 
 ```python
 response = client.chat.completions.create(
-    model="qwen-plus",  # Best value for money
+    model="qwen3.7-plus",  # Best value for money
     messages=[
         {"role": "system", "content": "You are a professional programming assistant."},
         {"role": "user", "content": "Write a binary search tree in Python."}
@@ -97,13 +97,13 @@ Qwen has the most complete model family:
 
 | Model | Best For | Value |
 |------|----------|--------|
-| `qwen-turbo` | Simple chat, classification, summarization | ⭐⭐⭐⭐⭐ |
-| `qwen-plus` | Medium complexity, general tasks | ⭐⭐⭐⭐ |
-| `qwen-max` | Complex reasoning, high-quality generation | ⭐⭐⭐ |
+| `qwen3.6-flash` | Simple chat, classification, summarization | ⭐⭐⭐⭐⭐ |
+| `qwen3.7-plus` | Medium complexity, general tasks | ⭐⭐⭐⭐ |
+| `qwen3.7-max` | Complex reasoning, high-quality generation | ⭐⭐⭐ |
 | `qwen3.7-max` | Strongest reasoning + coding agent | ⭐⭐ |
 | `qwen3.7-plus` | Multimodal understanding + high value | ⭐⭐⭐⭐ |
-| `qwen-vl-plus` | Image/video vision understanding | ⭐⭐⭐⭐ |
-| `qwen3-coder-next` | Code generation and programming assistance | ⭐⭐⭐ |
+| `qwen3.7-plus` (vision) | Image/video vision understanding | ⭐⭐⭐⭐ |
+| `qwen3.7-max` (code) | Code generation and programming assistance | ⭐⭐⭐ |
 
 ## Step 5: Multi-Turn Conversation
 
@@ -359,7 +359,7 @@ client = OpenAI(
     max_retries=2,
 )
 
-MODEL = os.getenv("QWEN_MODEL", "qwen-plus")
+MODEL = os.getenv("QWEN_MODEL", "qwen3.7-plus")
 conversation = [
     {"role": "system", "content": "You are a helpful assistant. Answer in Chinese unless asked otherwise."}
 ]
@@ -475,4 +475,4 @@ answers = batch_qwen(questions)
 - [Qwen Vision API Tutorial: Image Understanding in Practice](/tutorials/qwen-vision-api-tutorial/)
 - [Alibaba Cloud Bailian Official Documentation](https://help.aliyun.com/zh/model-studio/)
 
-> 📝 **Tutorial version**: Based on Qwen3.7 API, tested and verified on June 20, 2026.
+> 📝 **Tutorial version**: Based on Qwen 3.7 API, tested and verified on June 20, 2026.

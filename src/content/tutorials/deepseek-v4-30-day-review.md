@@ -8,7 +8,7 @@ image: "/images/og-deepseek-v4-30-day-review.png"
 level: "Advanced"
 ---
 
-> 📌 **Disclosure**: Some links are affiliate links — we may earn a commission at no extra cost to you. All pricing in this article is calculated from official provider rates as of June 2026. API prices change frequently; always verify current rates on the provider platforms.
+> 📌 All pricing in this article is calculated from official provider rates as of June 2026. API prices change frequently; always verify current rates on the provider platforms.
 
 ## What This Analysis Covers
 
@@ -30,11 +30,11 @@ Let's start with the numbers, because they frame everything else.
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) |
 |-------|----------------------|------------------------|
-| GPT-5 | $5.00 | $15.00 |
+| GPT-5 | $1.25 | $10.00 |
 | DeepSeek V4 | $0.14 | $0.28 |
-| Claude Sonnet 4 | $3.00 | $15.00 |
+| Claude Sonnet 4.6 | $3.00 | $15.00 |
 
-That is roughly **36x cheaper on input** and **53x cheaper on output** versus GPT-5. The gap versus Claude Sonnet 4 is smaller but still large.
+That is roughly **9x cheaper on input** and **36x cheaper on output** versus GPT-5. The gap versus Claude Sonnet 4.6 is smaller but still large.
 
 ### A 30-Day Cost Model
 
@@ -42,9 +42,9 @@ Modeling a realistic developer workload — code generation, debugging sessions,
 
 | Model | Input cost | Output cost | **30-day total** |
 |-------|-----------|-------------|-------------------|
-| GPT-5 | $240.00 | $195.00 | **$435.00** |
+| GPT-5 | $60.00 | $130.00 | **$190.00** |
 | DeepSeek V4 | $6.72 | $3.64 | **$10.36** |
-| Claude Sonnet 4 | $144.00 | $195.00 | **$339.00** |
+| Claude Sonnet 4.6 | $144.00 | $195.00 | **$339.00** |
 
 $435 versus $10.36 for the same token volume. For an indie developer bootstrapping a SaaS, that is the difference between "AI tooling is a line item I worry about" and "AI tooling costs less than my coffee budget."
 
@@ -132,7 +132,7 @@ This is a subtle bug that wouldn't surface in basic testing — only in producti
 
 ### Long-Context Reasoning
 
-DeepSeek V4 has a 128K context window (same ballpark as GPT-5), but when loading a large codebase (~90K tokens of mixed Python and TypeScript) and asking cross-file questions, answers become noticeably less coherent. It may reference functions that don't exist or misattribute logic to the wrong file. GPT-5 makes similar mistakes, but less frequently. Above ~60K tokens of context, the quality gap becomes real.
+DeepSeek V4 has a 1M context window (larger than GPT-5's 272K), but when loading a large codebase (~90K tokens of mixed Python and TypeScript) and asking cross-file questions, answers become noticeably less coherent. It may reference functions that don't exist or misattribute logic to the wrong file. GPT-5 makes similar mistakes, but less frequently. Above ~60K tokens of context, the quality gap becomes real.
 
 ### Prompting Style
 
@@ -162,10 +162,10 @@ The practical conclusion isn't "replace GPT-5 entirely" — it's to use each mod
 | Component | Monthly cost |
 |-----------|-------------|
 | DeepSeek V4 (~90% of work) | ~$7 |
-| GPT-5 (~10%, targeted calls) | ~$45 |
+| GPT-5 (~10%, targeted calls) | ~$20 |
 | **Combined** | **~$52** |
 
-Versus a GPT-5-only workflow at ~$387–$435/month, the hybrid approach cuts spending by roughly **87%** while arguably producing better results — because each tool is used where it performs best.
+Versus a GPT-5-only workflow at ~$170–$190/month, the hybrid approach cuts spending by roughly **90%** while arguably producing better results — because each tool is used where it performs best.
 
 ---
 

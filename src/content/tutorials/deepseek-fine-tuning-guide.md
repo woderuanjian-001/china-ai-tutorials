@@ -450,7 +450,7 @@ for prompt, output in zip(prompts, outputs):
 ## Next Steps
 
 - [DeepSeek R1 Reasoning Guide](/tutorials/deepseek-r1-reasoning-guide/)
-- [AI Agent Hands-On](/tutorials/ai-agent-chinese-models-guide/)
-- [RAG Hands-On Tutorial](/tutorials/rag-chinese-ai-models-guide/)
+- AI Agent Hands-On (coming soon)
+- RAG Hands-On Tutorial (coming soon)
 
 > 📝 Based on DeepSeek-7B + LoRA + vLLM, tested June 2026.

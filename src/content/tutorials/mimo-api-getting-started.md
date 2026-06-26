@@ -1,6 +1,6 @@
 ---
 title: "Xiaomi MiMo API Getting Started: 1M Ultra-Long Context + Coding Agent Guide"
-description: "Complete Xiaomi MiMo V2.5 Pro API tutorial: multiple access paths, thinking mode, long-text processing, Agent development. 1M context, Claude Sonnet-level coding ability, priced at 1/5 of GPT-5.5."
+description: "Complete Xiaomi MiMo V2.5 Pro API tutorial: multiple access paths, thinking mode, long-text processing, Agent development. 1M context, Claude Sonnet-level coding ability, priced at 2/5 of GPT-5.5."
 category: "Xiaomi"
 date: 2026-06-20
 tags: ["Xiaomi", "MiMo", "API", "Agent", "Open Source", "Long Context"]
@@ -17,7 +17,7 @@ You will master the complete usage of the Xiaomi MiMo large model:
 - Open-source model local deployment with vLLM
 - Agent framework integration (Claude Code / Codex / OpenCode)
 
-> 🎯 Xiaomi MiMo is led by "post-95 AI prodigy" Luo Fuli (formerly a core developer of DeepSeek-V2). MiMo-V2-Flash achieves **73.4%** on the SWE-Bench coding benchmark, rivaling Claude Sonnet, and is **open-sourced under the MIT license**.
+> 🎯 Xiaomi MiMo is led by "post-95 AI prodigy" Luo Fuli (formerly a core developer of DeepSeek-V2). MiMo-V2-Flash is reported to achieve strong results on the SWE-Bench coding benchmark, and is **open-sourced under the MIT license**.
 
 ---
 
@@ -41,7 +41,7 @@ Xiaomi began releasing the MiMo series in 2025, positioned as the AI infrastruct
 - **SWE-Bench Verified**: 73.4% (open-source #1, rivaling Claude Sonnet)
 - **Inference Speed**: Approximately **3x** that of DeepSeek-V3.2
 - **Long Context Retrieval**: 95%+ accuracy at 800K tokens depth
-- **Pricing**: Input $1.00/M tokens (**5x cheaper** than GPT-5.5)
+- **Pricing**: Input $1.00/M tokens (**2.5x cheaper** than GPT-5.5)
 
 ---
 
@@ -109,8 +109,8 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="mimo-v2.5-pro",
     messages=[
-        {"role": "system", "content": "你是一个专业的编程助手"},
-        {"role": "user", "content": "用Python写一个二分查找算法，包含注释"}
+        {"role": "system", "content": "You are a professional programming assistant"},
+        {"role": "user", "content": "Write a binary search algorithm in Python, with comments"}
     ],
     temperature=1.0,  # MiMo recommends 1.0
     max_tokens=2048,
@@ -131,7 +131,7 @@ client = OpenAI(
 
 response = client.chat.completions.create(
     model="xiaomi/mimo-v2.5-pro",
-    messages=[{"role": "user", "content": "解释什么是Transformer架构"}],
+    messages=[{"role": "user", "content": "Explain what the Transformer architecture is"}],
     extra_body={"enable_thinking": True},  # Thinking mode passed via extra_body
     stream=True,
 )
@@ -153,7 +153,7 @@ MiMo's thinking mode is similar to DeepSeek's but has some important differences
 response = client.chat.completions.create(
     model="mimo-v2.5-pro",
     messages=[
-        {"role": "user", "content": "证明：√2 是无理数"}
+        {"role": "user", "content": "Prove that √2 is irrational"}
     ],
     max_tokens=4096,
     extra_body={"enable_thinking": True},  # Non-standard parameter, passed via extra_body
@@ -216,11 +216,11 @@ def analyze_long_document(document_path: str, question: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "你是一个专业的文档分析助手。请基于提供的文档内容回答问题。"
+                "content": "You are a professional document analysis assistant. Please answer questions based on the provided document content."
             },
             {
                 "role": "user",
-                "content": f"文档内容：\n\n{content}\n\n问题：{question}"
+                "content": f"Document content:\n\n{content}\n\nQuestion: {question}"
             }
         ],
         temperature=1.0,
@@ -232,7 +232,7 @@ def analyze_long_document(document_path: str, question: str) -> str:
 # Example usage
 answer = analyze_long_document(
     "contract.txt",
-    "这份合同中有哪些条款对乙方不利？请逐一列出。"
+    "Which clauses in this contract are unfavorable to Party B? List them one by one."
 )
 print(answer)
 ```
@@ -315,7 +315,7 @@ def agent_query(user_input: str) -> str:
 
     return final.choices[0].message.content
 
-print(agent_query("公司上个季度的销售数据如何？"))
+print(agent_query("How were the company's sales last quarter?"))
 ```
 
 ---
@@ -346,7 +346,7 @@ client = OpenAI(
 
 response = client.chat.completions.create(
     model="XiaomiMiMo/MiMo-V2-Flash",
-    messages=[{"role": "user", "content": "什么是Rust的所有权系统？"}],
+    messages=[{"role": "user", "content": "What is Rust's ownership system?"}],
 )
 ```
 
@@ -438,8 +438,8 @@ Select Xiaomi -> MiMo models in the model settings.
 |-------|------------|-------------|---------|
 | **MiMo V2.5 Pro** | **$1.00** | **$3.00** | **1M** |
 | DeepSeek V4-Pro | $0.44 | $0.87 | 128K |
-| GPT-5.5 | $5.00 | $30.00 | 200K |
-| Claude Opus 4.7 | $3.00 | $15.00 | 200K |
+| GPT-5.5 | $2.50 | $15.00 | 272K |
+| Claude Opus 4.8 | $5.00 | $25.00 | 1M |
 
 > In 1M long-context scenarios, MiMo's price advantage is especially pronounced.
 
@@ -469,6 +469,6 @@ Select Xiaomi -> MiMo models in the model settings.
 
 - [Zhipu GLM-4 API Complete Guide](/tutorials/glm-api-developer-guide/)
 - [Chinese AI Model Ultimate Comparison (2026 Edition)](/tutorials/china-ai-model-comparison-2026/)
-- [Kling AI Video Generation API Guide](/tutorials/kling-ai-video-api-guide/)
+- [Kling AI Video Generation API Guide](/tutorials/kling-api-developer-guide/)
 
 > 📝 **Tutorial version notes**: Based on Xiaomi MiMo's latest API version as of June 2026. All code tested and verified.

@@ -8,7 +8,7 @@ image: "/images/og-china-ai-api-cost-diary.png"
 level: "Advanced"
 ---
 
-> 📌 **Disclosure**: Some links are affiliate links — we may earn a commission at no extra cost to you. All costs in this article are **modeled from official provider pricing as of June 2026**, not billed usage. API prices change frequently; always verify current rates on the provider platforms.
+> 📌 All costs in this article are **modeled from official provider pricing as of June 2026**, not billed usage. API prices change frequently; always verify current rates on the provider platforms.
 
 ## What This Analysis Covers
 
@@ -26,11 +26,11 @@ All prices per million tokens unless noted, from official provider pricing pages
 
 | Model | Input | Output | Context |
 |-------|-------|--------|---------|
-| DeepSeek V4 | $0.14 | $0.28 | 128K |
+| DeepSeek V4 | $0.14 | $0.28 | 1M |
 | Qwen 3 | $0.10 | $0.30 | 128K |
-| Kimi K2 | $0.12 | $0.35 | 256K |
-| GPT-5 | $5.00 | $15.00 | 128K |
-| Claude Sonnet 4 | $3.00 | $15.00 | 200K |
+| Kimi K2.6 | $0.95 | $4.00 | 262K |
+| GPT-5 | $1.25 | $10.00 | 272K |
+| Claude Sonnet 4.6 | $3.00 | $15.00 | 1M |
 
 | Vision / TTS | Rate |
 |--------------|------|
@@ -63,9 +63,9 @@ A reasonable 28-day volume for a small-to-mid production deployment:
 
 A sensible routing strategy assigns each model to what it does best:
 
-- **Qwen 3** — clean PDFs, standard contracts, boilerplate (cheapest input at $0.10/M)
+- **Qwen Flash** — clean PDFs, standard contracts, boilerplate (cheapest input at $0.05/M)
 - **DeepSeek V4** — messy scans, complex extraction, anything Qwen 3 fumbles
-- **Kimi K2** — long-context Q&A (>60K tokens), multi-document analysis
+- **Kimi K2.6** — long-context Q&A (>60K tokens), multi-document analysis
 - **Qwen-VL-Max** — handwritten notes, stamps, signatures
 - **Doubao TTS** — all audio output
 
@@ -78,22 +78,22 @@ Applying official pricing to the workload above:
 | Component | Volume | Cost |
 |-----------|--------|------|
 | DeepSeek V4 (extraction + complex Q&A) | ~28M input / 4.2M output tokens | $5.04 |
-| Qwen 3 (standard doc processing) | ~22M input / 3.5M output tokens | $3.25 |
-| Kimi K2 (long-context Q&A) | ~18M input / 1.1M output tokens | $2.54 |
+| Qwen Flash (standard doc processing) | ~22M input / 3.5M output tokens | $1.65 |
+| Kimi K2.6 (long-context Q&A) | ~18M input / 1.1M output tokens | $21.10 |
 | Qwen-VL-Max (OCR / vision) | ~1,400 calls | $0.56 |
 | Doubao TTS (audio output) | ~980K chars | $0.02 |
-| **Total — Chinese API stack** | | **$11.41** |
+| **Total — Chinese API stack** | | **$28.35** |
 
 The same workload priced with US APIs:
 
 | Component | Cost |
 |-----------|------|
-| GPT-5 (all text tasks) | ~$185.00 |
+| GPT-5 (all text tasks) | ~$69.00 |
 | GPT-5 Vision (OCR / vision) | ~$10.50 |
 | OpenAI TTS (audio output) | ~$14.70 |
-| **Total — OpenAI stack** | **~$210.20** |
+| **Total — OpenAI stack** | **~$94.20** |
 
-That's roughly an **18x difference** for the same workload. With Claude Sonnet 4 handling text (and GPT-5 Vision + OpenAI TTS for the rest, since Anthropic has no direct equivalents used here), the total comes to ~$136 — still **12x more expensive** than the all-Chinese stack.
+That's roughly a **3x difference** for the same workload. With Claude Sonnet 4.6 handling text (and GPT-5 Vision + OpenAI TTS for the rest), the total comes to ~$100 — still **~3.5x more expensive** than the all-Chinese stack.
 
 ---
 
@@ -196,12 +196,12 @@ API calls to servers in China add 100–300ms of round-trip time from the US or 
 ## Recommendations
 
 1. **Start with Alibaba Cloud Bailian** if you're outside China. International credit cards work, docs are in English, and you get access to Qwen 3, Qwen-VL-Max, and other models on one platform.
-2. **Use DeepSeek V4 as your default text model.** Switch to Qwen 3 for high-volume, low-complexity tasks where the $0.10/M input price matters. Use Kimi K2 when context length is the priority.
+2. **Use DeepSeek V4 as your default text model.** Switch to Qwen Flash for high-volume, low-complexity tasks where the $0.05/M input price matters. Use Kimi K2.6 when context length is the priority.
 3. **Set billing alerts immediately.** Cheap APIs can still rack up costs if your code is broken — retry storms and polling bugs are the most common culprits.
-4. **Don't overthink the payment situation.** A 5% proxy fee on an $11 bill is negligible. A 0% fee on a $210 bill is still $210.
+4. **Don't overthink the payment situation.** A 5% proxy fee on a $28 bill is negligible. A 0% fee on a $94 bill is still $94.
 5. **Test quality on your actual data, not benchmarks.** The capability map matters as much as the price tag — a cheap model that produces wrong answers is expensive in debugging time.
 
-The math, modeled transparently from official pricing, is clear: for batch-processing workloads — extraction, classification, summarization, Q&A on provided documents, OCR, TTS — Chinese APIs deliver comparable output at roughly a tenth to a twentieth of the cost. The tradeoffs are payment friction and latency, both manageable. For the 80% of API calls in a typical SaaS product, the switch pays for itself within the first week.
+The math, modeled transparently from official pricing, is clear: for batch-processing workloads — extraction, classification, summarization, Q&A on provided documents, OCR, TTS — Chinese APIs deliver comparable output at roughly a third of the cost for text tasks, with greater savings on vision and TTS. The tradeoffs are payment friction and latency, both manageable. For the 80% of API calls in a typical SaaS product, the switch pays for itself within the first week.
 
 ---
 

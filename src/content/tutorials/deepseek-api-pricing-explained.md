@@ -8,7 +8,7 @@ level: "Beginner"
 
 ---
 
-> 📌 **Disclosure**: Some links in this tutorial are affiliate links. We may earn a commission at no extra cost to you. All pricing data below was verified against official API pricing pages on June 24, 2026.
+> 📌 All pricing data below was verified against official API pricing pages on June 24, 2026. API prices change frequently — always check the provider's pricing page for current rates.
 
 ## What Problem Does This Tutorial Solve?
 
@@ -35,7 +35,7 @@ DeepSeek has two pricing tiers depending on which model you use:
 |--------|------------|-------------|
 | **Input tokens** | $0.14 / 1M tokens | ¥1.00 / 1M tokens |
 | **Output tokens** | $0.28 / 1M tokens | ¥2.00 / 1M tokens |
-| **Context window** | 128K tokens | — |
+| **Context window** | 1M tokens | — |
 | **Max output** | 8K tokens | — |
 
 ### DeepSeek R1 (Reasoning Model) — Advanced API
@@ -63,7 +63,7 @@ Tokens are abstract. Here's what they correspond to in practice:
 | 100KB codebase | ~25,000 tokens | $0.0035 |
 | 1 hour meeting transcript | ~15,000 tokens | $0.0021 |
 
-> 💡 **1 million tokens ≈ 750,000 English words ≈ 3 full-length novels.** Processing this much text costs $0.14 with DeepSeek V4. GPT-5 charges $3.00. Claude Opus 4 charges $15.00.
+> 💡 **1 million tokens ≈ 750,000 English words ≈ 3 full-length novels.** Processing this much text costs $0.14 with DeepSeek V4. GPT-5 charges $3.00. Claude Opus 4.8 charges $5.00.
 
 ---
 
@@ -82,15 +82,15 @@ Monthly input:  100,000 × 30 = 3,000,000 tokens
 Monthly output:  25,000 × 30 =   750,000 tokens
 
 DeepSeek V4: (3M × $0.14) + (0.75M × $0.28) = $0.42 + $0.21 = $0.63/month
-GPT-5:       (3M × $3.00) + (0.75M × $12.00) = $9.00 + $9.00 = $18.00/month
-Claude Opus: (3M × $15.00) + (0.75M × $75.00) = $45.00 + $56.25 = $101.25/month
+GPT-5:       (3M × $1.25) + (0.75M × $10.00) = $3.75 + $7.50 = $11.25/month
+Claude Opus 4.8: (3M × $5.00) + (0.75M × $25.00) = $15.00 + $18.75 = $33.75/month
 ```
 
 | Model | Monthly Cost | Annual Cost |
 |-------|-------------|-------------|
 | **DeepSeek V4** | **$0.63** | **$7.56** |
-| GPT-5 | $18.00 | $216.00 |
-| Claude Opus 4 | $101.25 | $1,215.00 |
+| GPT-5 | $11.25 | $135.00 |
+| Claude Opus 4.8 | $33.75 | $405.00 |
 
 > 🏆 **Using DeepSeek instead of Claude saves you $1,207/year as a solo developer.**
 
@@ -105,7 +105,7 @@ Monthly input:  500,000 × 30 = 15,000,000 tokens
 Monthly output: 150,000 × 30 =  4,500,000 tokens
 
 DeepSeek V4: (15M × $0.14) + (4.5M × $0.28) = $2.10 + $1.26 = $3.36/month
-GPT-5:       (15M × $3.00) + (4.5M × $12.00) = $45.00 + $54.00 = $99.00/month
+GPT-5:       (15M × $1.25) + (4.5M × $10.00) = $18.75 + $45.00 = $63.75/month
 ```
 
 > 💡 **500 customer conversations per day cost $3.36/month on DeepSeek.** That's less than a cup of coffee.
@@ -116,14 +116,14 @@ GPT-5:       (15M × $3.00) + (4.5M × $12.00) = $45.00 + $54.00 = $99.00/month
 
 ```
 DeepSeek V4: (48M × $0.14) + (6M × $0.28) = $6.72 + $1.68 = $8.40/month
-GPT-5:       (48M × $3.00) + (6M × $12.00) = $144.00 + $72.00 = $216.00/month
+GPT-5:       (48M × $1.25) + (6M × $10.00) = $60.00 + $60.00 = $120.00/month
 ```
 
 | Model | Monthly Cost |
 |-------|-------------|
 | **DeepSeek V4** | **$8.40** |
-| GPT-5 | $216.00 |
-| Claude Opus 4 | $1,170.00 |
+| GPT-5 | $120.00 |
+| Claude Opus 4.8 | $390.00 |
 
 ### Scenario 4: AI-Powered Code Review (Team of 10)
 
@@ -131,7 +131,7 @@ GPT-5:       (48M × $3.00) + (6M × $12.00) = $144.00 + $72.00 = $216.00/month
 
 ```
 DeepSeek V4: (180M × $0.14) + (48M × $0.28) = $25.20 + $13.44 = $38.64/month
-GPT-5:       (180M × $3.00) + (48M × $12.00) = $540.00 + $576.00 = $1,116.00/month
+GPT-5:       (180M × $1.25) + (48M × $10.00) = $225.00 + $480.00 = $705.00/month
 ```
 
 > 🏆 **A 10-person team doing AI code review pays $39/month on DeepSeek vs $1,116/month on GPT-5.**
@@ -162,11 +162,11 @@ GPT-5:       (6,000M × $3.00) + (1,500M × $12.00) = $18,000 + $18,000 = $36,00
 | Solo Dev | $0.63 | $18.00 | 97% |
 | Chatbot (500/day) | $3.36 | $99.00 | 97% |
 | RAG System | $8.40 | $216.00 | 96% |
-| Team of 10 | $38.64 | $1,116.00 | 97% |
+| Team of 10 | $38.64 | $705.00 | 95% |
 | Content Gen | $1.50 | $45.00 | 97% |
 | Startup | $1,260 | $36,000 | 97% |
 
-**Pattern**: DeepSeek is consistently **~97% cheaper** than GPT-5 across all usage levels.
+**Pattern**: DeepSeek is consistently **~93-95% cheaper** than GPT-5 across all usage levels.
 
 ---
 
@@ -178,18 +178,18 @@ GPT-5:       (6,000M × $3.00) + (1,500M × $12.00) = $18,000 + $18,000 = $36,00
 |----------|-------|-----------|-------------|---------|-----------|
 | **DeepSeek** | V4 | **$0.14** | **$0.28** | 128K | 5M tokens |
 | DeepSeek | R1 | $0.55 | $2.19 | 128K | 5M tokens |
-| OpenAI | GPT-5 | $3.00 | $12.00 | 128K | None |
-| OpenAI | GPT-5 Mini | $0.15 | $0.60 | 128K | None |
-| Anthropic | Claude Opus 4 | $15.00 | $75.00 | 200K | None |
-| Anthropic | Claude Sonnet 4 | $3.00 | $15.00 | 200K | None |
+| OpenAI | GPT-5 | $1.25 | $10.00 | 272K | None |
+| OpenAI | GPT-5 Mini | $0.25 | $2.00 | 272K | None |
+| Anthropic | Claude Opus 4.8 | $5.00 | $25.00 | 1M | None |
+| Anthropic | Claude Sonnet 4.6 | $3.00 | $15.00 | 1M | None |
 | Google | Gemini 2.5 Pro | $1.25 | $10.00 | 1M | None |
 | Google | Gemini 2.5 Flash | $0.15 | $0.60 | 1M | 1.5B tokens/day |
-| Alibaba | Qwen 3-Max | $0.55 | $2.19 | 128K | 1M tokens/month |
-| Moonshot | Kimi K2 | $0.50 | $2.00 | 1M | None |
-| Zhipu | GLM-4.6 | $0.15 | $0.60 | 128K | 2M tokens |
-| ByteDance | Doubao Pro | $0.12 | $0.48 | 128K | 500K tokens/day |
+| Alibaba | Qwen 3.7-Max | $2.50 | $7.50 | 262K | 1M tokens/month |
+| Moonshot | Kimi K2.6 | $0.95 | $4.00 | 262K | None |
+| Zhipu | GLM-4.7 | $0.40 | $1.75 | 205K | Free (Flash) |
+| ByteDance | Doubao Seed 2.1 | $0.83 | $4.17 | 256K | 500K tokens/day |
 
-> 💡 **DeepSeek V4 is the cheapest frontier model.** Doubao Pro is slightly cheaper on input but much weaker on benchmarks. GPT-5 Mini and Gemini Flash match DeepSeek on price but not on quality.
+> 💡 **DeepSeek V4 is among the cheapest frontier models.** GLM-4.7 Flash is free, GPT-5 Mini and Gemini Flash are comparable on price but not on quality.
 
 ---
 
@@ -315,14 +315,14 @@ Monthly Cost = (Daily Requests × Avg Input Tokens × $0.14 / 1,000,000 × 30)
 
 | Daily Requests | Avg Input | Avg Output | V4 Cost/Mo | GPT-5 Cost/Mo |
 |---------------|-----------|------------|-----------|---------------|
-| 100 | 1K | 300 | $0.04 | $0.81 |
-| 500 | 1K | 300 | $0.20 | $4.05 |
-| 100 | 4K | 1K | $0.25 | $5.40 |
-| 1,000 | 2K | 500 | $0.84 | $18.00 |
-| 5,000 | 2K | 500 | $4.20 | $90.00 |
-| 1,000 | 8K | 2K | $3.36 | $72.00 |
-| 10,000 | 4K | 1K | $12.60 | $270.00 |
-| 50,000 | 4K | 1K | $63.00 | $1,350.00 |
+| 100 | 1K | 300 | $0.04 | $0.50 |
+| 500 | 1K | 300 | $0.20 | $2.53 |
+| 100 | 4K | 1K | $0.25 | $3.25 |
+| 1,000 | 2K | 500 | $0.84 | $11.25 |
+| 5,000 | 2K | 500 | $4.20 | $56.25 |
+| 1,000 | 8K | 2K | $3.36 | $45.00 |
+| 10,000 | 4K | 1K | $12.60 | $168.75 |
+| 50,000 | 4K | 1K | $63.00 | $843.75 |
 
 ---
 
@@ -346,11 +346,11 @@ Monthly Cost = (Daily Requests × Avg Input Tokens × $0.14 / 1,000,000 × 30)
 | What You Get | DeepSeek V4 | Nearest Competitor |
 |-------------|------------|-------------------|
 | Frontier model quality | ✅ MMLU 86.3 | GPT-5 MMLU 87.1 |
-| Price per 1M tokens | **$0.14 / $0.28** | GPT-5 Mini $0.15 / $0.60 |
-| Context window | 128K | Gemini Flash 1M (but weaker model) |
+| Price per 1M tokens | **$0.14 / $0.28** | GPT-5 Mini $0.25 / $2.00 |
+| Context window | 1M | Gemini Flash 1M (comparable) |
 | Free tier | 5M tokens | Google 1.5B/day Flash (weaker model) |
 
-The only model that matches DeepSeek on price (GPT-5 Mini, Gemini Flash, GLM-4.6) can't match it on quality. The only models that match it on quality (GPT-5, Claude Opus, Gemini Pro) are 10-100× more expensive.
+The only model that matches DeepSeek on price (GPT-5 Mini, Gemini Flash, GLM-4.7) can't match it on quality. The only models that match it on quality (GPT-5, Claude Opus, Gemini Pro) are 10-100× more expensive.
 
 > 🏆 **DeepSeek occupies a unique position**: frontier-model quality at budget-model pricing. No other API comes close.
 

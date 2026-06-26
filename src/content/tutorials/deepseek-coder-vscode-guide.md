@@ -308,6 +308,6 @@ Analyze the bottleneck and provide an optimization plan.
 ## Next Steps
 
 - [DeepSeek API Beginner Guide](/tutorials/deepseek-api-beginner-guide/)
-- [Prompt Engineering in Practice](/tutorials/prompt-engineering-chinese-models/)
+- Prompt Engineering in Practice (coming soon)
 
 > 📝 Based on VS Code + Continue.dev/Cline + DeepSeek, tested June 2026.

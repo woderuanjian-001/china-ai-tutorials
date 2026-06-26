@@ -8,11 +8,11 @@ level: "Beginner"
 
 ---
 
-> 📌 **Disclosure**: Some links are affiliate links. We may earn a commission at no extra cost to you. All free tier limits were verified against official documentation on June 24, 2026.
+> 📌 All free tier limits below were verified against official documentation on June 24, 2026. Free tier policies change — always check the provider's current terms before relying on these numbers.
 
 ## What Problem Does This Tutorial Solve?
 
-Qwen 3 is one of the best open-weight models in 2026 — and you can use it for free through multiple channels. But each channel has different limits, restrictions, and catch clauses. This guide cuts through the confusion:
+Qwen 3.7 is one of the best open-weight models in 2026 — and you can use it for free through multiple channels. But each channel has different limits, restrictions, and catch clauses. This guide cuts through the confusion:
 
 - **4 free channels compared** — actual usable limits, not marketing promises
 - **Hidden restrictions** — what each channel doesn't tell you upfront
@@ -44,7 +44,7 @@ The Bailian (百炼) platform is Alibaba's official API gateway for Qwen and oth
 
 | Resource | Free Limit | Notes |
 |----------|-----------|-------|
-| **Qwen 3-Max tokens** | 1,000,000 tokens/month | Input + output combined |
+| **Qwen 3.7-Max tokens** | 1,000,000 tokens/month | Input + output combined |
 | **Qwen-VL (vision) tokens** | 100,000 tokens/month | Image analysis |
 | **Qwen 3-Thinking tokens** | 500,000 tokens/month | Reasoning mode |
 | **Embedding tokens** | 1,000,000 tokens/month | For RAG systems |
@@ -82,7 +82,7 @@ response = requests.post(
         "Content-Type": "application/json"
     },
     json={
-        "model": "qwen3-max",
+        "model": "qwen3.7-max",
         "messages": [{"role": "user", "content": "Hello! What's Qwen 3's context window?"}]
     }
 )
@@ -126,7 +126,7 @@ response = requests.post(
     "https://api-inference.modelscope.cn/v1/chat/completions",
     headers={"Content-Type": "application/json"},
     json={
-        "model": "Qwen/Qwen3-Max",
+        "model": "Qwen/Qwen3.7-Max",
         "messages": [{"role": "user", "content": "Hello!"}],
         "max_tokens": 100
     }
@@ -207,7 +207,7 @@ curl https://integrate.api.nvidia.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer nvapi-YOUR-KEY" \
   -d '{
-    "model": "qwen/qwen3-max",
+    "model": "qwen/qwen3.7-max",
     "messages": [{"role": "user", "content": "Hello!"}]
   }'
 ```
@@ -283,7 +283,7 @@ Just prototyping/testing before going to production?
 
 ❌ **Wrong**: This violates the ToS of every platform and they all detect it.
 
-✅ **Right**: Pick one channel that fits your use case. If you need more than the free tier, the paid tier is still cheap — Qwen 3 costs $0.55/1M input tokens.
+✅ **Right**: Pick one channel that fits your use case. If you need more than the free tier, the paid tier is still cheap — Qwen 3.7 costs $0.40/1M input tokens (qwen3.7-plus).
 
 ### Pitfall 3: "Free tier = unlimited during development"
 
@@ -351,4 +351,4 @@ if tracker.check(user_input):
 
 > 🔗 **Get started for free**: [Alibaba Cloud Bailian](https://bailian.console.aliyun.com) — 1M free tokens/month for Qwen 3. See our [Qwen 3 vs Qwen 2.5 comparison](/tutorials/qwen-3-vs-qwen-2.5/) if you're deciding which model to use.
 >
-> 📖 **Related**: [DeepSeek API Pricing Explained](/tutorials/deepseek-api-pricing-explained/) | [How to Pay for Chinese AI APIs Without a Chinese Bank Card](/tutorials/china-ai-payment-guide/)
+> 📖 **Related**: [DeepSeek API Pricing Explained](/tutorials/deepseek-api-pricing-explained/) | How to Pay for Chinese AI APIs Without a Chinese Bank Card (coming soon)
