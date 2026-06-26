@@ -16,6 +16,27 @@ const base = import.meta.env.BASE_URL;
       <h1 class="page-title">About China AI Tutorials</h1>
 
       <div class="prose">
+        <h2>👋 About the Author</h2>
+        <div class="author-card">
+          <div class="author-info">
+            <p>
+              Hi, I'm <strong>Xingxing Yang</strong> — an AI technology enthusiast and the founder of
+              China AI Tutorials. I started this project to bridge the language gap between China's
+              rapidly evolving AI ecosystem and the global developer community.
+            </p>
+            <p>
+              As an independent researcher and writer, I spend my time testing Chinese AI APIs,
+              reading official Chinese documentation, and translating that knowledge into practical,
+              code-driven English tutorials. Every tutorial on this site is reviewed and verified by
+              me before publication — I test the code, confirm the pricing, and document the real
+              pitfalls you'll encounter.
+            </p>
+            <p>
+              <a href="https://github.com/woderuanjian-001" target="_blank" rel="noopener">GitHub: @woderuanjian-001</a>
+            </p>
+          </div>
+        </div>
+
         <h2>🌏 The Problem We Solve</h2>
         <p>
           Chinese AI tools — DeepSeek, Kimi (Moonshot AI), Qwen (Alibaba Cloud), Doubao (ByteDance),
@@ -36,7 +57,7 @@ const base = import.meta.env.BASE_URL;
         <h2>📚 What We Offer</h2>
         <div class="feature-grid">
           <div class="feature-card">
-            <h3>🔬 100+ In-Depth Tutorials</h3>
+            <h3>🔬 In-Depth Tutorials</h3>
             <p>Every tutorial includes runnable, complete code examples tested against actual APIs. No armchair theory — everything works on your machine.</p>
           </div>
           <div class="feature-card">
@@ -78,7 +99,7 @@ const base = import.meta.env.BASE_URL;
           and <a href="https://daisyui.com" target="_blank" rel="noopener">daisyUI</a>.
           Full-text search powered by <a href="https://pagefind.app" target="_blank" rel="noopener">Pagefind</a>.
           All content written in Markdown with code syntax highlighting via Shiki.
-          Deployed on GitHub Pages with automatic CI/CD.
+          Deployed on Cloudflare Pages with automatic CI/CD.
         </p>
         <p>
           The design follows a warm, reading-focused aesthetic inspired by high-quality
@@ -91,6 +112,8 @@ const base = import.meta.env.BASE_URL;
           Have a tutorial idea? Found a bug? Want to collaborate?
           <a href={`${base}contact/`}>Send us a message</a> or email
           <a href="mailto:xy802165@gmail.com">xy802165@gmail.com</a>.
+          You can also reach me on GitHub at
+          <a href="https://github.com/woderuanjian-001" target="_blank" rel="noopener">@woderuanjian-001</a>.
         </p>
       </div>
     </div>
@@ -100,6 +123,25 @@ const base = import.meta.env.BASE_URL;
 <style>
   .section { padding: var(--space-2xl) 0; }
   .page-title { margin-top: 0; margin-bottom: var(--space-xl); }
+
+  .author-card {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin: var(--space-lg) 0 var(--space-2xl);
+  }
+
+  .author-info p {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  .author-info p:last-child {
+    margin-bottom: 0;
+  }
 
   .prose h2 {
     color: var(--color-accent);
